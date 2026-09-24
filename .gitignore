@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+
+# préproduction générée hors dépôt
+/_stage/

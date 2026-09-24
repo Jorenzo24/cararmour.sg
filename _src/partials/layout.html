@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{origin}}{{route}}">
+{{robots}}
+<meta property="og:type" content="{{ogType}}">
+<meta property="og:site_name" content="{{name}}">
+<meta property="og:locale" content="en_SG">
+<meta property="og:url" content="{{origin}}{{route}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:image" content="{{origin}}{{ogImage}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A0A0C">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/img/logo-mark-gold.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.min.css">
+{{headExtra}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDetailing",
+  "@id": "{{origin}}/#business",
+  "name": "{{name}}",
+  "url": "{{origin}}/",
+  "image": "{{origin}}/assets/img/og-default.jpg",
+  "logo": "{{origin}}/assets/img/logo-lockup.svg",
+  "telephone": "{{phone}}",
+  "priceRange": "$$",
+  "currenciesAccepted": "SGD",
+  "address": { "@type": "PostalAddress", "addressCountry": "SG", "addressLocality": "Singapore" },
+  "areaServed": { "@type": "Country", "name": "Singapore" },
+  "serviceArea": { "@type": "Country", "name": "Singapore" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday","Friday","Saturday","Sunday"], "opens": "10:00", "closes": "20:00" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "{{ratingValue}}", "reviewCount": "{{reviewCount}}", "bestRating": "5" },
+  "sameAs": ["https://www.facebook.com/cararmoursg"]
+}
+</script>
+</head>
+<body>
+{{> header}}
+<main id="main">
+{{content}}
+</main>
+{{> footer}}
+{{> wa-fab}}
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

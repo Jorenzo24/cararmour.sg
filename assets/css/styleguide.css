@@ -1,0 +1,13 @@
+/* Styles propres à la page de validation du design system (hors production). */
+.sg-bar{ background:var(--c-graphite); border-bottom:1px solid var(--c-line-gold); padding:.7rem 0; font-size:var(--fs-xs); color:var(--c-gold); letter-spacing:.14em; text-transform:uppercase; font-family:var(--ff-display); font-stretch:100%; font-weight:600; margin-top:var(--header-h); }
+.sg-swatches{ display:grid; gap:1px; background:var(--c-line); border:1px solid var(--c-line); grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); }
+.sg-swatch{ background:var(--c-charcoal); padding:1.35rem; }
+.sg-swatch__chip{ height:74px; border:1px solid var(--c-line); margin-bottom:1rem; }
+.sg-swatch__name{ font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label); font-weight:650; text-transform:uppercase; letter-spacing:.16em; }
+.sg-swatch__hex{ font-size:var(--fs-xs); color:var(--c-steel-dim); font-variant-numeric:tabular-nums; margin-top:.3rem; }
+.sg-swatch__use{ font-size:.75rem; color:var(--c-steel); margin-top:.6rem; line-height:1.5; }
+.sg-specimen{ border-top:1px solid var(--c-line); padding:1.6rem 0; display:grid; gap:.9rem; }
+@media (min-width:820px){ .sg-specimen{ grid-template-columns:150px minmax(0,1fr); align-items:baseline; gap:2.5rem; } }
+.sg-specimen__meta{ font-size:.75rem; color:var(--c-steel-dim); letter-spacing:.1em; text-transform:uppercase; line-height:1.6; }
+.sg-row{ display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+.sg-note{ border-left:1px solid var(--c-gold); padding-left:1.25rem; color:var(--c-steel); font-size:var(--fs-sm); max-width:70ch; }

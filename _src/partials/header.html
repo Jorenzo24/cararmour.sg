@@ -1,0 +1,57 @@
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container container--wide site-header__inner">
+    <a class="brand" href="/" aria-label="Car Armour SG — home">{{> logo-lockup}}</a>
+
+    <nav class="nav" aria-label="Main">
+      <ul class="nav__list">
+        <li class="nav__item {{nav:home}}"><a class="nav__link" href="/">Home</a></li>
+        <li class="nav__item nav__item--has-panel {{nav:coating}}">
+          <button class="nav__link" type="button" aria-expanded="false" aria-haspopup="true">
+            Ceramic Coating
+            <svg class="nav__caret" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5 6 8.5 10 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__panel">
+            <li><a href="/ceramic-coating-singapore/">Ceramic Coating<small>Packages, layers &amp; warranty</small></a></li>
+            <li><a href="/ceramic-coating-price-singapore/">Coating Price List<small>2026 rates by vehicle size</small></a></li>
+            <li><a href="/graphene-coating-singapore/">Graphene Coating<small>Artdeshine V3 · 5-year durability</small></a></li>
+          </ul>
+        </li>
+        <li class="nav__item {{nav:interior}}"><a class="nav__link" href="/car-interior-detailing/">Interior Detailing</a></li>
+        <li class="nav__item {{nav:polishing}}"><a class="nav__link" href="/car-polishing-paint-correction/">Polishing</a></li>
+        <li class="nav__item {{nav:maintenance}}"><a class="nav__link" href="/coat-maintenance/">Maintenance</a></li>
+        <li class="nav__item {{nav:reviews}}"><a class="nav__link" href="/reviews/">Reviews</a></li>
+        <li class="nav__item {{nav:contact}}"><a class="nav__link" href="/contact/">Contact</a></li>
+      </ul>
+
+      <a class="btn btn--primary btn--sm nav__cta" href="{{booking}}" target="_blank" rel="noopener">Book Now</a>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <ul class="mobile-nav__list">
+    <li><a class="mobile-nav__link" href="/"><span class="index-num">01</span>Home</a></li>
+    <li>
+      <button class="mobile-nav__link" type="button" data-subnav aria-expanded="false" aria-controls="m-coating"><span class="index-num">02</span>Ceramic Coating</button>
+      <ul class="mobile-nav__sub" id="m-coating">
+        <li><a href="/ceramic-coating-singapore/">Ceramic Coating Singapore</a></li>
+        <li><a href="/ceramic-coating-price-singapore/">Coating Price List 2026</a></li>
+        <li><a href="/graphene-coating-singapore/">Graphene Coating</a></li>
+      </ul>
+    </li>
+    <li><a class="mobile-nav__link" href="/car-interior-detailing/"><span class="index-num">03</span>Interior</a></li>
+    <li><a class="mobile-nav__link" href="/car-polishing-paint-correction/"><span class="index-num">04</span>Polishing</a></li>
+    <li><a class="mobile-nav__link" href="/coat-maintenance/"><span class="index-num">05</span>Maintenance</a></li>
+    <li><a class="mobile-nav__link" href="/reviews/"><span class="index-num">06</span>Reviews</a></li>
+    <li><a class="mobile-nav__link" href="/contact/"><span class="index-num">07</span>Contact</a></li>
+  </ul>
+  <div class="mobile-nav__foot">
+    <a class="btn btn--primary btn--block" href="{{booking}}" target="_blank" rel="noopener">Book Now</a>
+    <a class="btn btn--ghost btn--block" href="{{whatsapp}}" target="_blank" rel="noopener">WhatsApp {{phoneDisplay}}</a>
+    <p class="dim" style="font-size:var(--fs-xs);margin:.5rem 0 0">{{hours}}</p>
+  </div>
+</div>

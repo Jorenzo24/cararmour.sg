@@ -1,0 +1,429 @@
+<!--META {
+  "route": "/styleguide/",
+  "title": "Design System — Car Armour SG (internal)",
+  "description": "Internal design system reference for cararmour.sg.",
+  "robots": "<meta name=\"robots\" content=\"noindex, nofollow\">",
+  "ogType": "website",
+  "ogImage": "/assets/img/og-default.jpg",
+  "headExtra": "<link rel=\"stylesheet\" href=\"/assets/css/styleguide.css\">",
+  "nav": "none"
+} -->
+
+<div class="sg-bar"><div class="container container--wide">Design system · étape 1 · document de validation interne</div></div>
+
+<!-- ═══ Démonstration du composant HERO (H1 réel de l'accueil) ═══ -->
+<section class="hero">
+  <div class="hero__media">
+    <img src="/assets/img/ceramic-coating-singapore-hero-800.webp"
+         srcset="/assets/img/ceramic-coating-singapore-hero-480.webp 480w, /assets/img/ceramic-coating-singapore-hero-800.webp 800w"
+         sizes="100vw" alt="Silver Mercedes-AMG after premium car detailing in Singapore" width="1000" height="684" fetchpriority="high">
+  </div>
+  <div class="container container--wide hero__inner">
+    <p class="eyebrow">Singapore · Doorstep service</p>
+    <h1 class="t-hero">Car Detailing Singapore<br><span class="gold">Premium Coating</span> &amp; Grooming</h1>
+    <p class="lead measure" style="margin-top:1.75rem">Ceramic and graphene coating, interior detailing and paint correction — carried out by certified installers at your carpark, anywhere on the island.</p>
+    <div class="cta-actions" style="margin-top:2.5rem">
+      <a class="btn btn--primary" href="{{booking}}" target="_blank" rel="noopener">Book a slot</a>
+      <a class="btn btn--ghost" href="/ceramic-coating-price-singapore/">See coating prices</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 01 · PALETTE ═══ -->
+<section class="section section--void">
+  <div class="container container--wide">
+    <div class="section-head">
+      <div>
+        <p class="section-label"><span class="index-num">01</span> Palette</p>
+        <h2>Quasi-noir, acier, champagne</h2>
+        <p class="lead measure">Aucun blanc pur en fond. Un seul accent — le doré champagne — réservé aux CTA, aux chiffres et aux filets. Tous les couples texte/fond passent le AA.</p>
+      </div>
+    </div>
+
+    <div class="sg-swatches" data-reveal>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#0A0A0C"></div><div class="sg-swatch__name">Void</div><div class="sg-swatch__hex">#0A0A0C</div><p class="sg-swatch__use">Fond principal, header opaque, overlay mobile.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#141418"></div><div class="sg-swatch__name">Charcoal</div><div class="sg-swatch__hex">#141418</div><p class="sg-swatch__use">Sections alternées, cartes prix, footer.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#1A1A20"></div><div class="sg-swatch__name">Graphite</div><div class="sg-swatch__hex">#1A1A20</div><p class="sg-swatch__use">Cartes service, panneau de nav, carte mise en avant.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#232329"></div><div class="sg-swatch__name">Slate</div><div class="sg-swatch__hex">#232329</div><p class="sg-swatch__use">Surface élevée, état hover.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#F5F5F0"></div><div class="sg-swatch__name">Paper</div><div class="sg-swatch__hex">#F5F5F0</div><p class="sg-swatch__use">Texte primaire · 18,4:1 sur Void.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#9A9AA4"></div><div class="sg-swatch__name">Steel</div><div class="sg-swatch__hex">#9A9AA4</div><p class="sg-swatch__use">Texte secondaire · 7,0:1 sur Void.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#7C7C87"></div><div class="sg-swatch__name">Steel dim</div><div class="sg-swatch__hex">#7C7C87</div><p class="sg-swatch__use">Captions, méta · 4,8:1 sur Void.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#C9A96B"></div><div class="sg-swatch__name">Gold</div><div class="sg-swatch__hex">#C9A96B</div><p class="sg-swatch__use">Accent unique · 8,8:1 sur Void. CTA, chiffres, filets.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#E2CB9C"></div><div class="sg-swatch__name">Gold light</div><div class="sg-swatch__hex">#E2CB9C</div><p class="sg-swatch__use">Hover des boutons pleins, prix mis en avant.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#8C7440"></div><div class="sg-swatch__name">Gold deep</div><div class="sg-swatch__hex">#8C7440</div><p class="sg-swatch__use">Numérotation éditoriale, puces, séparateurs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 · TYPOGRAPHIE ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">02</span> Typographie</p>
+        <h2>Archivo Expanded &amp; Inter</h2>
+      </div>
+      <p class="lead">Titres en Archivo sur l'axe de chasse 125 %, capitales, interlettrage serré aux grandes tailles et large sur les labels. Corps en Inter 300/400, interligne 1,72.</p>
+    </div>
+
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Hero<br>Archivo 650 · wdth 125<br>40 → 92 px</div>
+      <div><span class="t-hero">Ceramic Coating</span></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">H1<br>34 → 64 px</div>
+      <div><p class="t-display mb-0">Graphene Coating Singapore</p></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">H2<br>28 → 46 px</div>
+      <div><h2 class="mb-0">Done at your doorstep</h2></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">H3<br>19 → 26 px</div>
+      <div><h3 class="mb-0">Five-year durability</h3></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Label · eyebrow<br>11 px · 0,24 em</div>
+      <div><p class="eyebrow mb-0">Artdeshine V3 certified installer</p></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Chapô<br>Inter 300 · 17 → 21 px</div>
+      <div><p class="lead mb-0">A real ceramic coating is a chemical bond, not a wax. Applied properly, it changes how the paint behaves for years.</p></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Corps<br>Inter 330 · 16 → 17 px</div>
+      <div class="measure"><p class="muted mb-0">We clay and chemical-wash the exterior, machine-polish out swirl marks and water spots, then bond the coating layer by layer. The car stays with our team for four to six hours depending on the package, and we work wherever it is parked.</p></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Chiffre clé<br>Archivo 600 · wdth 125</div>
+      <div><span class="t-mega gold">213</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 03 · BOUTONS ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head">
+      <div>
+        <p class="section-label"><span class="index-num">03</span> Actions</p>
+        <h2>Boutons &amp; liens</h2>
+      </div>
+    </div>
+    <div class="stack stack--lg">
+      <div class="sg-row">
+        <a class="btn btn--primary" href="#0">Book a slot</a>
+        <a class="btn btn--ghost" href="#0">See prices</a>
+        <a class="btn btn--primary btn--sm" href="#0">Book now</a>
+        <a class="btn btn--ghost btn--sm" href="#0">WhatsApp us</a>
+      </div>
+      <div class="sg-row">
+        <a class="link-arrow" href="#0">Ceramic coating price list
+          <svg class="ico" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--quiet" href="#0">Read the guide</a>
+      </div>
+      <div class="sg-row">
+        <span class="tag">Certified installer</span>
+        <span class="tag tag--gold">5-year warranty</span>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/ceramic-coating-singapore/">Ceramic Coating</a></li>
+          <li aria-current="page">Price</li>
+        </ol></nav>
+      </div>
+      <p class="sg-note">Le bouton plein se remplit de gauche à droite au survol (420 ms). Le lien fléché voit son filet passer de 24 % à 100 % de la largeur et la flèche avancer de 5 px.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 04 · CHIFFRES CLÉS ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">04</span> Preuve</p>
+        <h2>Chiffres clés</h2>
+      </div>
+      <p class="lead">Très grand corps, filets verticaux 1&nbsp;px, exposant doré. En dessous de 760&nbsp;px, la rangée se découpe en lignes séparées par des filets horizontaux.</p>
+    </div>
+    <div class="stat-row" data-reveal>
+      <div class="stat"><span class="stat__num">213<sup>+</sup></span><p class="stat__label">Verified customer reviews across Facebook and Google</p></div>
+      <div class="stat"><span class="stat__num">4.9<sup>/5</sup></span><p class="stat__label">Average rating over the last three years</p></div>
+      <div class="stat"><span class="stat__num">5<sup>yrs</sup></span><p class="stat__label">Coat bonding warranty on Artdeshine Graphene V3</p></div>
+      <div class="stat"><span class="stat__num">100<sup>%</sup></span><p class="stat__label">Island-wide doorstep service, no workshop drop-off</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 05 · CARTES SERVICE ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head">
+      <div>
+        <p class="section-label"><span class="index-num">05</span> Services</p>
+        <h2>Cartes service</h2>
+      </div>
+    </div>
+    <div class="grid grid--3">
+      <a class="svc-card" href="#0" data-reveal="0">
+        <div class="svc-card__media">
+          <span class="index-num svc-card__num">01</span>
+          <img src="/assets/img/ceramic-coating-application-800.webp" srcset="/assets/img/ceramic-coating-application-480.webp 480w, /assets/img/ceramic-coating-application-800.webp 800w" sizes="(min-width:900px) 33vw, 100vw" alt="Ceramic coating being applied to a black car bonnet in Singapore" width="1389" height="928" loading="lazy">
+        </div>
+        <div class="svc-card__body">
+          <h3>Ceramic Coating</h3>
+          <p>A chemical bond over the clear coat: sharper gloss, water that sheets off, and far less etching from rain and bird droppings.</p>
+          <div class="svc-card__foot">
+            <span class="svc-card__price">From S$388</span>
+            <svg class="svc-card__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </a>
+      <a class="svc-card" href="#0" data-reveal="1">
+        <div class="svc-card__media">
+          <span class="index-num svc-card__num">02</span>
+          <img src="/assets/img/car-interior-detailing-800.webp" srcset="/assets/img/car-interior-detailing-480.webp 480w, /assets/img/car-interior-detailing-800.webp 800w" sizes="(min-width:900px) 33vw, 100vw" alt="Detailer deep cleaning a car dashboard during interior detailing in Singapore" width="1389" height="928" loading="lazy">
+        </div>
+        <div class="svc-card__body">
+          <h3>Interior Detailing</h3>
+          <p>Anti-bacterial steam clean, full vacuum, leather conditioning and dashboard care — done in your carpark in about an hour.</p>
+          <div class="svc-card__foot">
+            <span class="svc-card__price">From S$100</span>
+            <svg class="svc-card__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </a>
+      <a class="svc-card" href="#0" data-reveal="2">
+        <div class="svc-card__media">
+          <span class="index-num svc-card__num">03</span>
+          <img src="/assets/img/car-polishing-paint-correction-784.webp" srcset="/assets/img/car-polishing-paint-correction-480.webp 480w, /assets/img/car-polishing-paint-correction-784.webp 784w" sizes="(min-width:900px) 33vw, 100vw" alt="Machine polishing a dark blue car bonnet during paint correction" width="784" height="636" loading="lazy">
+        </div>
+        <div class="svc-card__body">
+          <h3>Paint Correction</h3>
+          <p>Machine polishing that removes swirl marks, water spots and light scratches before any coating goes on.</p>
+          <div class="svc-card__foot">
+            <span class="svc-card__price">From S$238</span>
+            <svg class="svc-card__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 · CARTES PRIX « MENU » ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">06</span> Tarifs</p>
+        <h2>Cartes prix</h2>
+      </div>
+      <p class="lead">Composition de carte de menu : intitulé, description courte, puis les lignes de prix reliées par des points de conduite. Filet doré animé en tête de carte.</p>
+    </div>
+    <div class="price-grid">
+      <article class="price-menu" data-reveal="0">
+        <div class="price-menu__head">
+          <span class="price-menu__term">1 year · Nano</span>
+          <h3>Nano Coating</h3>
+          <p>Entry-level gloss and hydrophobics. Ideal for a newer car that just needs protecting.</p>
+        </div>
+        <ul class="price-menu__lines">
+          <li class="price-line"><span class="price-line__name">S / M Sedan<small>Civic, Altis, A-Class</small></span><span class="price-line__dots"></span><span class="price-line__val">S$248</span></li>
+          <li class="price-line"><span class="price-line__name">Large Sedan<small>Camry, E-Class, 5 Series</small></span><span class="price-line__dots"></span><span class="price-line__val">S$288</span></li>
+          <li class="price-line"><span class="price-line__name">MPV / SUV<small>Alphard, X5, Kluger</small></span><span class="price-line__dots"></span><span class="price-line__val">S$328</span></li>
+          <li class="price-line"><span class="price-line__name">Luxury / Exotic<small>Porsche, Maserati, Tesla S</small></span><span class="price-line__dots"></span><span class="price-line__val">S$398</span></li>
+        </ul>
+        <div class="price-menu__foot">
+          <a class="btn btn--ghost btn--block btn--sm" href="#0">Book nano coating</a>
+          <p class="price-menu__note">3–4 hours · includes claying and chemical wash</p>
+        </div>
+      </article>
+
+      <article class="price-menu is-featured" data-reveal="1">
+        <span class="price-menu__flag">Most booked</span>
+        <div class="price-menu__head">
+          <span class="price-menu__term">3 years · Ceramic</span>
+          <h3>Ceramic Coating</h3>
+          <p>Metal-oxide ceramic with a 3-year coat bonding warranty, applied by a certified installer.</p>
+        </div>
+        <ul class="price-menu__lines">
+          <li class="price-line"><span class="price-line__name">S / M Sedan<small>Civic, Altis, A-Class</small></span><span class="price-line__dots"></span><span class="price-line__val">S$388</span></li>
+          <li class="price-line"><span class="price-line__name">Large Sedan<small>Camry, E-Class, 5 Series</small></span><span class="price-line__dots"></span><span class="price-line__val">S$448</span></li>
+          <li class="price-line"><span class="price-line__name">MPV / SUV<small>Alphard, X5, Kluger</small></span><span class="price-line__dots"></span><span class="price-line__val">S$508</span></li>
+          <li class="price-line"><span class="price-line__name">Luxury / Exotic<small>Porsche, Maserati, Tesla S</small></span><span class="price-line__dots"></span><span class="price-line__val">S$628</span></li>
+        </ul>
+        <div class="price-menu__foot">
+          <a class="btn btn--primary btn--block btn--sm" href="#0">Book ceramic coating</a>
+          <p class="price-menu__note">4–5 hours · paint correction included</p>
+        </div>
+      </article>
+
+      <article class="price-menu" data-reveal="2">
+        <div class="price-menu__head">
+          <span class="price-menu__term">5 years · Graphene</span>
+          <h3>Graphene V3</h3>
+          <p>Artdeshine Nano Graphene V3 — the hardest, most flexible coating we install, with reduced heat retention.</p>
+        </div>
+        <ul class="price-menu__lines">
+          <li class="price-line"><span class="price-line__name">S / M Sedan<small>Civic, Altis, A-Class</small></span><span class="price-line__dots"></span><span class="price-line__val">S$688</span></li>
+          <li class="price-line"><span class="price-line__name">Large Sedan<small>Camry, E-Class, 5 Series</small></span><span class="price-line__dots"></span><span class="price-line__val">S$768</span></li>
+          <li class="price-line"><span class="price-line__name">MPV / SUV<small>Alphard, X5, Kluger</small></span><span class="price-line__dots"></span><span class="price-line__val">S$838</span></li>
+          <li class="price-line"><span class="price-line__name">Luxury / Exotic<small>Porsche, Maserati, Tesla S</small></span><span class="price-line__dots"></span><span class="price-line__val">S$988</span></li>
+        </ul>
+        <div class="price-menu__foot">
+          <a class="btn btn--ghost btn--block btn--sm" href="#0">Book graphene coating</a>
+          <p class="price-menu__note">5–6 hours · windscreen coating included</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 07 · MATRICE TARIFAIRE ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">07</span> Page prix</p>
+        <h2>Matrice taille × durée</h2>
+      </div>
+      <p class="lead">Table sémantique sur desktop. Sous 820&nbsp;px elle se recompose en cartes empilées, chaque cellule reprenant son en-tête de colonne — pas de scroll horizontal.</p>
+    </div>
+    <table class="price-matrix" data-reveal>
+      <caption>All-in rates in Singapore dollars. Paint correction, claying and chemical wash included in every package.</caption>
+      <thead>
+        <tr><th scope="col">Vehicle size</th><th scope="col">1 Yr Nano</th><th scope="col">3 Yrs Ceramic</th><th scope="col">5 Yrs Graphene</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">S / M Sedan<small>Civic, Altis, A-Class</small></th><td data-th="1 Yr Nano">S$248</td><td data-th="3 Yrs Ceramic">S$388</td><td data-th="5 Yrs Graphene" class="is-hero">S$688</td></tr>
+        <tr><th scope="row">Large Sedan<small>Camry, E-Class, 5 Series</small></th><td data-th="1 Yr Nano">S$288</td><td data-th="3 Yrs Ceramic">S$448</td><td data-th="5 Yrs Graphene" class="is-hero">S$768</td></tr>
+        <tr><th scope="row">MPV / SUV<small>Alphard, X5, Kluger</small></th><td data-th="1 Yr Nano">S$328</td><td data-th="3 Yrs Ceramic">S$508</td><td data-th="5 Yrs Graphene" class="is-hero">S$838</td></tr>
+        <tr><th scope="row">Luxury / Exotic<small>Porsche, Maserati, Tesla S</small></th><td data-th="1 Yr Nano">S$398</td><td data-th="3 Yrs Ceramic">S$628</td><td data-th="5 Yrs Graphene" class="is-hero">S$988</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ 08 · DÉROULÉ ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">08</span> Process</p>
+        <h2>Déroulé numéroté</h2>
+      </div>
+      <p class="lead">Compteur CSS en chiffres dorés, filets 1&nbsp;px pleine largeur. Sert aux pages service et au bloc « how it works » de l'accueil.</p>
+    </div>
+    <ol class="steps" data-reveal>
+      <li class="step"><h3>Tell us the car and the postcode</h3><p>Send the model and where it is parked over WhatsApp. We confirm the size band, the package and a two-hour arrival window.</p></li>
+      <li class="step"><h3>We come to you</h3><p>The team arrives with water, power and lighting. Covered carpark, condo lot or landed driveway — anywhere on the island.</p></li>
+      <li class="step"><h3>Correction, then coating</h3><p>Claying and chemical wash, machine polish to pull out swirl marks and water spots, then the coating is bonded layer by layer.</p></li>
+      <li class="step"><h3>Cure, inspect, hand back</h3><p>We walk you around the car under inspection light and leave you the aftercare sheet and your warranty reference.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══ 09 · FAQ ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">09</span> FAQ</p>
+        <h2>Accordéon</h2>
+      </div>
+      <p class="lead">Hauteur animée, <code style="font-size:.85em">aria-expanded</code> et <code style="font-size:.85em">aria-controls</code> corrects — le contenu reste dans le DOM pour le balisage FAQPage.</p>
+    </div>
+    <div class="accordion" data-reveal>
+      <div class="accordion__item">
+        <h3 style="margin:0"><button class="accordion__trigger" type="button" aria-expanded="true" aria-controls="faq-1"><span class="accordion__sign" aria-hidden="true"></span>How much does ceramic coating cost in Singapore?</button></h3>
+        <div class="accordion__panel" id="faq-1"><div><p>A three-year ceramic coating runs from S$388 for a small or mid-size sedan up to S$628 for a luxury or exotic car. The price covers claying, chemical wash and machine polishing before the coating goes on — there is no separate prep fee.</p></div></div>
+      </div>
+      <div class="accordion__item">
+        <h3 style="margin:0"><button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-2"><span class="accordion__sign" aria-hidden="true"></span>Is graphene coating worth the extra over ceramic?</button></h3>
+        <div class="accordion__panel" id="faq-2"><div><p>If you keep your car more than three years, yes. Artdeshine Graphene V3 carries a five-year bonding warranty, holds less heat on dark paint and stays slicker for longer between washes.</p></div></div>
+      </div>
+      <div class="accordion__item">
+        <h3 style="margin:0"><button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-3"><span class="accordion__sign" aria-hidden="true"></span>Can you really coat a car at my carpark?</button></h3>
+        <div class="accordion__panel" id="faq-3"><div><p>Yes. We carry our own water, power and lighting, and we work island-wide. A covered or sheltered lot is preferable for coating work so the surface stays dry through the cure.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 10 · AVIS ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">10</span> Réassurance</p>
+        <h2>Cartes avis</h2>
+      </div>
+      <p class="lead">Avis écrits en dur dans le HTML — aucun widget tiers, aucun script externe, indexables et sans impact sur le LCP.</p>
+    </div>
+    <div class="grid grid--3">
+      <article class="review" data-reveal="0">
+        <div class="review__stars" role="img" aria-label="5 out of 5">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg>
+        </div>
+        <p class="review__text">My car had some water marks. Arranged for a maintenance polish and my car is super shiny again. The team were very polite and the job was done professionally.</p>
+        <div class="review__who"><span class="review__avatar">HC</span><span><span class="review__name">Henry Cheng</span><br><span class="review__meta">Facebook · Dec 2021</span></span></div>
+      </article>
+      <article class="review" data-reveal="1">
+        <div class="review__stars" role="img" aria-label="5 out of 5">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg>
+        </div>
+        <p class="review__text">Fast &amp; superb service team! The coating was superbly done. My car has a few water marks which cannot seem to go off even after my previous groomer tried, but this team successfully removed it. Strongly recommend them!</p>
+        <div class="review__who"><span class="review__avatar">JF</span><span><span class="review__name">Jenne Foo</span><br><span class="review__meta">Facebook · Dec 2021</span></span></div>
+      </article>
+      <article class="review" data-reveal="2">
+        <div class="review__stars" role="img" aria-label="5 out of 5">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg>
+        </div>
+        <p class="review__text">Excellent and trusted service from the team. Car is clean, looks new after the coating service.</p>
+        <div class="review__who"><span class="review__avatar">HK</span><span><span class="review__name">Howe Heng Kwek</span><br><span class="review__meta">Facebook · Oct 2021</span></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 11 · FORMULAIRE ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">11</span> Contact</p>
+        <h2>Champs de formulaire</h2>
+      </div>
+      <p class="lead">Fond charbon, filet 1&nbsp;px qui passe au doré au focus. Aucun arrondi, aucune ombre portée.</p>
+    </div>
+    <form class="grid grid--2" style="--grid-gap:1.5rem" data-reveal onsubmit="return false">
+      <div class="field"><label for="sg-name">Name</label><input id="sg-name" type="text" placeholder="Your name"></div>
+      <div class="field"><label for="sg-phone">Mobile</label><input id="sg-phone" type="tel" placeholder="8123 4567"></div>
+      <div class="field"><label for="sg-car">Car model</label><input id="sg-car" type="text" placeholder="BMW 520i"></div>
+      <div class="field"><label for="sg-svc">Service</label><select id="sg-svc"><option>Ceramic coating</option><option>Graphene coating</option><option>Interior detailing</option><option>Paint correction</option><option>Coat maintenance</option></select></div>
+      <div class="field" style="grid-column:1/-1"><label for="sg-msg">Anything we should know</label><textarea id="sg-msg" placeholder="Where the car is parked, preferred timing…"></textarea></div>
+      <div style="grid-column:1/-1"><button class="btn btn--primary" type="submit">Send enquiry</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- ═══ 12 · BANDEAU CTA ═══ -->
+<section class="section section--sm cta-band">
+  <div class="container container--wide">
+    <div class="section-head section-head--split" style="margin-bottom:0">
+      <div>
+        <p class="eyebrow">Ready when you are</p>
+        <h2 class="mb-0">Treat your car the right way</h2>
+      </div>
+      <div>
+        <p class="lead" style="margin-bottom:1.75rem">Mon–Sun, 10:00 to 20:00. Closed Wednesday. Tell us the model and the postcode — we will confirm the slot within the hour.</p>
+        <div class="cta-actions">
+          <a class="btn btn--primary" href="{{booking}}" target="_blank" rel="noopener">Book a slot</a>
+          <a class="btn btn--ghost" href="{{whatsapp}}" target="_blank" rel="noopener">WhatsApp {{phoneDisplay}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
