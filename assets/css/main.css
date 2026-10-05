@@ -209,12 +209,15 @@ a:hover{ color:var(--c-gold-lite); }
   position:relative; overflow:hidden;
   padding-block:clamp(7rem, 4.5rem + 9vw, 13rem);
   background-color:#F5F5F0;
-  /* Perlage : signature visuelle d'une surface hydrophobe, pose en amas
-     dans l'angle bas-droit pour laisser le texte respirer. */
-  background-image:url('/assets/img/beading.svg');
-  background-repeat:no-repeat;
-  background-position:right -70px bottom -70px;
-  background-size:min(62vw, 700px) auto;
+  /* Reflet diagonal : la lumiere qui court sur une carrosserie polie.
+     Un degrade, aucune forme dessinee, donc rien qui puisse lire comme un
+     motif decoratif rapporte. */
+  background-image:linear-gradient(101deg,
+    rgba(18,18,22,0) 20%,
+    rgba(18,18,22,.03) 38%,
+    rgba(255,255,255,.95) 50%,
+    rgba(18,18,22,.03) 62%,
+    rgba(18,18,22,0) 80%);
   color:var(--c-paper);           /* re-resout localement : sans cela les
                                      elements qui heritent la couleur gardent
                                      celle calculee sur body, donc du clair. */
@@ -262,15 +265,6 @@ a:hover{ color:var(--c-gold-lite); }
 }
 
 /* Libellé de section : 01 · LABEL ───────────────── sur une seule ligne */
-.section-label{
-  display:flex; align-items:center; gap:1.05rem;
-  font-family:var(--ff-display); font-stretch:100%;
-  font-size:var(--fs-label); font-weight:650;
-  text-transform:uppercase; letter-spacing:var(--ls-label);
-  color:var(--c-gold); margin:0 0 1.7rem;
-}
-.section-label::after{ content:""; height:1px; flex:1; background:var(--c-line); }
-.section-label .index-num{ letter-spacing:.18em; }
 
 /* En-tête de section : titre + colonne d'appui, grille asymétrique */
 .section-head{ display:grid; gap:clamp(1.5rem,1rem + 2vw,3.5rem); align-items:start; margin-bottom:clamp(2.75rem,2rem + 3vw,5rem); }
@@ -328,16 +322,12 @@ a:hover{ color:var(--c-gold-lite); }
   display:inline-flex; align-items:center; gap:.65rem;
   font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label);
   font-weight:650; text-transform:uppercase; letter-spacing:.17em;
-  color:var(--c-gold); text-decoration:none; padding-bottom:.55rem; position:relative;
+  color:var(--c-gold); text-decoration:none; position:relative;
+  transition:color var(--dur) var(--ease), gap var(--dur) var(--ease);
 }
-.link-arrow::after{
-  content:""; position:absolute; left:0; bottom:0; height:1px; width:100%;
-  background:var(--c-gold); transform:scaleX(.24); transform-origin:left;
-  transition:transform .4s var(--ease); opacity:.8;
-}
-.link-arrow:hover::after,.link-arrow:focus-visible::after{ transform:scaleX(1); }
+.link-arrow:hover,.link-arrow:focus-visible{ color:var(--c-gold-lite); gap:1rem; }
 .link-arrow .ico{ width:15px; height:15px; transition:transform var(--dur) var(--ease); }
-.link-arrow:hover .ico{ transform:translateX(5px); }
+.link-arrow:hover .ico{ transform:translateX(3px); }
 
 /* ── 06 · HEADER / NAV ───────────────────────────────────────────────────── */
 .skip-link{
@@ -639,9 +629,11 @@ body.is-locked{ overflow:hidden; }
 .svc-feature__num{ position:absolute; top:1.35rem; left:1.5rem; z-index:1; color:var(--c-gold); }
 .svc-feature__body{ padding:clamp(1.75rem, 1.15rem + 2.4vw, 3.25rem); display:flex; flex-direction:column; justify-content:center; gap:1.15rem; }
 .svc-feature__body p{ color:var(--c-steel); margin:0; }
-.svc-feature__list{ list-style:none; margin:.4rem 0 0; padding:0; display:grid; gap:.55rem; }
-.svc-feature__list li{ display:flex; gap:.7rem; align-items:baseline; font-size:var(--fs-sm); color:var(--c-steel); }
-.svc-feature__list li::before{ content:""; flex:none; width:14px; height:1px; background:var(--c-gold); transform:translateY(-.3em); }
+.svc-feature__list{
+  list-style:none; margin:.6rem 0 0; padding:.15rem 0 .15rem 1.2rem;
+  display:grid; gap:.6rem; border-left:1px solid var(--c-line-gold);
+}
+.svc-feature__list li{ font-size:var(--fs-sm); color:var(--c-steel); line-height:1.5; }
 
 /* 8.4 Carte prix — composition « menu gastronomique » */
 .price-menu{
