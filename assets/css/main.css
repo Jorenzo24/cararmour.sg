@@ -36,8 +36,8 @@
   /* Surfaces — jamais de blanc pur en fond */
   --c-void:        #0A0A0C;   /* fond principal */
   --c-charcoal:    #141418;   /* section alternée */
-  --c-graphite:    #1A1A20;   /* surface / carte */
-  --c-slate:       #232329;   /* surface élevée */
+  --c-graphite:    #292932;   /* surface / carte, detachee du charbon */
+  --c-slate:       #34343F;   /* surface élevée */
 
   /* Encre */
   --c-paper:       #F5F5F0;   /* texte primaire */
@@ -297,10 +297,12 @@ a:hover{ color:var(--c-gold-lite); }
 @media (min-width:900px){
   .section-head--split{ grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); align-items:end; }
   .section-head--top{ align-items:start; }
+}
+/* Hors media query : le centrage vaut a toutes les largeurs. Enferme dans la
+   regle desktop, il laissait tous les titres a gauche sur mobile. */
 .section-head--center{ text-align:center; }
 .section-head--center h2{ margin-inline:auto; }
 .section-head--center .lead{ max-width:58ch; margin-inline:auto; }
-}
 .section-head__rule{ display:flex; align-items:center; gap:1.25rem; margin-bottom:1.5rem; }
 .section-head__rule::after{ content:""; height:1px; flex:1; background:var(--c-line); }
 
@@ -542,68 +544,29 @@ body.is-locked{ overflow:hidden; }
 .manifesto{ font-size:clamp(1.1875rem, .95rem + 1.35vw, 1.9375rem); line-height:1.44; font-weight:300; color:var(--c-paper); text-wrap:pretty; }
 .manifesto em{ font-style:normal; color:var(--c-gold); }
 
-/* 8.1d Section recit — paire d'images en recouvrement, colonnes de hauteur egale.
-   L'image secondaire ne deborde que dans la gouttiere de la grille : elle ne
-   touche jamais le texte et ne change pas la hauteur de la colonne. */
-.story{ display:grid; gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem); align-items:stretch; }
-@media (min-width:920px){ .story{ grid-template-columns:minmax(0,.92fr) minmax(0,1fr); } }
-
-.story__media{ position:relative; display:grid; }
-.ph{
-  position:relative; margin:0; background:var(--c-graphite); border:1px solid var(--c-line);
-  display:grid; place-content:center; text-align:center; gap:.6rem; padding:1.75rem;
-}
-.ph::before,.ph::after{ content:""; position:absolute; width:26px; height:26px; border:1px solid var(--c-gold); }
-.ph::before{ top:13px; left:13px; border-right:0; border-bottom:0; }
-.ph::after{ bottom:13px; right:13px; border-left:0; border-top:0; }
-.ph img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-/* Les equerres dorees balisent un emplacement vide : inutiles sur une vraie
-   photo, qui recoit a la place une ombre portee profonde et tres diffuse. */
-.ph:has(img)::before,.ph:has(img)::after{ display:none; }
-.ph:has(img){
+/* 8.1d Section identite : titre et chapo centres, portrait pose au centre,
+   puis deux colonnes de texte. Le cadrage paysage coupait les techniciens
+   debout, donc le portrait est conserve et contenu en largeur. */
+.story__plate{
+  position:relative; margin:clamp(2.5rem, 1.8rem + 2.8vw, 4rem) auto 0;
+  max-width:620px; aspect-ratio:4/5; background:var(--c-graphite);
   border:1px solid rgba(255,255,255,.92);
   box-shadow:0 46px 84px -28px rgba(18,18,22,.46),
              0 18px 38px -14px rgba(18,18,22,.3),
              0 4px 10px -4px rgba(18,18,22,.18);
 }
-.ph--tall{ aspect-ratio:4/5; }
-@media (min-width:920px){ .ph--tall{ aspect-ratio:auto; height:100%; min-height:460px; } }
-.ph__label{
-  font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label);
-  font-weight:650; text-transform:uppercase; letter-spacing:var(--ls-label); color:var(--c-gold);
-}
-.ph__hint{ font-size:var(--fs-xs); color:var(--c-steel-dim); line-height:1.6; max-width:24ch; margin:0 auto; }
+.story__plate img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 
-.story__text h2{ margin-bottom:clamp(1.1rem, .9rem + 1vw, 1.5rem); }
-.story__text h3{
-  margin:clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem) 0 .85rem;
-  font-size:var(--fs-h4); letter-spacing:.055em; color:var(--c-gold);
-}
-.story__text p{ color:var(--c-steel); margin:0 0 1.3em; }
-.story__text p:last-child{ margin-bottom:0; }
-.story__text strong{ color:var(--c-paper); font-weight:450; }
+.story__cols{ display:grid; gap:clamp(2rem, 1.4rem + 2.4vw, 3.5rem); margin-top:clamp(2.75rem, 2rem + 3vw, 4.5rem); }
+@media (min-width:820px){ .story__cols{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.story__cols h3{ margin:0 0 .85rem; font-size:var(--fs-h4); letter-spacing:.055em; color:var(--c-gold); }
+.story__cols p{ margin:0; color:var(--c-steel); }
 
-/* Encart a renseigner par le client, assume visuellement. */
-.todo{
-  margin-top:clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem);
-  padding:1.1rem 1.35rem; border:1px dashed var(--c-line-gold); background:rgba(201,169,107,.045);
-}
-.todo span{
-  display:block; font-family:var(--ff-display); font-stretch:100%; font-size:.625rem;
-  font-weight:650; text-transform:uppercase; letter-spacing:.18em; color:var(--c-gold); margin-bottom:.45rem;
-}
-.todo p{ margin:0; font-size:var(--fs-xs); color:var(--c-steel-dim); line-height:1.6; }
-
-/* Trois titres de creance, portes par l'espace seul : aucun filet. */
-.creds{ display:grid; gap:clamp(2rem, 1.2rem + 3vw, 3.5rem); margin-top:clamp(3.5rem, 2.4rem + 4vw, 6rem); }
-@media (min-width:760px){ .creds{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
-.cred__label{
-  display:block; font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label);
-  font-weight:650; text-transform:uppercase; letter-spacing:var(--ls-label);
-  color:var(--c-gold); margin-bottom:1rem;
-}
-.cred p{ margin:0; color:var(--c-steel); font-size:var(--fs-sm); line-height:1.6; }
-@media (min-width:760px){ .cred p{ max-width:30ch; } }
+/* Justification : acceptable des que la colonne est assez large et que les
+   cesures sont actives. En dessous, les blancs inter-mots se creusent, donc
+   retour au fer a gauche. */
+.text-justify{ text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
+@media (max-width:640px){ .text-justify{ text-align:left; hyphens:manual; } }
 
 /* 8.2 Statistiques — chiffres très grand corps */
 .stat-row{ display:grid; gap:0; border-top:1px solid var(--c-line); }
@@ -899,6 +862,9 @@ body.is-locked{ overflow:hidden; }
 .accordion--panels .accordion__panel > div{
   padding:0 clamp(1.1rem, .9rem + .8vw, 1.5rem) 1.5rem calc(16px + 2rem);
   text-align:justify; hyphens:auto; -webkit-hyphens:auto; max-width:none;
+}
+@media (max-width:640px){
+  .accordion--panels .accordion__panel > div{ text-align:left; hyphens:manual; }
 }
 .section--paper .accordion--panels .accordion__item{ background:rgba(122,100,54,.065); }
 .section--paper .accordion--panels .accordion__item:hover{ background:rgba(122,100,54,.1); }
