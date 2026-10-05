@@ -10,6 +10,7 @@ import sys
 src,dst=sys.argv[1],sys.argv[2]
 h=open(src,encoding="utf8").read()
 h=h.replace("</head>","<style>.js [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}</style></head>",1)
+h=h.replace(' loading="lazy"','')   # headless ne declenche pas le chargement differe
 open(dst,"w",encoding="utf8").write(h)
 PY
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --hide-scrollbars \

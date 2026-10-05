@@ -16,8 +16,11 @@ python3 -m http.server 8787        # http://127.0.0.1:8787/
 _src/
   site.json           NAP, horaires, liens booking/WhatsApp, note globale  → source unique
   build.py            générateur (aucune dépendance)
+  shot.sh             capture fiable d'une page (reveal et lazy-load neutralisés)
+  deploy-preview.sh   republie la préproduction GitHub Pages
   partials/           layout, header, footer, wa-fab, logos inlinés
   pages/<nom>.html    une page = un bloc <!--META {...}--> + le corps
+  fragments/          blocs retirés d'une page, en attente d'être replacés ailleurs
 assets/css/main.css   design system — LA SOURCE, c'est ici qu'on édite
 assets/css/main.min.css  GÉNÉRÉ par build.py, c'est ce que les pages chargent
 assets/js/main.js     nav, accordéons, reveal — vanilla, zéro dépendance
@@ -79,6 +82,9 @@ Règles non négociables :
 - Un seul `<h1>` par page ; les paragraphes ne sont jamais des headings.
 - Dans `clamp()`/`calc()`, **toujours des espaces autour de `+`** — sans quoi la
   déclaration entière est invalide et silencieusement ignorée.
+- Le minificateur met les chaînes et les `url()` à l'abri avant ses passes de
+  regex, et refuse de générer si une `url()` minifiée contient une espace.
+  Sans cette protection, `fond-1800.webp` devenait `fond - 1800.webp`.
 - Mobile : composants repensés (matrice → cartes empilées, nav → overlay plein
   écran), pas de simple empilement.
 
@@ -95,3 +101,10 @@ Règles non négociables :
   (Ceramic 1 couche S$388, Graphene V3 S$688, surcharge SUV/MPV S$50).
 - Volume d'avis et note moyenne annoncés (`ratingValue`, `reviewCount`).
 - Adresse postale : aucune sur l'ancien site (service 100 % mobile).
+
+## Fragments en attente
+
+`_src/fragments/coating-comparison.html` : comparatif ceramic / graphene et
+encart « ce que ça ne fait pas », retirés de l'accueil le 2026-10-05. À
+replacer sur `/ceramic-coating-singapore/`. Les composants `.compare` et
+`.caveat` sont restés dans le design system, il n'y a rien à réécrire.

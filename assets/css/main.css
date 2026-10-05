@@ -208,7 +208,7 @@ a:hover{ color:var(--c-gold-lite); }
    le AA sur fond clair. Tous les composants suivent sans retouche. */
 .section--paper{
   position:relative; overflow:hidden;
-  padding-block:clamp(7rem, 4.5rem + 9vw, 13rem);
+  padding-block:clamp(5.25rem, 3.4rem + 6.6vw, 9.5rem);
   background-color:#F5F5F0;
   background-image:url('/assets/img/section-bg-light-1800.webp');
   background-size:cover; background-position:center;
@@ -530,8 +530,10 @@ body.is-locked{ overflow:hidden; }
    photo, qui recoit a la place une ombre portee profonde et tres diffuse. */
 .ph:has(img)::before,.ph:has(img)::after{ display:none; }
 .ph:has(img){
-  border-color:rgba(18,18,22,.16);
-  box-shadow:0 38px 72px -38px rgba(18,18,22,.55), 0 10px 26px -16px rgba(18,18,22,.22);
+  border:1px solid rgba(255,255,255,.92);
+  box-shadow:0 46px 84px -28px rgba(18,18,22,.46),
+             0 18px 38px -14px rgba(18,18,22,.3),
+             0 4px 10px -4px rgba(18,18,22,.18);
 }
 .ph--tall{ aspect-ratio:4/5; }
 @media (min-width:920px){ .ph--tall{ aspect-ratio:auto; height:100%; min-height:460px; } }
