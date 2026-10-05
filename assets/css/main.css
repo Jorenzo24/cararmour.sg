@@ -560,6 +560,13 @@ body.is-locked{ overflow:hidden; }
    photo, puis les deux blocs. Sur grand ecran la photo reprend une colonne
    de gauche sur toute la hauteur, le texte occupe la colonne de droite. */
 .story{ display:grid; }
+/* Garde-fou. Un element de grille a min-width:auto par defaut et refuse de
+   passer sous sa largeur intrinseque, ce qui peut le faire deborder d'une
+   colonne etroite. body ayant overflow-x:hidden, le debordement ne se voit
+   pas en defilement mais en image coupee. */
+.story > *{ min-width:0; max-width:100%; }
+.story__plate{ max-width:100%; }
+.story__plate img{ max-width:none; }
 
 @media (max-width:919px){
   .story__plate{ margin-block:clamp(1.75rem, 1.2rem + 2vw, 2.75rem); }
@@ -581,6 +588,9 @@ body.is-locked{ overflow:hidden; }
 }
 
 .story__plate{
+  /* aspect-ratio indispensable : il reserve la hauteur avant que l'image
+     differee n'arrive. Sans lui le cadre s'effondre a 2 px, l'image n'entre
+     jamais dans le champ et le chargement differe ne se declenche pas. */
   position:relative; margin-inline:0; aspect-ratio:4/5; background:var(--c-graphite);
   border:1px solid rgba(255,255,255,.92);
   box-shadow:0 46px 84px -28px rgba(18,18,22,.46),
