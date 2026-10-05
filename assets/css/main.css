@@ -502,7 +502,7 @@ body.is-locked{ overflow:hidden; }
 /* 8.1d Section recit — paire d'images en recouvrement, colonnes de hauteur egale.
    L'image secondaire ne deborde que dans la gouttiere de la grille : elle ne
    touche jamais le texte et ne change pas la hauteur de la colonne. */
-.story{ display:grid; gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem); align-items:center; }
+.story{ display:grid; gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem); align-items:stretch; }
 @media (min-width:920px){ .story{ grid-template-columns:minmax(0,.92fr) minmax(0,1fr); } }
 
 .story__media{ position:relative; display:grid; }
@@ -515,6 +515,7 @@ body.is-locked{ overflow:hidden; }
 .ph::after{ bottom:13px; right:13px; border-left:0; border-top:0; }
 .ph img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .ph--tall{ aspect-ratio:4/5; }
+@media (min-width:920px){ .ph--tall{ aspect-ratio:auto; height:100%; min-height:460px; padding-bottom:42%; } }
 .ph--inset{ margin-top:1.25rem; aspect-ratio:4/3; }
 @media (min-width:920px){
   .ph--inset{
@@ -529,7 +530,11 @@ body.is-locked{ overflow:hidden; }
 }
 .ph__hint{ font-size:var(--fs-xs); color:var(--c-steel-dim); line-height:1.6; max-width:24ch; margin:0 auto; }
 
-.story__text h2{ margin-bottom:clamp(1.4rem, 1rem + 1.4vw, 2rem); }
+.story__text h2{ margin-bottom:clamp(1.1rem, .9rem + 1vw, 1.5rem); }
+.story__text h3{
+  margin:clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem) 0 .85rem;
+  font-size:var(--fs-h4); letter-spacing:.055em; color:var(--c-gold);
+}
 .story__text p{ color:var(--c-steel); margin:0 0 1.3em; }
 .story__text p:last-child{ margin-bottom:0; }
 .story__text strong{ color:var(--c-paper); font-weight:450; }
