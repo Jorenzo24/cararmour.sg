@@ -433,11 +433,19 @@ body.is-locked{ overflow:hidden; }
 .hero__inner{ position:relative; z-index:1; width:100%; text-align:center; }
 
 /* 8.1a Bande d'introduction — sous la photo, fond plein */
-.intro__text{ display:grid; gap:clamp(1.1rem, .9rem + .7vw, 1.6rem); max-width:56ch; }
-.intro__text p{ margin:0; font-size:clamp(1rem, .95rem + .45vw, 1.25rem); line-height:1.45; }
-.intro__text strong{ display:block; color:var(--c-paper); font-weight:550; letter-spacing:-.002em; }
-.intro__text span{ display:block; margin-top:.35em; color:var(--c-steel); font-weight:300; }
-.intro__actions{ margin-top:clamp(2rem, 1.5rem + 2vw, 3rem); }
+.intro{ text-align:center; }
+.intro__text{ display:grid; gap:clamp(1.4rem, 1rem + 1.1vw, 2.25rem); max-width:46rem; margin-inline:auto; }
+.intro__text p{ margin:0; }
+/* L'accroche porte le message, la ligne de détail l'appuie : écart de corps net. */
+.intro__text strong{
+  display:block; color:var(--c-paper); font-weight:550;
+  font-size:clamp(1.25rem, 1rem + 1.05vw, 2rem); line-height:1.25; letter-spacing:-.008em;
+}
+.intro__text span{
+  display:block; margin-top:.5em; color:var(--c-steel); font-weight:300;
+  font-size:clamp(.9375rem, .9rem + .35vw, 1.125rem); line-height:1.5;
+}
+.intro__actions{ margin-top:clamp(2rem, 1.5rem + 2vw, 3rem); justify-content:center; }
 /* Tout se lit de haut en bas : texte puis actions, jamais côte à côte. */
 
 /* 8.1b Rail de preuve sous le hero — retiré du hero, conservé pour réemploi */
