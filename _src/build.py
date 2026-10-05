@@ -14,7 +14,7 @@ Syntaxe des gabarits
   {{ nav:clef }}    -> "is-current" si la page déclare "nav": "clef"
   Un bloc JSON en tête de page (dans un commentaire HTML) porte les métas.
 """
-import argparse, json, re, sys
+import argparse, hashlib, json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -123,6 +123,22 @@ def minify_css(css):
     return css.strip()
 
 
+def fingerprint(path):
+    """Empreinte courte du contenu, pour invalider le cache navigateur.
+    Sans elle, le cache d'un an pose par .htaccess empecherait toute mise a
+    jour d'atteindre un visiteur deja venu : le nom du fichier ne change pas."""
+    return hashlib.md5(path.read_bytes()).hexdigest()[:10]
+
+
+VERSIONED = ("/assets/css/main.min.css", "/assets/js/main.js")
+
+
+def stamp_assets(html, versions):
+    for url, v in versions.items():
+        html = html.replace(url + '"', f'{url}?v={v}"')
+    return html
+
+
 def build_css(out_root, base=""):
     src = ROOT / "assets/css/main.css"
     out = out_root / "assets/css/main.min.css"
@@ -140,6 +156,10 @@ def build(out_root=ROOT, base="", noindex=False):
     if not PAGES.exists():
         sys.exit("Aucune page dans _src/pages/")
     build_css(out_root, base)
+    versions = {
+        "/assets/css/main.min.css": fingerprint(out_root / "assets/css/main.min.css"),
+        "/assets/js/main.js": fingerprint(ROOT / "assets/js/main.js"),
+    }
     written = []
     for page in sorted(PAGES.rglob("*.html")):
         raw = page.read_text(encoding="utf-8")
@@ -152,6 +172,7 @@ def build(out_root=ROOT, base="", noindex=False):
         html = load_partial(layout).replace("{{content}}", body)
         html = resolve(expand(html), meta)
         html = re.sub(r"\n{3,}", "\n\n", html)
+        html = stamp_assets(html, versions)
         if noindex:
             html = add_noindex(html)
         if base:
@@ -163,6 +184,7 @@ def build(out_root=ROOT, base="", noindex=False):
     width = max(len(r) for r, _, _ in written)
     for route, rel, size in written:
         print(f"  {route:<{width}}  ->  {rel}  ({size//1024} Ko)")
+    print("  empreintes : " + "  ".join(f"{k.split('/')[-1]}={v}" for k, v in versions.items()))
     print(f"\n{len(written)} page(s) générée(s).")
 
 
