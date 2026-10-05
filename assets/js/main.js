@@ -8,14 +8,6 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* ── Header : passe en solide dès le premier scroll ─────────────────── */
-  var header = $('.site-header');
-  if (header) {
-    var solid = function () { header.classList.toggle('is-solid', window.scrollY > 24); };
-    solid();
-    window.addEventListener('scroll', solid, { passive: true });
-  }
-
   /* ── Navigation mobile ──────────────────────────────────────────────── */
   var burger = $('.burger');
   var panel = $('#mobile-nav');
