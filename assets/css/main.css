@@ -49,6 +49,11 @@
   --c-gold-lite:   #E2CB9C;
   --c-gold-deep:   #9C8351;   /* numérotation éditoriale — 5,4:1 sur le noir */
   --c-gold-wash:   rgba(201,169,107,.10);
+  /* Dore d'aplat : sert de FOND, pas de texte. Il ne doit donc jamais etre
+     assombri par l'inversion des sections claires, sinon le libelle noir
+     des boutons perd son contraste. */
+  --c-gold-solid:      #C9A96B;
+  --c-gold-solid-lite: #E2CB9C;
   --logo-accent:   var(--c-gold);
 
   /* Filets */
@@ -234,6 +239,26 @@ a:hover{ color:var(--c-gold-lite); }
 .section--paper .split__media img{
   box-shadow:0 38px 70px -34px rgba(18,18,22,.45), 0 12px 28px -14px rgba(18,18,22,.22);
 }
+/* Variante papier : la texture se superpose au fond clair de la section.
+   Teinte chaude et grain fin, pour sortir de l'aplat froid. */
+.section--paper-grain{
+  background-blend-mode:multiply;
+  --c-gold:#6B562C;   /* la texture assombrit le fond : le dore suit, 5,0:1 */
+}
+/* Halo attenue sur la variante texturee : la texture assombrit deja le fond,
+   les deux cumules faisaient passer le texte secondaire sous le AA. */
+.section--paper-grain::before{
+  background:
+    linear-gradient(90deg, rgba(201,169,107,0) 0%, rgba(154,126,66,.75) 22%,
+      rgba(154,126,66,.75) 78%, rgba(201,169,107,0) 100%) top/100% 1px no-repeat,
+    radial-gradient(58% 100% at 50% 0%, rgba(154,126,66,.07) 0%, rgba(154,126,66,0) 72%);
+}
+.section--paper-grain{
+  background-image:url('/assets/img/paper-texture.webp'), url('/assets/img/section-bg-light-1800.webp');
+  background-repeat:repeat, no-repeat;
+  background-size:320px 320px, cover;
+  background-position:center, center;
+}
 .section--paper ::selection{ background:var(--c-gold); color:#F5F5F0; }
 /* Meme traitement que les autres coupures de section : un filet qui s'eteint
    aux extremites, surmonte d'un halo dore a peine perceptible. */
@@ -305,13 +330,13 @@ a:hover{ color:var(--c-gold-lite); }
 .btn > *{ position:relative; z-index:1; }
 .btn::before{
   content:""; position:absolute; inset:0; z-index:-1;
-  background:var(--c-gold-lite); transform:scaleX(0); transform-origin:left center;
+  background:var(--c-gold-solid-lite); transform:scaleX(0); transform-origin:left center;
   transition:transform .42s var(--ease);
 }
 .btn:hover::before,.btn:focus-visible::before{ transform:scaleX(1); }
-.btn--primary{ --btn-bg:var(--c-gold); --btn-fg:var(--c-void); --btn-bd:var(--c-gold); }
-.btn--primary:hover,.btn--primary:focus-visible{ color:var(--c-void); border-color:var(--c-gold-lite); }
-.btn--ghost:hover,.btn--ghost:focus-visible{ color:var(--c-void); border-color:var(--c-gold-lite); }
+.btn--primary{ --btn-bg:var(--c-gold-solid); --btn-fg:#0A0A0C; --btn-bd:var(--c-gold-solid); }
+.btn--primary:hover,.btn--primary:focus-visible{ color:#0A0A0C; border-color:var(--c-gold-solid-lite); }
+.btn--ghost:hover,.btn--ghost:focus-visible{ color:#0A0A0C; border-color:var(--c-gold-solid-lite); }
 .btn--quiet{ --btn-bd:transparent; padding-inline:0; min-height:0; }
 .btn--quiet::before{ display:none; }
 .btn--quiet:hover{ color:var(--c-gold); }
@@ -875,8 +900,8 @@ body.is-locked{ overflow:hidden; }
   padding:0 clamp(1.1rem, .9rem + .8vw, 1.5rem) 1.5rem calc(16px + 2rem);
   text-align:justify; hyphens:auto; -webkit-hyphens:auto; max-width:none;
 }
-.section--paper .accordion--panels .accordion__item{ background:rgba(18,18,22,.045); }
-.section--paper .accordion--panels .accordion__item:hover{ background:rgba(18,18,22,.065); }
+.section--paper .accordion--panels .accordion__item{ background:rgba(122,100,54,.065); }
+.section--paper .accordion--panels .accordion__item:hover{ background:rgba(122,100,54,.1); }
 
 /* 8.7 Carte avis */
 .review{ background:var(--c-charcoal); border:1px solid var(--c-line); padding:clamp(1.5rem,1.1rem + 1.4vw,2.1rem); display:flex; flex-direction:column; gap:1.1rem; }
