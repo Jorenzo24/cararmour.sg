@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Design System — Car Armour SG (internal)</title>
+<meta name="description" content="Internal design system reference for cararmour.sg.">
+<link rel="canonical" href="https://cararmour.sg/styleguide/">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Car Armour SG">
+<meta property="og:locale" content="en_SG">
+<meta property="og:url" content="https://cararmour.sg/styleguide/">
+<meta property="og:title" content="Design System — Car Armour SG (internal)">
+<meta property="og:description" content="Internal design system reference for cararmour.sg.">
+<meta property="og:image" content="https://cararmour.sg/assets/img/og-default.jpg?v=9c7e8900a1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A0A0C">
+<link rel="icon" href="/cararmour.sg/favicon.ico" sizes="any">
+<link rel="icon" href="/cararmour.sg/assets/img/logo-mark-gold.svg?v=78cab632c8" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/cararmour.sg/assets/img/apple-touch-icon.png?v=73c071dcc5">
+<link rel="preload" as="font" type="font/woff2" href="/cararmour.sg/assets/fonts/archivo-latin.woff2?v=2f7ea45bad" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/cararmour.sg/assets/fonts/inter-latin.woff2?v=e990806dbc" crossorigin>
+<script>document.documentElement.className+=" js";</script>
+<link rel="stylesheet" href="/cararmour.sg/assets/css/main.min.css?v=d4a4752a68">
+<link rel="stylesheet" href="/cararmour.sg/assets/css/styleguide.css?v=04c275d893">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDetailing",
+  "@id": "https://cararmour.sg/#business",
+  "name": "Car Armour SG",
+  "url": "https://cararmour.sg/",
+  "image": "https://cararmour.sg/assets/img/og-default.jpg?v=9c7e8900a1",
+  "logo": "https://cararmour.sg/assets/img/logo-lockup.svg?v=73013db7a9",
+  "telephone": "+6588501200",
+  "priceRange": "$$",
+  "currenciesAccepted": "SGD",
+  "address": { "@type": "PostalAddress", "addressCountry": "SG", "addressLocality": "Singapore" },
+  "areaServed": { "@type": "Country", "name": "Singapore" },
+  "serviceArea": { "@type": "Country", "name": "Singapore" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday","Friday","Saturday","Sunday"], "opens": "10:00", "closes": "20:00" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "213", "bestRating": "5" },
+  "sameAs": ["https://www.facebook.com/cararmoursg"]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container container--wide site-header__inner">
+    <a class="brand" href="/cararmour.sg/" aria-label="Car Armour SG, back to home"><svg class="logo-lockup" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120.6 297.44" fill="none" aria-hidden="true" focusable="false"><g transform="translate(-9.76 0)"><path d="M458.7 293.9C444.1 293.9 430.5 293.9 416.5 293.9C415.6 293 414.3 291.9 413.2 290.8C395.3 272.9 377.4 255.1 359.7 237.1C357.4 234.8 355.2 233.9 351.9 234C342.1 234.3 332.3 234.1 322.5 234.1C321.4 234.1 320.3 233.8 319.2 233.7C318.2 229.9 318 201.2 319 195.9C320.6 195.8 322.4 195.6 324.2 195.6C343.2 195.6 362.1 195.5 381.1 195.6C387.3 195.6 393 194.5 398.3 191.3C408.3 185.2 414.1 176.2 416.2 164.5C417.9 155.6 416.2 147.3 412.1 139.6C405.6 127.3 395.2 120.7 381.1 120.6C357.2 120.5 333.2 120.6 309.3 120.6C308.2 120.6 307 120.6 305.6 120.6C305.4 121.9 305 123 305 124.1C305 161.3 305.1 198.6 305.2 235.8C305.2 252.9 305.2 270 305.2 287.2C305.2 289.3 304.9 291.4 304.8 293.9C302.3 293.9 300.2 293.9 297.3 293.9C288.4 284.3 279 274.3 269.7 264.3C269.7 203.7 269.7 143.5 269.7 82.8C271.6 82.7 273.2 82.6 274.8 82.6C310.2 82.6 345.6 82.6 381 82.6C405.4 82.5 423.9 93.5 438 112.7C445.3 122.6 449.5 133.8 451.2 146C454.3 168.6 449.6 189.1 435.3 207.1C426.1 218.7 414.5 227.1 400.2 231.4C399.7 231.5 399.3 231.7 398.8 231.9C398.7 232 398.6 232.1 398.2 232.6C398.9 233.5 399.7 234.5 400.6 235.4C418.6 253.4 436.6 271.4 454.5 289.4C455.8 290.6 456.9 292 458.7 293.9Z" fill="currentColor"></path><path d="M85.8 234.3C75.1 255.6 64.8 276.2 54.6 296.5C49.5 297.5 13.7 297.4 9.8 296.4C9.9 295.6 9.9 294.8 10.2 294.1C52.3 211.8 94.5 129.5 137 46.4C156.5 85.7 175.9 123.9 195 162.6C180.4 162.6 166.6 162.6 152.4 162.6C147.4 152.6 142.4 142.8 137 132.1C125.8 154.4 115.1 175.8 104.3 197.2C128.8 211.9 167.7 211.1 196.3 186.7C213.3 186.7 230.5 186.7 247.8 186.7C246 194.4 229.7 212.9 217.9 221.8C205.3 231.3 191.7 238.6 176.5 243C161.5 247.4 146.2 248.6 130.7 247.4C115.1 246.1 100.2 241.8 85.8 234.3Z" fill="currentColor"></path><path d="M34.8 185C15.1 153.8 10.5 105.7 33 65C58.9 18 106.2 -2.49999 149.7 0.30001C208.3 4.10001 244.4 45.2 255.3 74.7C252.1 76 229.3 76.5 209.9 75.5C209.1 74.7 208 73.7 207.1 72.5C194.9 57.1 179.2 47.2 160 43C135.4 37.6 112.7 42.5 92.6 57.3C75.5 69.9 64.4 87 60.7 108.3C59.4 116 58.4 123.7 59.7 131.5C60.2 134.5 60.2 137.6 58.5 140.7C51 154.6 43.7 168.5 36.4 182.5C36 183.1 35.6 183.8 34.8 185Z" fill="currentColor"></path><path d="M208.2 296.2C202.3 284.1 196.4 271.8 190.4 259.4C194.2 258.3 225.5 258 232 259C238.2 271 244.5 283.3 250.9 295.8C246.6 296.7 216.2 297 208.2 296.2Z" fill="var(--logo-accent,#C9A96B)"></path></g><g transform="translate(505.12 98.2) scale(1.3151) translate(0 -330.72)"><path d="M468 334.2C466.1 338.7 464.2 343.2 462.2 348C461.4 347.9 460.4 348 459.5 347.7C455.9 346.3 453.2 347.7 451.3 350.5C449.9 352.5 448.8 354.9 448.3 357.2C447.6 361.2 447.2 365.4 447.2 369.5C447.1 379.5 447.2 389.4 447.2 399.4C447.2 401.2 447.1 403 447 404.9C440.9 404.9 435.4 404.9 429.3 404.9C428.7 400 429.1 395.2 429 390.5C428.9 385.7 429 380.9 429 376.1C429 371.4 429 366.8 429 362.1C429 357.3 429 352.5 429 347.7C429 342.9 429 338.2 429 333.1C434.5 333.1 439.4 333.1 444.7 333.1C445 334.9 445.2 336.6 445.5 338.8C446.4 338.1 447.2 337.7 447.8 337.1C452.8 331.3 458.9 329.6 466.1 332C466.7 332.2 467.4 332.1 468.1 332.2C468 332.8 468 333.5 468 334.2Z" fill="currentColor"></path><path d="M248 405.1C241.7 405.1 235.9 405.1 229.7 405.1C229.6 403.6 229.4 402.1 229.4 400.7C229.4 388.9 229.5 377.1 229.3 365.3C229.3 362.4 228.9 359.3 228.1 356.5C225.8 347.8 215.3 344.9 208.1 350.9C203.4 354.8 201.7 360.1 201.7 365.9C201.6 377.2 201.7 388.5 201.7 399.8C201.7 401.4 201.6 403 201.5 404.9C195.3 405.7 189.4 405.1 183.8 405.2C182.1 403.5 182.7 401.7 182.7 400.2C182.7 388.7 182.7 377.3 182.6 365.8C182.6 362.9 182.3 359.8 181.5 357C179.3 348.4 172.2 346.3 164.8 349.1C160.9 350.6 158.2 353.7 156.9 357.6C155.9 360.7 155.1 364 155.1 367.3C154.9 378.4 155.1 389.6 155.1 400.7C155.1 402 154.9 403.3 154.8 405C148.9 405.6 143.1 405 137.3 405.4C136.3 401.7 135.8 345.5 136.8 333C142.6 333 148.5 333 154.7 333C155 335 155.2 336.9 155.5 339.3C156.9 338.4 158 337.6 159.2 336.8C164.7 333 170.6 330.9 177.4 330.9C185.6 331 192.1 334.2 197 340.9C197.5 341.6 198 342.2 198.7 343.2C202.5 338.4 207 334.8 212.5 332.8C220.7 329.8 228.8 330.1 236.5 334.5C243.6 338.5 246.8 345.1 247.5 352.9C248.9 369 248.3 385.1 248.4 401.2C248.3 402.2 248.1 403.4 248 405.1Z" fill="currentColor"></path><path d="M75.5 405.3C73.6 405.3 72.2 405.3 70.7 405.3C66.3 405.3 61.8 405.3 57.2 405.3C56.9 403 56.7 401.1 56.4 398.9C55.5 399.5 54.9 399.7 54.5 400.2C42.2 411.2 19.3 409.3 7 393C-2.3 380.6 -3.5 354.4 10.6 340.6C21.4 330 39.9 327.1 53.4 337.3C54.3 338 55.2 338.6 56.5 339.5C56.7 337.1 56.9 335.1 57 333.2C63.2 333.2 69.2 333.2 75.6 333.2C75.5 357.1 75.5 380.7 75.5 405.3ZM57.7 368.7C58.2 364.7 56.9 360.7 54.7 357.2C50.2 350 43.5 347 35.2 348.2C27.7 349.2 22.2 353.3 20 360.7C19 364.3 18.7 368.2 18.8 372C19.1 382.7 30.1 394.2 45.4 388.9C52.3 386.5 58.2 378.1 57.7 368.7Z" fill="currentColor"></path><path d="M261.1 369C260.1 347.4 279.3 330.6 298.6 330.9C318.3 331.2 337.4 345.3 337.2 369.4C337 394.1 316.7 407 299.1 407.3C279.7 407.6 260.1 390.7 261.1 369ZM298.7 390.1C308.3 390.1 314.9 384.9 317.5 375.6C318.7 371.1 318.6 366.8 317.4 362.4C315.3 354.6 309.1 349.3 300.7 348.3C293.2 347.4 285.4 351.8 282 358.8C279.4 364.2 279 369.7 280.4 375.6C282.6 384.7 291 390.7 298.7 390.1Z" fill="currentColor"></path><path d="M351.4 333.1C357.3 333.1 362.9 333.1 369 333.1C369.1 334.5 369.3 335.9 369.4 337.3C369.4 346.9 369.3 356.6 369.5 366.2C369.6 370.5 369.9 374.8 370.4 379.1C371.1 385 375.7 389.5 381 390C388.6 390.7 393.9 387.9 395.6 381.7C396.5 378.2 396.8 374.5 396.8 370.9C396.9 360.3 396.8 349.6 396.8 339C396.8 337.2 396.8 335.4 396.8 333.1C402.9 332.5 408.6 332.9 414.6 332.8C414.8 334.1 415.1 335.2 415.1 336.3C415.1 348.6 415.3 360.9 415 373.2C414.9 377.4 414.2 381.8 413.1 385.9C410 397.9 401.9 404.8 389.7 406.6C384.3 407.4 378.8 407.1 373.4 406C361 403.5 353.4 392.2 352.3 382.3C351.5 374.9 351.4 367.4 351.2 360C351 352.7 351.1 345.4 351.2 338.1C351.2 336.6 351.3 335 351.4 333.1Z" fill="currentColor"></path><path d="M122.2 348.2C121 348 120.2 348 119.4 347.8C115.4 346.8 113.1 347.6 111 350.9C108.9 354.2 107.9 357.8 107.9 361.7C107.8 374.3 107.7 386.9 107.6 399.5C107.6 401.3 107.3 403 107.1 405C100.9 405 95.1 405 88.8 405C88.8 380.9 88.8 357.1 88.8 333.2C90.4 333 91.3 332.9 92.3 332.9C96.3 332.9 100.2 332.9 104.5 332.9C104.8 335.1 105.1 337 105.5 339.6C111.6 332 118.5 328.7 127.8 332.8C126.6 338.3 123.9 343.1 122.2 348.2Z" fill="currentColor"></path></g></svg></a>
+
+    <nav class="nav" aria-label="Main">
+      <ul class="nav__list">
+        <li class="nav__item "><a class="nav__link" href="/cararmour.sg/">Home</a></li>
+        <li class="nav__item nav__item--has-panel ">
+          <button class="nav__link" type="button" aria-expanded="false" aria-haspopup="true">
+            Ceramic Coating
+            <svg class="nav__caret" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4.5 6 8.5 10 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__panel">
+            <li><a href="/cararmour.sg/ceramic-coating-price-singapore/">Coating Price List<small>2026 rates by vehicle size, from S$248</small></a></li>
+            <li><a href="/cararmour.sg/ceramic-coating-singapore/">Ceramic Coating<small>Packages, layers &amp; warranty</small></a></li>
+            <li><a href="/cararmour.sg/graphene-coating-singapore/">Graphene Coating<small>Artdeshine V3 · 5-year durability</small></a></li>
+          </ul>
+        </li>
+        <li class="nav__item "><a class="nav__link" href="/cararmour.sg/car-interior-detailing/">Interior Detailing</a></li>
+        <li class="nav__item "><a class="nav__link" href="/cararmour.sg/car-polishing-paint-correction/">Polishing</a></li>
+        <li class="nav__item "><a class="nav__link" href="/cararmour.sg/coat-maintenance/">Maintenance</a></li>
+        <li class="nav__item "><a class="nav__link" href="/cararmour.sg/reviews/">Reviews</a></li>
+        <li class="nav__item "><a class="nav__link" href="/cararmour.sg/contact/">Contact</a></li>
+      </ul>
+
+      <a class="btn btn--primary btn--sm nav__cta" href="https://sgpremiumdetailing.as.me/schedule.php" target="_blank" rel="noopener">Book Now</a>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <ul class="mobile-nav__list">
+    <li><a class="mobile-nav__link" href="/cararmour.sg/"><span class="index-num">01</span>Home</a></li>
+    <li>
+      <button class="mobile-nav__link" type="button" data-subnav aria-expanded="false" aria-controls="m-coating"><span class="index-num">02</span>Ceramic Coating</button>
+      <ul class="mobile-nav__sub" id="m-coating">
+        <li><a href="/cararmour.sg/ceramic-coating-price-singapore/">Coating Price List 2026</a></li>
+        <li><a href="/cararmour.sg/ceramic-coating-singapore/">Ceramic Coating Singapore</a></li>
+        <li><a href="/cararmour.sg/graphene-coating-singapore/">Graphene Coating</a></li>
+      </ul>
+    </li>
+    <li><a class="mobile-nav__link" href="/cararmour.sg/car-interior-detailing/"><span class="index-num">03</span>Interior</a></li>
+    <li><a class="mobile-nav__link" href="/cararmour.sg/car-polishing-paint-correction/"><span class="index-num">04</span>Polishing</a></li>
+    <li><a class="mobile-nav__link" href="/cararmour.sg/coat-maintenance/"><span class="index-num">05</span>Maintenance</a></li>
+    <li><a class="mobile-nav__link" href="/cararmour.sg/reviews/"><span class="index-num">06</span>Reviews</a></li>
+    <li><a class="mobile-nav__link" href="/cararmour.sg/contact/"><span class="index-num">07</span>Contact</a></li>
+  </ul>
+  <div class="mobile-nav__foot">
+    <a class="btn btn--primary btn--block" href="https://sgpremiumdetailing.as.me/schedule.php" target="_blank" rel="noopener">Book Now</a>
+    <a class="btn btn--ghost btn--block" href="https://wa.me/6588501200" target="_blank" rel="noopener">WhatsApp 8850 1200</a>
+    <p class="dim" style="font-size:var(--fs-xs);margin:.5rem 0 0">Mon–Sun 10:00–20:00 · Closed Wednesday</p>
+  </div>
+</div>
+
+<main id="main">
+<div class="sg-bar"><div class="container container--wide">Design system · étape 1 · document de validation interne</div></div>
+
+<!-- ═══ Démonstration du composant HERO (H1 réel de l'accueil) ═══ -->
+<section class="hero">
+  <div class="hero__media">
+    <img src="/cararmour.sg/assets/img/ceramic-coating-singapore-hero-800.webp"
+         srcset="/cararmour.sg/assets/img/ceramic-coating-singapore-hero-480.webp 480w, /cararmour.sg/assets/img/ceramic-coating-singapore-hero-800.webp 800w"
+         sizes="100vw" alt="Silver Mercedes-AMG after premium car detailing in Singapore" width="1000" height="684" fetchpriority="high">
+  </div>
+  <div class="container container--wide hero__inner">
+    <p class="eyebrow">Singapore · Doorstep service</p>
+    <h1 class="t-hero">Car Detailing Singapore<br><span class="gold">Premium Coating</span> &amp; Grooming</h1>
+    <p class="lead measure" style="margin-top:1.75rem">Ceramic and graphene coating, interior detailing and paint correction — carried out by certified installers at your carpark, anywhere on the island.</p>
+    <div class="cta-actions" style="margin-top:2.5rem">
+      <a class="btn btn--primary" href="https://sgpremiumdetailing.as.me/schedule.php" target="_blank" rel="noopener">Book a slot</a>
+      <a class="btn btn--ghost" href="/cararmour.sg/ceramic-coating-price-singapore/">See coating prices</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 01 · PALETTE ═══ -->
+<section class="section section--void">
+  <div class="container container--wide">
+    <div class="section-head">
+      <div>
+        <p class="section-label"><span class="index-num">01</span> Palette</p>
+        <h2>Quasi-noir, acier, champagne</h2>
+        <p class="lead measure">Aucun blanc pur en fond. Un seul accent — le doré champagne — réservé aux CTA, aux chiffres et aux filets. Tous les couples texte/fond passent le AA.</p>
+      </div>
+    </div>
+
+    <div class="sg-swatches" data-reveal>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#0A0A0C"></div><div class="sg-swatch__name">Void</div><div class="sg-swatch__hex">#0A0A0C</div><p class="sg-swatch__use">Fond principal, header opaque, overlay mobile.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#141418"></div><div class="sg-swatch__name">Charcoal</div><div class="sg-swatch__hex">#141418</div><p class="sg-swatch__use">Sections alternées, cartes prix, footer.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#1A1A20"></div><div class="sg-swatch__name">Graphite</div><div class="sg-swatch__hex">#1A1A20</div><p class="sg-swatch__use">Cartes service, panneau de nav, carte mise en avant.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#232329"></div><div class="sg-swatch__name">Slate</div><div class="sg-swatch__hex">#232329</div><p class="sg-swatch__use">Surface élevée, état hover.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#F5F5F0"></div><div class="sg-swatch__name">Paper</div><div class="sg-swatch__hex">#F5F5F0</div><p class="sg-swatch__use">Texte primaire · 18,4:1 sur Void.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#9A9AA4"></div><div class="sg-swatch__name">Steel</div><div class="sg-swatch__hex">#9A9AA4</div><p class="sg-swatch__use">Texte secondaire · 7,0:1 sur Void.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#7C7C87"></div><div class="sg-swatch__name">Steel dim</div><div class="sg-swatch__hex">#7C7C87</div><p class="sg-swatch__use">Captions, méta · 4,8:1 sur Void.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#C9A96B"></div><div class="sg-swatch__name">Gold</div><div class="sg-swatch__hex">#C9A96B</div><p class="sg-swatch__use">Accent unique · 8,8:1 sur Void. CTA, chiffres, filets.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#E2CB9C"></div><div class="sg-swatch__name">Gold light</div><div class="sg-swatch__hex">#E2CB9C</div><p class="sg-swatch__use">Hover des boutons pleins, prix mis en avant.</p></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip" style="background:#8C7440"></div><div class="sg-swatch__name">Gold deep</div><div class="sg-swatch__hex">#8C7440</div><p class="sg-swatch__use">Numérotation éditoriale, puces, séparateurs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 · TYPOGRAPHIE ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">02</span> Typographie</p>
+        <h2>Archivo Expanded &amp; Inter</h2>
+      </div>
+      <p class="lead">Titres en Archivo sur l'axe de chasse 125 %, capitales, interlettrage serré aux grandes tailles et large sur les labels. Corps en Inter 300/400, interligne 1,72.</p>
+    </div>
+
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Hero<br>Archivo 650 · wdth 125<br>40 → 92 px</div>
+      <div><span class="t-hero">Ceramic Coating</span></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">H1<br>34 → 64 px</div>
+      <div><p class="t-display mb-0">Graphene Coating Singapore</p></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">H2<br>28 → 46 px</div>
+      <div><h2 class="mb-0">Done at your doorstep</h2></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">H3<br>19 → 26 px</div>
+      <div><h3 class="mb-0">Five-year durability</h3></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Label · eyebrow<br>11 px · 0,24 em</div>
+      <div><p class="eyebrow mb-0">Artdeshine V3 certified installer</p></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Chapô<br>Inter 300 · 17 → 21 px</div>
+      <div><p class="lead mb-0">A real ceramic coating is a chemical bond, not a wax. Applied properly, it changes how the paint behaves for years.</p></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Corps<br>Inter 330 · 16 → 17 px</div>
+      <div class="measure"><p class="muted mb-0">We clay and chemical-wash the exterior, machine-polish out swirl marks and water spots, then bond the coating layer by layer. The car stays with our team for four to six hours depending on the package, and we work wherever it is parked.</p></div>
+    </div>
+    <div class="sg-specimen">
+      <div class="sg-specimen__meta">Chiffre clé<br>Archivo 600 · wdth 125</div>
+      <div><span class="t-mega gold">213</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 03 · BOUTONS ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head">
+      <div>
+        <p class="section-label"><span class="index-num">03</span> Actions</p>
+        <h2>Boutons &amp; liens</h2>
+      </div>
+    </div>
+    <div class="stack stack--lg">
+      <div class="sg-row">
+        <a class="btn btn--primary" href="#0">Book a slot</a>
+        <a class="btn btn--ghost" href="#0">See prices</a>
+        <a class="btn btn--primary btn--sm" href="#0">Book now</a>
+        <a class="btn btn--ghost btn--sm" href="#0">WhatsApp us</a>
+      </div>
+      <div class="sg-row">
+        <a class="link-arrow" href="#0">Ceramic coating price list
+          <svg class="ico" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--quiet" href="#0">Read the guide</a>
+      </div>
+      <div class="sg-row">
+        <span class="tag">Certified installer</span>
+        <span class="tag tag--gold">5-year warranty</span>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol>
+          <li><a href="/cararmour.sg/">Home</a></li>
+          <li><a href="/cararmour.sg/ceramic-coating-singapore/">Ceramic Coating</a></li>
+          <li aria-current="page">Price</li>
+        </ol></nav>
+      </div>
+      <p class="sg-note">Le bouton plein se remplit de gauche à droite au survol (420 ms). Le lien fléché voit son filet passer de 24 % à 100 % de la largeur et la flèche avancer de 5 px.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 04 · CHIFFRES CLÉS ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">04</span> Preuve</p>
+        <h2>Chiffres clés</h2>
+      </div>
+      <p class="lead">Très grand corps, filets verticaux 1&nbsp;px, exposant doré. En dessous de 760&nbsp;px, la rangée se découpe en lignes séparées par des filets horizontaux.</p>
+    </div>
+    <div class="stat-row" data-reveal>
+      <div class="stat"><span class="stat__num">213<sup>+</sup></span><p class="stat__label">Verified customer reviews across Facebook and Google</p></div>
+      <div class="stat"><span class="stat__num">4.9<sup>/5</sup></span><p class="stat__label">Average rating over the last three years</p></div>
+      <div class="stat"><span class="stat__num">5<sup>yrs</sup></span><p class="stat__label">Coat bonding warranty on Artdeshine Graphene V3</p></div>
+      <div class="stat"><span class="stat__num">100<sup>%</sup></span><p class="stat__label">Island-wide doorstep service, no workshop drop-off</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 05 · CARTES SERVICE ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head">
+      <div>
+        <p class="section-label"><span class="index-num">05</span> Services</p>
+        <h2>Cartes service</h2>
+      </div>
+    </div>
+    <div class="grid grid--3">
+      <a class="svc-card" href="#0" data-reveal="0">
+        <div class="svc-card__media">
+          <span class="index-num svc-card__num">01</span>
+          <img src="/cararmour.sg/assets/img/ceramic-coating-application-800.webp" srcset="/cararmour.sg/assets/img/ceramic-coating-application-480.webp 480w, /cararmour.sg/assets/img/ceramic-coating-application-800.webp 800w" sizes="(min-width:900px) 33vw, 100vw" alt="Ceramic coating being applied to a black car bonnet in Singapore" width="1389" height="928" loading="lazy">
+        </div>
+        <div class="svc-card__body">
+          <h3>Ceramic Coating</h3>
+          <p>A chemical bond over the clear coat: sharper gloss, water that sheets off, and far less etching from rain and bird droppings.</p>
+          <div class="svc-card__foot">
+            <span class="svc-card__price">From S$388</span>
+            <svg class="svc-card__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </a>
+      <a class="svc-card" href="#0" data-reveal="1">
+        <div class="svc-card__media">
+          <span class="index-num svc-card__num">02</span>
+          <img src="/cararmour.sg/assets/img/car-interior-detailing-800.webp" srcset="/cararmour.sg/assets/img/car-interior-detailing-480.webp 480w, /cararmour.sg/assets/img/car-interior-detailing-800.webp 800w" sizes="(min-width:900px) 33vw, 100vw" alt="Detailer deep cleaning a car dashboard during interior detailing in Singapore" width="1389" height="928" loading="lazy">
+        </div>
+        <div class="svc-card__body">
+          <h3>Interior Detailing</h3>
+          <p>Anti-bacterial steam clean, full vacuum, leather conditioning and dashboard care — done in your carpark in about an hour.</p>
+          <div class="svc-card__foot">
+            <span class="svc-card__price">From S$100</span>
+            <svg class="svc-card__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </a>
+      <a class="svc-card" href="#0" data-reveal="2">
+        <div class="svc-card__media">
+          <span class="index-num svc-card__num">03</span>
+          <img src="/cararmour.sg/assets/img/car-polishing-paint-correction-784.webp" srcset="/cararmour.sg/assets/img/car-polishing-paint-correction-480.webp 480w, /cararmour.sg/assets/img/car-polishing-paint-correction-784.webp 784w" sizes="(min-width:900px) 33vw, 100vw" alt="Machine polishing a dark blue car bonnet during paint correction" width="784" height="636" loading="lazy">
+        </div>
+        <div class="svc-card__body">
+          <h3>Paint Correction</h3>
+          <p>Machine polishing that removes swirl marks, water spots and light scratches before any coating goes on.</p>
+          <div class="svc-card__foot">
+            <span class="svc-card__price">From S$238</span>
+            <svg class="svc-card__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 · CARTES PRIX « MENU » ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">06</span> Tarifs</p>
+        <h2>Cartes prix</h2>
+      </div>
+      <p class="lead">Composition de carte de menu : intitulé, description courte, puis les lignes de prix reliées par des points de conduite. Filet doré animé en tête de carte.</p>
+    </div>
+    <div class="price-grid">
+      <article class="price-menu" data-reveal="0">
+        <div class="price-menu__head">
+          <span class="price-menu__term">1 year · Nano</span>
+          <h3>Nano Coating</h3>
+          <p>Entry-level gloss and hydrophobics. Ideal for a newer car that just needs protecting.</p>
+        </div>
+        <ul class="price-menu__lines">
+          <li class="price-line"><span class="price-line__name">S / M Sedan<small>Civic, Altis, A-Class</small></span><span class="price-line__dots"></span><span class="price-line__val">S$248</span></li>
+          <li class="price-line"><span class="price-line__name">Large Sedan<small>Camry, E-Class, 5 Series</small></span><span class="price-line__dots"></span><span class="price-line__val">S$288</span></li>
+          <li class="price-line"><span class="price-line__name">MPV / SUV<small>Alphard, X5, Kluger</small></span><span class="price-line__dots"></span><span class="price-line__val">S$328</span></li>
+          <li class="price-line"><span class="price-line__name">Luxury / Exotic<small>Porsche, Maserati, Tesla S</small></span><span class="price-line__dots"></span><span class="price-line__val">S$398</span></li>
+        </ul>
+        <div class="price-menu__foot">
+          <a class="btn btn--ghost btn--block btn--sm" href="#0">Book nano coating</a>
+          <p class="price-menu__note">3–4 hours · includes claying and chemical wash</p>
+        </div>
+      </article>
+
+      <article class="price-menu is-featured" data-reveal="1">
+        <span class="price-menu__flag">Most booked</span>
+        <div class="price-menu__head">
+          <span class="price-menu__term">3 years · Ceramic</span>
+          <h3>Ceramic Coating</h3>
+          <p>Metal-oxide ceramic with a 3-year coat bonding warranty, applied by a certified installer.</p>
+        </div>
+        <ul class="price-menu__lines">
+          <li class="price-line"><span class="price-line__name">S / M Sedan<small>Civic, Altis, A-Class</small></span><span class="price-line__dots"></span><span class="price-line__val">S$388</span></li>
+          <li class="price-line"><span class="price-line__name">Large Sedan<small>Camry, E-Class, 5 Series</small></span><span class="price-line__dots"></span><span class="price-line__val">S$448</span></li>
+          <li class="price-line"><span class="price-line__name">MPV / SUV<small>Alphard, X5, Kluger</small></span><span class="price-line__dots"></span><span class="price-line__val">S$508</span></li>
+          <li class="price-line"><span class="price-line__name">Luxury / Exotic<small>Porsche, Maserati, Tesla S</small></span><span class="price-line__dots"></span><span class="price-line__val">S$628</span></li>
+        </ul>
+        <div class="price-menu__foot">
+          <a class="btn btn--primary btn--block btn--sm" href="#0">Book ceramic coating</a>
+          <p class="price-menu__note">4–5 hours · paint correction included</p>
+        </div>
+      </article>
+
+      <article class="price-menu" data-reveal="2">
+        <div class="price-menu__head">
+          <span class="price-menu__term">5 years · Graphene</span>
+          <h3>Graphene V3</h3>
+          <p>Artdeshine Nano Graphene V3 — the hardest, most flexible coating we install, with reduced heat retention.</p>
+        </div>
+        <ul class="price-menu__lines">
+          <li class="price-line"><span class="price-line__name">S / M Sedan<small>Civic, Altis, A-Class</small></span><span class="price-line__dots"></span><span class="price-line__val">S$688</span></li>
+          <li class="price-line"><span class="price-line__name">Large Sedan<small>Camry, E-Class, 5 Series</small></span><span class="price-line__dots"></span><span class="price-line__val">S$768</span></li>
+          <li class="price-line"><span class="price-line__name">MPV / SUV<small>Alphard, X5, Kluger</small></span><span class="price-line__dots"></span><span class="price-line__val">S$838</span></li>
+          <li class="price-line"><span class="price-line__name">Luxury / Exotic<small>Porsche, Maserati, Tesla S</small></span><span class="price-line__dots"></span><span class="price-line__val">S$988</span></li>
+        </ul>
+        <div class="price-menu__foot">
+          <a class="btn btn--ghost btn--block btn--sm" href="#0">Book graphene coating</a>
+          <p class="price-menu__note">5–6 hours · windscreen coating included</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 07 · MATRICE TARIFAIRE ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">07</span> Page prix</p>
+        <h2>Matrice taille × durée</h2>
+      </div>
+      <p class="lead">Table sémantique sur desktop. Sous 820&nbsp;px elle se recompose en cartes empilées, chaque cellule reprenant son en-tête de colonne — pas de scroll horizontal.</p>
+    </div>
+    <table class="price-matrix" data-reveal>
+      <caption>All-in rates in Singapore dollars. Paint correction, claying and chemical wash included in every package.</caption>
+      <thead>
+        <tr><th scope="col">Vehicle size</th><th scope="col">1 Yr Nano</th><th scope="col">3 Yrs Ceramic</th><th scope="col">5 Yrs Graphene</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">S / M Sedan<small>Civic, Altis, A-Class</small></th><td data-th="1 Yr Nano">S$248</td><td data-th="3 Yrs Ceramic">S$388</td><td data-th="5 Yrs Graphene" class="is-hero">S$688</td></tr>
+        <tr><th scope="row">Large Sedan<small>Camry, E-Class, 5 Series</small></th><td data-th="1 Yr Nano">S$288</td><td data-th="3 Yrs Ceramic">S$448</td><td data-th="5 Yrs Graphene" class="is-hero">S$768</td></tr>
+        <tr><th scope="row">MPV / SUV<small>Alphard, X5, Kluger</small></th><td data-th="1 Yr Nano">S$328</td><td data-th="3 Yrs Ceramic">S$508</td><td data-th="5 Yrs Graphene" class="is-hero">S$838</td></tr>
+        <tr><th scope="row">Luxury / Exotic<small>Porsche, Maserati, Tesla S</small></th><td data-th="1 Yr Nano">S$398</td><td data-th="3 Yrs Ceramic">S$628</td><td data-th="5 Yrs Graphene" class="is-hero">S$988</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ 08 · DÉROULÉ ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">08</span> Process</p>
+        <h2>Déroulé numéroté</h2>
+      </div>
+      <p class="lead">Compteur CSS en chiffres dorés, filets 1&nbsp;px pleine largeur. Sert aux pages service et au bloc « how it works » de l'accueil.</p>
+    </div>
+    <ol class="steps" data-reveal>
+      <li class="step"><h3>Tell us the car and the postcode</h3><p>Send the model and where it is parked over WhatsApp. We confirm the size band, the package and a two-hour arrival window.</p></li>
+      <li class="step"><h3>We come to you</h3><p>The team arrives with water, power and lighting. Covered carpark, condo lot or landed driveway — anywhere on the island.</p></li>
+      <li class="step"><h3>Correction, then coating</h3><p>Claying and chemical wash, machine polish to pull out swirl marks and water spots, then the coating is bonded layer by layer.</p></li>
+      <li class="step"><h3>Cure, inspect, hand back</h3><p>We walk you around the car under inspection light and leave you the aftercare sheet and your warranty reference.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══ 09 · FAQ ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">09</span> FAQ</p>
+        <h2>Accordéon</h2>
+      </div>
+      <p class="lead">Hauteur animée, <code style="font-size:.85em">aria-expanded</code> et <code style="font-size:.85em">aria-controls</code> corrects — le contenu reste dans le DOM pour le balisage FAQPage.</p>
+    </div>
+    <div class="accordion" data-reveal>
+      <div class="accordion__item">
+        <h3 style="margin:0"><button class="accordion__trigger" type="button" aria-expanded="true" aria-controls="faq-1"><span class="accordion__sign" aria-hidden="true"></span>How much does ceramic coating cost in Singapore?</button></h3>
+        <div class="accordion__panel" id="faq-1"><div><p>A three-year ceramic coating runs from S$388 for a small or mid-size sedan up to S$628 for a luxury or exotic car. The price covers claying, chemical wash and machine polishing before the coating goes on — there is no separate prep fee.</p></div></div>
+      </div>
+      <div class="accordion__item">
+        <h3 style="margin:0"><button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-2"><span class="accordion__sign" aria-hidden="true"></span>Is graphene coating worth the extra over ceramic?</button></h3>
+        <div class="accordion__panel" id="faq-2"><div><p>If you keep your car more than three years, yes. Artdeshine Graphene V3 carries a five-year bonding warranty, holds less heat on dark paint and stays slicker for longer between washes.</p></div></div>
+      </div>
+      <div class="accordion__item">
+        <h3 style="margin:0"><button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-3"><span class="accordion__sign" aria-hidden="true"></span>Can you really coat a car at my carpark?</button></h3>
+        <div class="accordion__panel" id="faq-3"><div><p>Yes. We carry our own water, power and lighting, and we work island-wide. A covered or sheltered lot is preferable for coating work so the surface stays dry through the cure.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 10 · AVIS ═══ -->
+<section class="section section--charcoal">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">10</span> Réassurance</p>
+        <h2>Cartes avis</h2>
+      </div>
+      <p class="lead">Avis écrits en dur dans le HTML — aucun widget tiers, aucun script externe, indexables et sans impact sur le LCP.</p>
+    </div>
+    <div class="grid grid--3">
+      <article class="review" data-reveal="0">
+        <div class="review__stars" role="img" aria-label="5 out of 5">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg>
+        </div>
+        <p class="review__text">My car had some water marks. Arranged for a maintenance polish and my car is super shiny again. The team were very polite and the job was done professionally.</p>
+        <div class="review__who"><span class="review__avatar">HC</span><span><span class="review__name">Henry Cheng</span><br><span class="review__meta">Facebook · Dec 2021</span></span></div>
+      </article>
+      <article class="review" data-reveal="1">
+        <div class="review__stars" role="img" aria-label="5 out of 5">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg>
+        </div>
+        <p class="review__text">Fast &amp; superb service team! The coating was superbly done. My car has a few water marks which cannot seem to go off even after my previous groomer tried, but this team successfully removed it. Strongly recommend them!</p>
+        <div class="review__who"><span class="review__avatar">JF</span><span><span class="review__name">Jenne Foo</span><br><span class="review__meta">Facebook · Dec 2021</span></span></div>
+      </article>
+      <article class="review" data-reveal="2">
+        <div class="review__stars" role="img" aria-label="5 out of 5">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L10 14.9l-5.25 2.75 1-5.85L1.5 7.65l5.9-.85z"/></svg>
+        </div>
+        <p class="review__text">Excellent and trusted service from the team. Car is clean, looks new after the coating service.</p>
+        <div class="review__who"><span class="review__avatar">HK</span><span><span class="review__name">Howe Heng Kwek</span><br><span class="review__meta">Facebook · Oct 2021</span></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 11 · FORMULAIRE ═══ -->
+<section class="section section--void section--line">
+  <div class="container container--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="section-label"><span class="index-num">11</span> Contact</p>
+        <h2>Champs de formulaire</h2>
+      </div>
+      <p class="lead">Fond charbon, filet 1&nbsp;px qui passe au doré au focus. Aucun arrondi, aucune ombre portée.</p>
+    </div>
+    <form class="grid grid--2" style="--grid-gap:1.5rem" data-reveal onsubmit="return false">
+      <div class="field"><label for="sg-name">Name</label><input id="sg-name" type="text" placeholder="Your name"></div>
+      <div class="field"><label for="sg-phone">Mobile</label><input id="sg-phone" type="tel" placeholder="8123 4567"></div>
+      <div class="field"><label for="sg-car">Car model</label><input id="sg-car" type="text" placeholder="BMW 520i"></div>
+      <div class="field"><label for="sg-svc">Service</label><select id="sg-svc"><option>Ceramic coating</option><option>Graphene coating</option><option>Interior detailing</option><option>Paint correction</option><option>Coat maintenance</option></select></div>
+      <div class="field" style="grid-column:1/-1"><label for="sg-msg">Anything we should know</label><textarea id="sg-msg" placeholder="Where the car is parked, preferred timing…"></textarea></div>
+      <div style="grid-column:1/-1"><button class="btn btn--primary" type="submit">Send enquiry</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- ═══ 12 · BANDEAU CTA ═══ -->
+<section class="section section--sm cta-band">
+  <div class="container container--wide">
+    <div class="section-head section-head--split" style="margin-bottom:0">
+      <div>
+        <p class="eyebrow">Ready when you are</p>
+        <h2 class="mb-0">Treat your car the right way</h2>
+      </div>
+      <div>
+        <p class="lead" style="margin-bottom:1.75rem">Mon–Sun, 10:00 to 20:00. Closed Wednesday. Tell us the model and the postcode — we will confirm the slot within the hour.</p>
+        <div class="cta-actions">
+          <a class="btn btn--primary" href="https://sgpremiumdetailing.as.me/schedule.php" target="_blank" rel="noopener">Book a slot</a>
+          <a class="btn btn--ghost" href="https://wa.me/6588501200" target="_blank" rel="noopener">WhatsApp 8850 1200</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <svg class="logo-lockup" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120.6 297.44" fill="none" aria-hidden="true" focusable="false"><g transform="translate(-9.76 0)"><path d="M458.7 293.9C444.1 293.9 430.5 293.9 416.5 293.9C415.6 293 414.3 291.9 413.2 290.8C395.3 272.9 377.4 255.1 359.7 237.1C357.4 234.8 355.2 233.9 351.9 234C342.1 234.3 332.3 234.1 322.5 234.1C321.4 234.1 320.3 233.8 319.2 233.7C318.2 229.9 318 201.2 319 195.9C320.6 195.8 322.4 195.6 324.2 195.6C343.2 195.6 362.1 195.5 381.1 195.6C387.3 195.6 393 194.5 398.3 191.3C408.3 185.2 414.1 176.2 416.2 164.5C417.9 155.6 416.2 147.3 412.1 139.6C405.6 127.3 395.2 120.7 381.1 120.6C357.2 120.5 333.2 120.6 309.3 120.6C308.2 120.6 307 120.6 305.6 120.6C305.4 121.9 305 123 305 124.1C305 161.3 305.1 198.6 305.2 235.8C305.2 252.9 305.2 270 305.2 287.2C305.2 289.3 304.9 291.4 304.8 293.9C302.3 293.9 300.2 293.9 297.3 293.9C288.4 284.3 279 274.3 269.7 264.3C269.7 203.7 269.7 143.5 269.7 82.8C271.6 82.7 273.2 82.6 274.8 82.6C310.2 82.6 345.6 82.6 381 82.6C405.4 82.5 423.9 93.5 438 112.7C445.3 122.6 449.5 133.8 451.2 146C454.3 168.6 449.6 189.1 435.3 207.1C426.1 218.7 414.5 227.1 400.2 231.4C399.7 231.5 399.3 231.7 398.8 231.9C398.7 232 398.6 232.1 398.2 232.6C398.9 233.5 399.7 234.5 400.6 235.4C418.6 253.4 436.6 271.4 454.5 289.4C455.8 290.6 456.9 292 458.7 293.9Z" fill="currentColor"></path><path d="M85.8 234.3C75.1 255.6 64.8 276.2 54.6 296.5C49.5 297.5 13.7 297.4 9.8 296.4C9.9 295.6 9.9 294.8 10.2 294.1C52.3 211.8 94.5 129.5 137 46.4C156.5 85.7 175.9 123.9 195 162.6C180.4 162.6 166.6 162.6 152.4 162.6C147.4 152.6 142.4 142.8 137 132.1C125.8 154.4 115.1 175.8 104.3 197.2C128.8 211.9 167.7 211.1 196.3 186.7C213.3 186.7 230.5 186.7 247.8 186.7C246 194.4 229.7 212.9 217.9 221.8C205.3 231.3 191.7 238.6 176.5 243C161.5 247.4 146.2 248.6 130.7 247.4C115.1 246.1 100.2 241.8 85.8 234.3Z" fill="currentColor"></path><path d="M34.8 185C15.1 153.8 10.5 105.7 33 65C58.9 18 106.2 -2.49999 149.7 0.30001C208.3 4.10001 244.4 45.2 255.3 74.7C252.1 76 229.3 76.5 209.9 75.5C209.1 74.7 208 73.7 207.1 72.5C194.9 57.1 179.2 47.2 160 43C135.4 37.6 112.7 42.5 92.6 57.3C75.5 69.9 64.4 87 60.7 108.3C59.4 116 58.4 123.7 59.7 131.5C60.2 134.5 60.2 137.6 58.5 140.7C51 154.6 43.7 168.5 36.4 182.5C36 183.1 35.6 183.8 34.8 185Z" fill="currentColor"></path><path d="M208.2 296.2C202.3 284.1 196.4 271.8 190.4 259.4C194.2 258.3 225.5 258 232 259C238.2 271 244.5 283.3 250.9 295.8C246.6 296.7 216.2 297 208.2 296.2Z" fill="var(--logo-accent,#C9A96B)"></path></g><g transform="translate(505.12 98.2) scale(1.3151) translate(0 -330.72)"><path d="M468 334.2C466.1 338.7 464.2 343.2 462.2 348C461.4 347.9 460.4 348 459.5 347.7C455.9 346.3 453.2 347.7 451.3 350.5C449.9 352.5 448.8 354.9 448.3 357.2C447.6 361.2 447.2 365.4 447.2 369.5C447.1 379.5 447.2 389.4 447.2 399.4C447.2 401.2 447.1 403 447 404.9C440.9 404.9 435.4 404.9 429.3 404.9C428.7 400 429.1 395.2 429 390.5C428.9 385.7 429 380.9 429 376.1C429 371.4 429 366.8 429 362.1C429 357.3 429 352.5 429 347.7C429 342.9 429 338.2 429 333.1C434.5 333.1 439.4 333.1 444.7 333.1C445 334.9 445.2 336.6 445.5 338.8C446.4 338.1 447.2 337.7 447.8 337.1C452.8 331.3 458.9 329.6 466.1 332C466.7 332.2 467.4 332.1 468.1 332.2C468 332.8 468 333.5 468 334.2Z" fill="currentColor"></path><path d="M248 405.1C241.7 405.1 235.9 405.1 229.7 405.1C229.6 403.6 229.4 402.1 229.4 400.7C229.4 388.9 229.5 377.1 229.3 365.3C229.3 362.4 228.9 359.3 228.1 356.5C225.8 347.8 215.3 344.9 208.1 350.9C203.4 354.8 201.7 360.1 201.7 365.9C201.6 377.2 201.7 388.5 201.7 399.8C201.7 401.4 201.6 403 201.5 404.9C195.3 405.7 189.4 405.1 183.8 405.2C182.1 403.5 182.7 401.7 182.7 400.2C182.7 388.7 182.7 377.3 182.6 365.8C182.6 362.9 182.3 359.8 181.5 357C179.3 348.4 172.2 346.3 164.8 349.1C160.9 350.6 158.2 353.7 156.9 357.6C155.9 360.7 155.1 364 155.1 367.3C154.9 378.4 155.1 389.6 155.1 400.7C155.1 402 154.9 403.3 154.8 405C148.9 405.6 143.1 405 137.3 405.4C136.3 401.7 135.8 345.5 136.8 333C142.6 333 148.5 333 154.7 333C155 335 155.2 336.9 155.5 339.3C156.9 338.4 158 337.6 159.2 336.8C164.7 333 170.6 330.9 177.4 330.9C185.6 331 192.1 334.2 197 340.9C197.5 341.6 198 342.2 198.7 343.2C202.5 338.4 207 334.8 212.5 332.8C220.7 329.8 228.8 330.1 236.5 334.5C243.6 338.5 246.8 345.1 247.5 352.9C248.9 369 248.3 385.1 248.4 401.2C248.3 402.2 248.1 403.4 248 405.1Z" fill="currentColor"></path><path d="M75.5 405.3C73.6 405.3 72.2 405.3 70.7 405.3C66.3 405.3 61.8 405.3 57.2 405.3C56.9 403 56.7 401.1 56.4 398.9C55.5 399.5 54.9 399.7 54.5 400.2C42.2 411.2 19.3 409.3 7 393C-2.3 380.6 -3.5 354.4 10.6 340.6C21.4 330 39.9 327.1 53.4 337.3C54.3 338 55.2 338.6 56.5 339.5C56.7 337.1 56.9 335.1 57 333.2C63.2 333.2 69.2 333.2 75.6 333.2C75.5 357.1 75.5 380.7 75.5 405.3ZM57.7 368.7C58.2 364.7 56.9 360.7 54.7 357.2C50.2 350 43.5 347 35.2 348.2C27.7 349.2 22.2 353.3 20 360.7C19 364.3 18.7 368.2 18.8 372C19.1 382.7 30.1 394.2 45.4 388.9C52.3 386.5 58.2 378.1 57.7 368.7Z" fill="currentColor"></path><path d="M261.1 369C260.1 347.4 279.3 330.6 298.6 330.9C318.3 331.2 337.4 345.3 337.2 369.4C337 394.1 316.7 407 299.1 407.3C279.7 407.6 260.1 390.7 261.1 369ZM298.7 390.1C308.3 390.1 314.9 384.9 317.5 375.6C318.7 371.1 318.6 366.8 317.4 362.4C315.3 354.6 309.1 349.3 300.7 348.3C293.2 347.4 285.4 351.8 282 358.8C279.4 364.2 279 369.7 280.4 375.6C282.6 384.7 291 390.7 298.7 390.1Z" fill="currentColor"></path><path d="M351.4 333.1C357.3 333.1 362.9 333.1 369 333.1C369.1 334.5 369.3 335.9 369.4 337.3C369.4 346.9 369.3 356.6 369.5 366.2C369.6 370.5 369.9 374.8 370.4 379.1C371.1 385 375.7 389.5 381 390C388.6 390.7 393.9 387.9 395.6 381.7C396.5 378.2 396.8 374.5 396.8 370.9C396.9 360.3 396.8 349.6 396.8 339C396.8 337.2 396.8 335.4 396.8 333.1C402.9 332.5 408.6 332.9 414.6 332.8C414.8 334.1 415.1 335.2 415.1 336.3C415.1 348.6 415.3 360.9 415 373.2C414.9 377.4 414.2 381.8 413.1 385.9C410 397.9 401.9 404.8 389.7 406.6C384.3 407.4 378.8 407.1 373.4 406C361 403.5 353.4 392.2 352.3 382.3C351.5 374.9 351.4 367.4 351.2 360C351 352.7 351.1 345.4 351.2 338.1C351.2 336.6 351.3 335 351.4 333.1Z" fill="currentColor"></path><path d="M122.2 348.2C121 348 120.2 348 119.4 347.8C115.4 346.8 113.1 347.6 111 350.9C108.9 354.2 107.9 357.8 107.9 361.7C107.8 374.3 107.7 386.9 107.6 399.5C107.6 401.3 107.3 403 107.1 405C100.9 405 95.1 405 88.8 405C88.8 380.9 88.8 357.1 88.8 333.2C90.4 333 91.3 332.9 92.3 332.9C96.3 332.9 100.2 332.9 104.5 332.9C104.8 335.1 105.1 337 105.5 339.6C111.6 332 118.5 328.7 127.8 332.8C126.6 338.3 123.9 343.1 122.2 348.2Z" fill="currentColor"></path></g></svg>
+        <p class="muted" style="max-width:34ch;font-size:var(--fs-sm)">Premium car detailing in Singapore. Ceramic and graphene coating, interior detailing and paint correction, at your doorstep across the island.</p>
+        <p class="dim" style="font-size:var(--fs-xs);margin-top:1.25rem">Mon–Sun 10:00–20:00 · Closed Wednesday</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="/cararmour.sg/ceramic-coating-singapore/">Ceramic Coating</a></li>
+          <li><a href="/cararmour.sg/graphene-coating-singapore/">Graphene Coating</a></li>
+          <li><a href="/cararmour.sg/car-interior-detailing/">Interior Detailing</a></li>
+          <li><a href="/cararmour.sg/car-polishing-paint-correction/">Polishing &amp; Paint Correction</a></li>
+          <li><a href="/cararmour.sg/coat-maintenance/">Coat Maintenance</a></li>
+          <li><a href="/cararmour.sg/mobile-car-detailing/">Doorstep Detailing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Learn</h3>
+        <ul>
+          <li><a href="/cararmour.sg/ceramic-coating-price-singapore/">Coating Price List</a></li>
+          <li><a href="/cararmour.sg/guides/">Detailing Guides</a></li>
+          <li><a href="/cararmour.sg/guides/ceramic-vs-graphene-coating/">Ceramic vs Graphene</a></li>
+          <li><a href="/cararmour.sg/guides/how-long-does-ceramic-coating-last/">Coating Durability</a></li>
+          <li><a href="/cararmour.sg/reviews/">Customer Reviews</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="https://wa.me/6588501200" target="_blank" rel="noopener">WhatsApp 8850 1200</a></li>
+          <li><a href="tel:+6588501200">Call 8850 1200</a></li>
+          <li><a href="https://sgpremiumdetailing.as.me/schedule.php" target="_blank" rel="noopener">Book a slot</a></li>
+          <li><a href="/cararmour.sg/contact/">Contact &amp; hours</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <p style="margin:0">&copy; 2026 Car Armour SG. Mobile detailing across Singapore.</p>
+      <p style="margin:0"><a href="/cararmour.sg/sitemap.xml">Sitemap</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/6588501200" target="_blank" rel="noopener" aria-label="Chat with Car Armour SG on WhatsApp">
+  <span class="wa-fab__ico">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12.04 2.5a9.44 9.44 0 0 0-8.1 14.29L2.5 21.5l4.85-1.38A9.44 9.44 0 1 0 12.04 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M8.9 7.6c.2-.02.4-.02.58 0 .16.01.34.03.5.39.2.44.63 1.53.69 1.64a.4.4 0 0 1 .01.38c-.08.16-.12.26-.24.4-.12.14-.25.31-.36.41-.12.12-.24.24-.11.47.14.24.6 1 1.3 1.62.89.79 1.64 1.04 1.88 1.16.23.12.37.1.5-.06.14-.16.58-.68.74-.91.15-.23.31-.19.52-.11.21.08 1.32.62 1.55.73.23.12.38.17.43.27.06.1.06.55-.13 1.08-.19.53-1.11 1.03-1.54 1.07-.44.05-.85.2-2.85-.6-2.4-.95-3.9-3.43-4.02-3.59-.12-.16-.96-1.28-.96-2.44 0-1.16.6-1.73.82-1.97.21-.24.47-.3.62-.31Z" fill="currentColor"/>
+    </svg>
+  </span>
+  <span class="wa-fab__label">WhatsApp us</span>
+</a>
+
+<script src="/cararmour.sg/assets/js/main.js?v=1074d2c8cd" defer></script>
+</body>
+</html>
