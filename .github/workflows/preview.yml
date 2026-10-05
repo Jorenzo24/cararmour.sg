@@ -16,9 +16,12 @@ permissions:
   pages: write
   id-token: write
 
+# Le workflow intégré pages-build-deployment partage ce groupe. Avec
+# cancel-in-progress, chaque publication tuait la précédente avant qu'elle
+# n'aboutisse, et aucune ne terminait jamais.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   publier:
