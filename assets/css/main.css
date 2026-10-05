@@ -202,6 +202,29 @@ a:hover{ color:var(--c-gold-lite); }
 .section--charcoal{ background:var(--c-charcoal); }
 .section--line{ border-top:1px solid var(--c-line); }
 
+/* Section inversee : on ne change pas de palette, on retourne les jetons.
+   --c-paper devient l'encre, les gris et le dore sont assombris pour tenir
+   le AA sur fond clair. Tous les composants suivent sans retouche. */
+.section--paper{
+  background:#F5F5F0;
+  color:var(--c-paper);           /* re-resout localement : sans cela les
+                                     elements qui heritent la couleur gardent
+                                     celle calculee sur body, donc du clair. */
+  --c-paper:#121216;              /* encre primaire        18,1:1 */
+  --c-steel:#5A5A63;              /* texte secondaire       6,2:1 */
+  --c-steel-dim:#6E6E78;          /* captions               4,9:1 */
+  --c-gold:#7A6436;               /* accent                 5,2:1 */
+  --c-gold-lite:#8C7440;
+  --c-gold-deep:#8C7440;
+  --c-gold-wash:rgba(122,100,54,.1);
+  --c-graphite:#ECECE4;           /* surfaces               */
+  --c-slate:#E2E2D9;
+  --c-line:rgba(18,18,22,.14);
+  --c-line-strong:rgba(18,18,22,.24);
+  --c-line-gold:rgba(122,100,54,.42);
+}
+.section--paper ::selection{ background:var(--c-gold); color:#F5F5F0; }
+
 /* Transition entre sections : filet qui s'eteint aux deux bouts, surmonte
    d'un halo dore a peine perceptible. Marque la coupure sans la souligner. */
 .section--edge{ position:relative; }
