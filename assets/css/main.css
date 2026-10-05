@@ -791,6 +791,7 @@ body.is-locked{ overflow:hidden; }
 
 /* 8.5d Bloc note globale */
 .rating-block{ display:flex; flex-wrap:wrap; align-items:baseline; gap:.75rem 1.75rem; }
+@media (min-width:900px){ .rating-head{ align-items:center; } .rating-head .rating-block{ justify-content:flex-end; } }
 .rating-block__score{ font-family:var(--ff-display); font-stretch:var(--fw-expand); font-weight:600; font-size:clamp(3.25rem, 2rem + 5vw, 6rem); line-height:.86; letter-spacing:-.015em; color:var(--c-gold); font-variant-numeric:tabular-nums; }
 .rating-block__of{ font-size:var(--fs-sm); color:var(--c-steel-dim); }
 .rating-block__stars{ display:flex; gap:.3rem; color:var(--c-gold); }
@@ -940,6 +941,8 @@ body.is-locked{ overflow:hidden; }
 }
 .cta-band > *{ position:relative; }
 .cta-actions{ display:flex; flex-wrap:wrap; gap:.9rem; }
+/* Rappel d'action en pied de section, centre. */
+.section-cta{ display:flex; justify-content:center; margin-top:clamp(2.5rem, 1.8rem + 2.6vw, 4rem); }
 
 /* 8.14 Media éditorial (image + cadre) */
 .figure{ position:relative; }
