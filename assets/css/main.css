@@ -247,17 +247,23 @@ a:hover{ color:var(--c-gold-lite); }
    fond et fortement voile pour rester une trame, pas une illustration. */
 .section--paper-grain{
   background-image:
-    linear-gradient(rgba(246,244,237,.7), rgba(246,244,237,.78)),
+    linear-gradient(rgba(246,244,237,.8), rgba(246,244,237,.87)),
     url('/assets/img/faq-blueprint-1122.webp');
   background-repeat:no-repeat, no-repeat;
-  background-size:cover, cover;
-  background-position:center, center;
+  /* Largeur imposee, hauteur libre : avec cover, la moindre variation de
+     hauteur de section redimensionnait le fond. Ouvrir un accordeon faisait
+     donc bouger le dessin. Ici l'echelle ne depend que de la largeur. */
+  background-size:100% 100%, 100% auto;
+  background-position:center, center top;
 }
 @media (max-width:900px){
   .section--paper-grain{
     background-image:
-      linear-gradient(rgba(246,244,237,.78), rgba(246,244,237,.85)),
+      linear-gradient(rgba(246,244,237,.86), rgba(246,244,237,.91)),
       url('/assets/img/faq-blueprint-760.webp');
+    /* En colonne etroite le dessin ne couvre que le haut : on l'agrandit
+       pour qu'il porte toute la section sans dependre de sa hauteur. */
+    background-size:100% 100%, 190% auto;
   }
 }
 .section--paper ::selection{ background:var(--c-gold); color:#F5F5F0; }
@@ -545,33 +551,38 @@ body.is-locked{ overflow:hidden; }
 .manifesto{ font-size:clamp(1.1875rem, .95rem + 1.35vw, 1.9375rem); line-height:1.44; font-weight:300; color:var(--c-paper); text-wrap:pretty; }
 .manifesto em{ font-style:normal; color:var(--c-gold); }
 
-/* 8.1d Section identite : titre et chapo centres, portrait pose au centre,
-   puis deux colonnes de texte. Le cadrage paysage coupait les techniciens
-   debout, donc le portrait est conserve et contenu en largeur. */
+/* 8.1d Section identite : image et texte de meme hauteur sur grand ecran,
+   empilees en dessous. */
+.story{ display:grid; gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem); align-items:stretch; }
+@media (min-width:920px){ .story{ grid-template-columns:minmax(0,.86fr) minmax(0,1fr); } }
+
 .story__plate{
-  position:relative; margin:clamp(2.5rem, 1.8rem + 2.8vw, 4rem) auto 0;
-  max-width:620px; aspect-ratio:4/5; background:var(--c-graphite);
+  position:relative; margin:0; aspect-ratio:4/5; background:var(--c-graphite);
   border:1px solid rgba(255,255,255,.92);
   box-shadow:0 46px 84px -28px rgba(18,18,22,.46),
              0 18px 38px -14px rgba(18,18,22,.3),
              0 4px 10px -4px rgba(18,18,22,.18);
 }
+@media (min-width:920px){ .story__plate{ aspect-ratio:auto; min-height:520px; } }
 .story__plate img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 
-.story__cols{ display:grid; gap:clamp(2rem, 1.4rem + 2.4vw, 3.5rem); margin-top:clamp(2.75rem, 2rem + 3vw, 4.5rem); }
-@media (min-width:820px){ .story__cols{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-.story__cols h3{
-  margin:0 0 .85rem; font-size:var(--fs-h4); letter-spacing:.055em; color:var(--c-paper);
+.story__text{ display:flex; flex-direction:column; justify-content:center; }
+.story__text h2{ margin-bottom:clamp(1.1rem, .9rem + 1vw, 1.5rem); }
+.story__text p{ color:var(--c-steel); margin:0 0 1.3em; }
+.story__text p:last-child{ margin-bottom:0; }
+.story__text h3{
+  margin:clamp(1.8rem, 1.3rem + 1.6vw, 2.5rem) 0 .85rem;
+  font-size:var(--fs-h4); letter-spacing:.055em; color:var(--c-paper);
 }
-.story__cols h3::before{
+/* Sur fond clair le dore ne tient pas le contraste comme texte : il revient
+   en filet au-dessus de l'intertitre, qui passe a l'encre. */
+.story__text h3::before{
   content:""; display:block; width:30px; height:2px; margin-bottom:1rem;
   background:var(--c-gold-mark, var(--c-gold));
 }
-.story__cols p{ margin:0; color:var(--c-steel); }
 
 /* Justification : acceptable des que la colonne est assez large et que les
-   cesures sont actives. En dessous, les blancs inter-mots se creusent, donc
-   retour au fer a gauche. */
+   cesures sont actives. En dessous, les blancs se creusent, fer a gauche. */
 .text-justify{ text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
 @media (max-width:640px){ .text-justify{ text-align:left; hyphens:manual; } }
 
