@@ -556,32 +556,50 @@ body.is-locked{ overflow:hidden; }
 .manifesto{ font-size:clamp(1.1875rem, .95rem + 1.35vw, 1.9375rem); line-height:1.44; font-weight:300; color:var(--c-paper); text-wrap:pretty; }
 .manifesto em{ font-style:normal; color:var(--c-gold); }
 
-/* 8.1d Section identite : image et texte de meme hauteur sur grand ecran,
-   empilees en dessous. */
-.story{ display:grid; gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem); align-items:stretch; }
-@media (min-width:920px){ .story{ grid-template-columns:minmax(0,.86fr) minmax(0,1fr); } }
+/* 8.1d Section identite. Le balisage suit l'ordre du mobile : titre, chapo,
+   photo, puis les deux blocs. Sur grand ecran la photo reprend une colonne
+   de gauche sur toute la hauteur, le texte occupe la colonne de droite. */
+.story{ display:grid; }
+
+@media (max-width:919px){
+  .story__plate{ margin-block:clamp(1.75rem, 1.2rem + 2vw, 2.75rem); }
+}
+@media (min-width:920px){
+  .story{
+    grid-template-columns:minmax(0,.86fr) minmax(0,1fr);
+    column-gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem);
+    align-content:center;
+    align-items:start;        /* sans quoi chaque bloc de texte s'etire sur
+                                 sa ligne, la photo imposant la hauteur */
+  }
+  /* span large plutot que 1 / -1 : sans grid-template-rows, la ligne -1
+     designe la fin de la grille EXPLICITE, et la photo ne couvrait que la
+     premiere ligne. Les lignes implicites excedentaires sont de hauteur nulle. */
+  .story__plate{ grid-column:1; grid-row:1 / span 20; align-self:stretch; min-height:520px; }
+  .story > :not(.story__plate){ grid-column:2; }
+  .story > h2{ margin-top:0; }
+}
 
 .story__plate{
-  position:relative; margin:0; aspect-ratio:4/5; background:var(--c-graphite);
+  position:relative; margin-inline:0; aspect-ratio:4/5; background:var(--c-graphite);
   border:1px solid rgba(255,255,255,.92);
   box-shadow:0 46px 84px -28px rgba(18,18,22,.46),
              0 18px 38px -14px rgba(18,18,22,.3),
              0 4px 10px -4px rgba(18,18,22,.18);
 }
-@media (min-width:920px){ .story__plate{ aspect-ratio:auto; min-height:520px; } }
+@media (min-width:920px){ .story__plate{ aspect-ratio:auto; margin:0; } }
 .story__plate img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 
-.story__text{ display:flex; flex-direction:column; justify-content:center; }
-.story__text h2{ margin-bottom:clamp(1.1rem, .9rem + 1vw, 1.5rem); }
-.story__text p{ color:var(--c-steel); margin:0 0 1.3em; }
-.story__text p:last-child{ margin-bottom:0; }
-.story__text h3{
+.story > h2{ margin-bottom:clamp(1.1rem, .9rem + 1vw, 1.5rem); }
+.story > p{ color:var(--c-steel); margin:0 0 1.3em; }
+.story > p:last-child{ margin-bottom:0; }
+.story > h3{
   margin:clamp(1.8rem, 1.3rem + 1.6vw, 2.5rem) 0 .85rem;
   font-size:var(--fs-h4); letter-spacing:.055em; color:var(--c-paper);
 }
 /* Sur fond clair le dore ne tient pas le contraste comme texte : il revient
    en filet au-dessus de l'intertitre, qui passe a l'encre. */
-.story__text h3::before{
+.story > h3::before{
   content:""; display:block; width:30px; height:2px; margin-bottom:1rem;
   background:var(--c-gold-mark, var(--c-gold));
 }
