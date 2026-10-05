@@ -229,6 +229,11 @@ a:hover{ color:var(--c-gold-lite); }
   --c-line-gold:rgba(122,100,54,.42);
 }
 @media (max-width:900px){ .section--paper{ background-image:url('/assets/img/section-bg-light-1100.webp'); } }
+/* Sur fond clair, les photos recoivent le meme soulevement que celle de
+   l'equipe, sinon elles paraissent collees. */
+.section--paper .split__media img{
+  box-shadow:0 38px 70px -34px rgba(18,18,22,.45), 0 12px 28px -14px rgba(18,18,22,.22);
+}
 .section--paper ::selection{ background:var(--c-gold); color:#F5F5F0; }
 /* Meme traitement que les autres coupures de section : un filet qui s'eteint
    aux extremites, surmonte d'un halo dore a peine perceptible. */
@@ -859,6 +864,19 @@ body.is-locked{ overflow:hidden; }
 .accordion__trigger[aria-expanded="true"] .accordion__sign::after{ transform:rotate(0deg); }
 .accordion__panel{ overflow:hidden; height:0; transition:height .38s var(--ease); }
 .accordion__panel > div{ padding:0 0 1.85rem calc(16px + 1.25rem); color:var(--c-steel); max-width:72ch; }
+
+/* Variante en panneaux : chaque question est un bloc pose, separe par un
+   ecart et non par un filet. Reponses justifiees avec cesures, sinon les
+   blancs inter-mots se creusent sur une colonne etroite. */
+.accordion--panels{ border-top:0; display:grid; gap:.55rem; }
+.accordion--panels .accordion__item{ border-bottom:0; background:rgba(18,18,22,.045); }
+.accordion--panels .accordion__trigger{ padding:1.15rem clamp(1.1rem, .9rem + .8vw, 1.5rem); gap:1rem; }
+.accordion--panels .accordion__panel > div{
+  padding:0 clamp(1.1rem, .9rem + .8vw, 1.5rem) 1.5rem calc(16px + 2rem);
+  text-align:justify; hyphens:auto; -webkit-hyphens:auto; max-width:none;
+}
+.section--paper .accordion--panels .accordion__item{ background:rgba(18,18,22,.045); }
+.section--paper .accordion--panels .accordion__item:hover{ background:rgba(18,18,22,.065); }
 
 /* 8.7 Carte avis */
 .review{ background:var(--c-charcoal); border:1px solid var(--c-line); padding:clamp(1.5rem,1.1rem + 1.4vw,2.1rem); display:flex; flex-direction:column; gap:1.1rem; }
