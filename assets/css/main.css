@@ -557,50 +557,24 @@ body.is-locked{ overflow:hidden; }
 .manifesto em{ font-style:normal; color:var(--c-gold); }
 
 /* 8.1d Section identite. Le balisage suit l'ordre du mobile : titre, chapo,
-   photo, puis les deux blocs. Sur grand ecran la photo reprend une colonne
-   de gauche sur toute la hauteur, le texte occupe la colonne de droite. */
+   photo, puis les deux blocs. Sur grand ecran la photo reprend la colonne de
+   gauche sur toute la hauteur.
+   ATTENTION A L'ORDRE : les regles de base viennent AVANT les media queries.
+   Declarees apres, elles les ecrasent a specificite egale, et c'est ainsi que
+   aspect-ratio:4/5 a survecu en desktop, donnant une photo de 676 px dans une
+   colonne de 373 px. */
 .story{ display:grid; }
-/* Garde-fou. Un element de grille a min-width:auto par defaut et refuse de
-   passer sous sa largeur intrinseque, ce qui peut le faire deborder d'une
-   colonne etroite. body ayant overflow-x:hidden, le debordement ne se voit
-   pas en defilement mais en image coupee. */
-.story > *{ min-width:0; max-width:100%; }
-.story__plate{ max-width:100%; }
-.story__plate img{ max-width:none; }
-
-@media (max-width:919px){
-  .story__plate{ margin-block:clamp(1.75rem, 1.2rem + 2vw, 2.75rem); }
-}
-@media (min-width:920px){
-  .story{
-    grid-template-columns:minmax(0,.86fr) minmax(0,1fr);
-    column-gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem);
-    align-content:center;
-    align-items:start;        /* sans quoi chaque bloc de texte s'etire sur
-                                 sa ligne, la photo imposant la hauteur */
-  }
-  /* span large plutot que 1 / -1 : sans grid-template-rows, la ligne -1
-     designe la fin de la grille EXPLICITE, et la photo ne couvrait que la
-     premiere ligne. Les lignes implicites excedentaires sont de hauteur nulle. */
-  .story__plate{ grid-column:1; grid-row:1 / span 20; align-self:stretch; min-height:520px; }
-  .story > :not(.story__plate){ grid-column:2; }
-  .story > h2{ margin-top:0; }
-}
 
 .story__plate{
-  /* aspect-ratio indispensable : il reserve la hauteur avant que l'image
-     differee n'arrive. Sans lui le cadre s'effondre a 2 px, l'image n'entre
-     jamais dans le champ et le chargement differe ne se declenche pas. */
-  position:relative; margin-inline:0; aspect-ratio:4/5; background:var(--c-graphite);
-  border:1px solid rgba(255,255,255,.92);
+  position:relative; margin:0; aspect-ratio:4/5; overflow:hidden;
+  background:var(--c-graphite); border:1px solid rgba(255,255,255,.92);
   box-shadow:0 46px 84px -28px rgba(18,18,22,.46),
              0 18px 38px -14px rgba(18,18,22,.3),
              0 4px 10px -4px rgba(18,18,22,.18);
 }
-@media (min-width:920px){ .story__plate{ aspect-ratio:auto; margin:0; } }
-.story__plate img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.story__plate img{ width:100%; height:100%; object-fit:cover; }
 
-.story > h2{ margin-bottom:clamp(1.1rem, .9rem + 1vw, 1.5rem); }
+.story > h2{ margin-bottom:clamp(1.1rem, .9rem + 1vw, 1.5rem); text-align:center; }
 .story > p{ color:var(--c-steel); margin:0 0 1.3em; }
 .story > p:last-child{ margin-bottom:0; }
 .story > h3{
@@ -614,8 +588,24 @@ body.is-locked{ overflow:hidden; }
   background:var(--c-gold-mark, var(--c-gold));
 }
 
-/* Justification : acceptable des que la colonne est assez large et que les
-   cesures sont actives. En dessous, les blancs se creusent, fer a gauche. */
+@media (max-width:919px){
+  .story__plate{ margin-block:clamp(1.75rem, 1.2rem + 2vw, 2.75rem); }
+}
+@media (min-width:920px){
+  .story{
+    grid-template-columns:minmax(0,.86fr) minmax(0,1fr);
+    column-gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem);
+    align-content:center;
+    align-items:start;
+  }
+  .story__plate{
+    grid-column:1; grid-row:1 / span 20; align-self:stretch;
+    aspect-ratio:auto; min-height:520px;
+  }
+  .story > :not(.story__plate){ grid-column:2; }
+  .story > h2{ margin-top:0; }
+}
+
 .text-justify{ text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
 @media (max-width:640px){ .text-justify{ text-align:left; hyphens:manual; } }
 
