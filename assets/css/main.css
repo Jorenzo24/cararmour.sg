@@ -530,14 +530,6 @@ body.is-locked{ overflow:hidden; }
 .ph img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .ph--tall{ aspect-ratio:4/5; }
 @media (min-width:920px){ .ph--tall{ aspect-ratio:auto; height:100%; min-height:460px; } }
-.ph--inset{ margin-top:1.25rem; aspect-ratio:4/3; }
-@media (min-width:920px){
-  .ph--inset{
-    position:absolute; right:-9%; bottom:7%; width:54%; margin-top:0;
-    aspect-ratio:4/3; border-color:var(--c-line-gold);
-    box-shadow:0 30px 70px -30px rgba(0,0,0,.95);
-  }
-}
 .ph__label{
   font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label);
   font-weight:650; text-transform:uppercase; letter-spacing:var(--ls-label); color:var(--c-gold);
@@ -629,23 +621,20 @@ body.is-locked{ overflow:hidden; }
 .svc-feature__num{ position:absolute; top:1.35rem; left:1.5rem; z-index:1; color:var(--c-gold); }
 .svc-feature__body{ padding:clamp(1.75rem, 1.15rem + 2.4vw, 3.25rem); display:flex; flex-direction:column; justify-content:center; gap:1.15rem; }
 .svc-feature__body p{ color:var(--c-steel); margin:0; }
-/* Trois faits, hierarchises par le corps et non par des puces ou des filets.
-   Le prix domine : c'est l'information que le visiteur cherche en premier. */
-.spec{ display:flex; flex-wrap:wrap; gap:clamp(1.5rem, 1rem + 2.4vw, 3rem); margin:1.9rem 0 0; }
-.spec div{ display:grid; gap:.35rem; }
-.spec dt, .spec__label{
-  font-family:var(--ff-display); font-stretch:100%; font-size:.625rem; font-weight:650;
-  text-transform:uppercase; letter-spacing:.18em; color:var(--c-steel-dim); margin:0;
+/* Le prix domine, les deux autres faits se lisent seuls : pas de libelle,
+   la nature de chaque information est evidente a cet endroit. */
+.spec{ display:grid; gap:.7rem; margin:1.9rem 0 0; }
+.spec__price{
+  font-family:var(--ff-display); font-stretch:var(--fw-expand); font-weight:600;
+  font-size:clamp(1.65rem, 1.3rem + 1.5vw, 2.35rem); line-height:1;
+  letter-spacing:-.01em; color:var(--c-gold); font-variant-numeric:tabular-nums;
+  display:flex; align-items:baseline; gap:.5em;
 }
-.spec dd, .spec__val{
-  margin:0; font-family:var(--ff-display); font-stretch:100%; font-weight:600;
-  font-size:var(--fs-h4); letter-spacing:.02em; color:var(--c-paper);
-  font-variant-numeric:tabular-nums;
+.spec__price small{
+  font-family:var(--ff-body); font-stretch:normal; font-weight:400;
+  font-size:.3em; letter-spacing:.2em; text-transform:uppercase; color:var(--c-steel-dim);
 }
-.spec__price .spec__val{
-  font-stretch:var(--fw-expand); font-size:clamp(1.65rem, 1.3rem + 1.5vw, 2.35rem);
-  line-height:1; color:var(--c-gold);
-}
+.spec__meta{ font-size:var(--fs-sm); color:var(--c-steel); letter-spacing:.02em; }
 
 /* 8.4 Carte prix — composition « menu gastronomique » */
 .price-menu{
