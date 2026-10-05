@@ -623,7 +623,7 @@ body.is-locked{ overflow:hidden; }
 .svc-feature__body p{ color:var(--c-steel); margin:0; }
 /* Le prix domine, les deux autres faits se lisent seuls : pas de libelle,
    la nature de chaque information est evidente a cet endroit. */
-.spec{ display:grid; gap:.7rem; margin:1.9rem 0 0; }
+.spec{ display:grid; gap:.6rem; margin:.35rem 0 1.4rem; }
 .spec__price{
   font-family:var(--ff-display); font-stretch:var(--fw-expand); font-weight:600;
   font-size:clamp(1.65rem, 1.3rem + 1.5vw, 2.35rem); line-height:1;
@@ -634,7 +634,9 @@ body.is-locked{ overflow:hidden; }
   font-family:var(--ff-body); font-stretch:normal; font-weight:400;
   font-size:.3em; letter-spacing:.2em; text-transform:uppercase; color:var(--c-steel-dim);
 }
-.spec__meta{ font-size:var(--fs-sm); color:var(--c-steel); letter-spacing:.02em; }
+.spec__meta{
+  font-size:var(--fs-sm); color:var(--c-paper); font-weight:500; letter-spacing:.02em;
+}
 
 /* 8.4 Carte prix — composition « menu gastronomique » */
 .price-menu{
