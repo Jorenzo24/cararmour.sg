@@ -206,7 +206,15 @@ a:hover{ color:var(--c-gold-lite); }
    --c-paper devient l'encre, les gris et le dore sont assombris pour tenir
    le AA sur fond clair. Tous les composants suivent sans retouche. */
 .section--paper{
-  background:#F5F5F0;
+  position:relative; overflow:hidden;
+  padding-block:clamp(7rem, 4.5rem + 9vw, 13rem);
+  background-color:#F5F5F0;
+  /* Perlage : signature visuelle d'une surface hydrophobe, pose en amas
+     dans l'angle bas-droit pour laisser le texte respirer. */
+  background-image:url('/assets/img/beading.svg');
+  background-repeat:no-repeat;
+  background-position:right -70px bottom -70px;
+  background-size:min(62vw, 700px) auto;
   color:var(--c-paper);           /* re-resout localement : sans cela les
                                      elements qui heritent la couleur gardent
                                      celle calculee sur body, donc du clair. */
@@ -224,6 +232,21 @@ a:hover{ color:var(--c-gold-lite); }
   --c-line-gold:rgba(122,100,54,.42);
 }
 .section--paper ::selection{ background:var(--c-gold); color:#F5F5F0; }
+/* Transition entre les sections sombres et la section claire : le fond noir
+   entre dans la section et s'y dissout. Pas de decoupe, pas de vague. */
+.section--paper::before,.section--paper::after{
+  content:""; position:absolute; inset-inline:0; height:clamp(110px, 14vw, 210px);
+  pointer-events:none; z-index:0;
+}
+.section--paper::before{
+  top:0;
+  background:linear-gradient(180deg, #0A0A0C 0%, rgba(10,10,12,.46) 26%, rgba(10,10,12,.12) 62%, rgba(10,10,12,0) 100%);
+}
+.section--paper::after{
+  bottom:0;
+  background:linear-gradient(0deg, #0A0A0C 0%, rgba(10,10,12,.46) 26%, rgba(10,10,12,.12) 62%, rgba(10,10,12,0) 100%);
+}
+.section--paper > *{ position:relative; z-index:1; }
 
 /* Transition entre sections : filet qui s'eteint aux deux bouts, surmonte
    d'un halo dore a peine perceptible. Marque la coupure sans la souligner. */
@@ -278,12 +301,12 @@ a:hover{ color:var(--c-gold-lite); }
   border:1px solid var(--btn-bd); border-radius:var(--radius);
   font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label);
   font-weight:650; text-transform:uppercase; letter-spacing:.17em;
-  text-decoration:none; cursor:pointer; position:relative; overflow:hidden;
+  text-decoration:none; cursor:pointer; position:relative; overflow:hidden; isolation:isolate;
   transition:color var(--dur) var(--ease), border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
 }
 .btn > *{ position:relative; z-index:1; }
 .btn::before{
-  content:""; position:absolute; inset:0; z-index:0;
+  content:""; position:absolute; inset:0; z-index:-1;
   background:var(--c-gold-lite); transform:scaleX(0); transform-origin:left center;
   transition:transform .42s var(--ease);
 }
@@ -295,6 +318,7 @@ a:hover{ color:var(--c-gold-lite); }
 .btn--quiet::before{ display:none; }
 .btn--quiet:hover{ color:var(--c-gold); }
 .btn--sm{ padding:.8rem 1.45rem; min-height:44px; font-size:.625rem; letter-spacing:.15em; }
+.btn--lg{ padding:1.35rem 3rem; min-height:62px; font-size:.75rem; letter-spacing:.19em; }
 .btn--block{ width:100%; }
 .btn .ico{ width:15px; height:15px; flex:none; transition:transform var(--dur) var(--ease); }
 .btn:hover .ico{ transform:translateX(4px); }
@@ -515,7 +539,7 @@ body.is-locked{ overflow:hidden; }
 .ph::after{ bottom:13px; right:13px; border-left:0; border-top:0; }
 .ph img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .ph--tall{ aspect-ratio:4/5; }
-@media (min-width:920px){ .ph--tall{ aspect-ratio:auto; height:100%; min-height:460px; padding-bottom:42%; } }
+@media (min-width:920px){ .ph--tall{ aspect-ratio:auto; height:100%; min-height:460px; } }
 .ph--inset{ margin-top:1.25rem; aspect-ratio:4/3; }
 @media (min-width:920px){
   .ph--inset{
