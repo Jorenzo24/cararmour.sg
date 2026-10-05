@@ -45,54 +45,73 @@
   </div>
 </section>
 
-<!-- ─────────────────── 01 · POSITIONNEMENT ─────────────────── -->
-<section class="section section--void">
+<!-- ─────────────────── IDENTITÉ ─────────────────── -->
+<section class="section section--void about">
   <div class="container container--wide">
-    <div class="section-head section-head--split section-head--top">
-      <div>
-        <p class="section-label"><span class="index-num">01</span> Who we are</p>
-        <h2>Detailing that respects the car</h2>
-        <hr class="rule rule--gold" style="margin:2rem 0 1.4rem;max-width:180px">
-        <p class="dim" style="font-size:var(--fs-sm);max-width:36ch;margin:0">
-          Certified Artdeshine Nano Graphene V3 installer. Doorstep detailing across
-          Singapore, seven days a week except Wednesday.
+
+    <div class="about__head">
+      <h2 data-reveal>Our customers thank Ivan,<br>not the company</h2>
+      <div class="about__lead" data-reveal="1">
+        <p>
+          <strong>Nobody thanks a company.</strong>
+          <span>
+            They thank the person who turned up, worked five hours in their carpark and
+            handed the car back better than they remembered it. That is the whole business.
+            One technician, your parking lot, and a car somebody is proud of.
+          </span>
         </p>
       </div>
-      <p class="manifesto">
-        Car Armour SG has spent years working on other people's cars across Singapore.
-        Daily drivers, weekend machines, and <em>a fair number of things that belong in a museum</em>.
-        Every job runs the same way: correct the paint first, protect it second, and hand the
-        car back better than the day it left the showroom.
-      </p>
     </div>
 
-    <div class="stat-row" data-reveal>
+    <div class="about__body">
+      <figure class="ph" data-reveal>
+        <span class="ph__label">Photo à fournir</span>
+        <p class="ph__hint">Portrait vertical du technicien au travail, de préférence en parking couvert. 1200 &times; 1500 px minimum.</p>
+      </figure>
+
+      <ul class="traits" data-reveal="1">
+        <li class="trait">
+          <h3>He treats the car like his own</h3>
+          <blockquote>Great job done by Ivan, real professional who treated the car like his own, meticulous.</blockquote>
+          <cite>Heng Heng Choo</cite>
+        </li>
+        <li class="trait">
+          <h3>He does not rush</h3>
+          <blockquote>Very professional and good attitude. He never rush through his job and making sure the coating was done thoroughly.</blockquote>
+          <cite>Andrew Ng</cite>
+        </li>
+        <li class="trait">
+          <h3>He tells you what he finds</h3>
+          <blockquote>They even managed to see the scratches and inform us about it. Whole process was fast and fuss free.</blockquote>
+          <cite>Janelle Que</cite>
+        </li>
+      </ul>
+    </div>
+
+    <div class="stat-row" style="--stat-cols:3;margin-top:clamp(3rem, 2rem + 4vw, 5rem)" data-reveal>
       <div class="stat">
         <span class="stat__num">{{reviewCount}}<sup>+</sup></span>
-        <p class="stat__label">Verified reviews across Facebook and Google since 2021</p>
+        <p class="stat__label">Verified reviews across Facebook and Google</p>
       </div>
       <div class="stat">
         <span class="stat__num">4.9<sup>/5</sup></span>
-        <p class="stat__label">Average rating. We publish every single one of them</p>
+        <p class="stat__label">Average rating. We publish every single one</p>
       </div>
       <div class="stat">
         <span class="stat__num">5<sup>yrs</sup></span>
-        <p class="stat__label">Coat bonding warranty on Artdeshine Graphene V3</p>
-      </div>
-      <div class="stat">
-        <span class="stat__num">0<sup>km</sup></span>
-        <p class="stat__label">Distance you drive. We detail the car where it is parked</p>
+        <p class="stat__label">Longest coat bonding warranty we install</p>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- ─────────────────── 02 · SERVICES ─────────────────── -->
 <section class="section section--charcoal">
   <div class="container container--wide">
     <div class="section-head section-head--split">
       <div>
-        <p class="section-label"><span class="index-num">02</span> Services</p>
+        <p class="section-label"><span class="index-num">01</span> Services</p>
         <h2>Car detailing services</h2>
       </div>
       <p class="lead">
@@ -218,7 +237,7 @@
   <div class="container container--wide">
     <div class="section-head section-head--split">
       <div>
-        <p class="section-label"><span class="index-num">03</span> Coating</p>
+        <p class="section-label"><span class="index-num">02</span> Coating</p>
         <h2>What a car coating actually does</h2>
       </div>
       <p class="lead">
@@ -292,7 +311,7 @@
   <div class="container container--wide">
     <div class="section-head section-head--split">
       <div>
-        <p class="section-label"><span class="index-num">04</span> Doorstep</p>
+        <p class="section-label"><span class="index-num">03</span> Doorstep</p>
         <h2>Doorstep service available island-wide</h2>
       </div>
       <p class="lead">
@@ -347,7 +366,7 @@
   <div class="container container--wide">
     <div class="section-head section-head--split">
       <div>
-        <p class="section-label"><span class="index-num">05</span> Pricing</p>
+        <p class="section-label"><span class="index-num">04</span> Pricing</p>
         <h2>Detailing prices,<br>nothing hidden</h2>
       </div>
       <p class="lead">
@@ -451,7 +470,7 @@
   <div class="container container--wide">
     <div class="section-head section-head--split">
       <div>
-        <p class="section-label"><span class="index-num">06</span> Reviews</p>
+        <p class="section-label"><span class="index-num">05</span> Reviews</p>
         <h2>{{reviewCount}} customers,<br>4.9 out of 5</h2>
         <div class="rating-block" style="margin-top:2rem">
           <span class="rating-block__score">4.9</span>
@@ -508,7 +527,7 @@
   <div class="container container--wide">
     <div class="section-head section-head--split">
       <div>
-        <p class="section-label"><span class="index-num">07</span> Guides</p>
+        <p class="section-label"><span class="index-num">06</span> Guides</p>
         <h2>Before you book,<br>read this</h2>
       </div>
       <p class="lead">
@@ -557,7 +576,7 @@
   <div class="container container--wide">
     <div class="section-head section-head--split">
       <div>
-        <p class="section-label"><span class="index-num">08</span> FAQ</p>
+        <p class="section-label"><span class="index-num">07</span> FAQ</p>
         <h2>Questions we get<br>every week</h2>
       </div>
       <p class="lead">
