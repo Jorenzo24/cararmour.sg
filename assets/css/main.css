@@ -202,6 +202,19 @@ a:hover{ color:var(--c-gold-lite); }
 .section--charcoal{ background:var(--c-charcoal); }
 .section--line{ border-top:1px solid var(--c-line); }
 
+/* Transition entre sections : filet qui s'eteint aux deux bouts, surmonte
+   d'un halo dore a peine perceptible. Marque la coupure sans la souligner. */
+.section--edge{ position:relative; }
+.section--edge::before{
+  content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:min(calc(100% - var(--gutter) * 2), 1480px); height:1px; pointer-events:none;
+  background:linear-gradient(90deg, transparent 0%, var(--c-line-strong) 22%, var(--c-line-strong) 78%, transparent 100%);
+}
+.section--edge::after{
+  content:""; position:absolute; inset:0 0 auto; height:min(42%, 380px); pointer-events:none;
+  background:radial-gradient(58% 100% at 50% 0%, rgba(201,169,107,.055) 0%, rgba(201,169,107,0) 72%);
+}
+
 /* Libellé de section : 01 · LABEL ───────────────── sur une seule ligne */
 .section-label{
   display:flex; align-items:center; gap:1.05rem;
@@ -463,35 +476,53 @@ body.is-locked{ overflow:hidden; }
 .manifesto{ font-size:clamp(1.1875rem, .95rem + 1.35vw, 1.9375rem); line-height:1.44; font-weight:300; color:var(--c-paper); text-wrap:pretty; }
 .manifesto em{ font-style:normal; color:var(--c-gold); }
 
-/* 8.1d Section récit — image et texte strictement de même hauteur.
-   La grille étire les deux colonnes : aucune ne peut dépasser l'autre. */
-.story{ display:grid; gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem); align-items:stretch; }
-@media (min-width:920px){ .story{ grid-template-columns:minmax(0,.82fr) minmax(0,1fr); } }
+/* 8.1d Section recit — paire d'images en recouvrement, colonnes de hauteur egale.
+   L'image secondaire ne deborde que dans la gouttiere de la grille : elle ne
+   touche jamais le texte et ne change pas la hauteur de la colonne. */
+.story{ display:grid; gap:clamp(2.25rem, 1.4rem + 3.4vw, 4rem); align-items:center; }
+@media (min-width:920px){ .story{ grid-template-columns:minmax(0,.92fr) minmax(0,1fr); } }
 
-.story__media{
-  position:relative; margin:0; min-height:clamp(340px, 46vw, 560px);
-  background:var(--c-graphite); border:1px solid var(--c-line);
-  display:grid; place-content:center; text-align:center; gap:.65rem; padding:2rem;
+.story__media{ position:relative; display:grid; }
+.ph{
+  position:relative; margin:0; background:var(--c-graphite); border:1px solid var(--c-line);
+  display:grid; place-content:center; text-align:center; gap:.6rem; padding:1.75rem;
 }
-.story__media::before,.story__media::after{
-  content:""; position:absolute; width:28px; height:28px; border:1px solid var(--c-gold);
+.ph::before,.ph::after{ content:""; position:absolute; width:26px; height:26px; border:1px solid var(--c-gold); }
+.ph::before{ top:13px; left:13px; border-right:0; border-bottom:0; }
+.ph::after{ bottom:13px; right:13px; border-left:0; border-top:0; }
+.ph img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.ph--tall{ aspect-ratio:4/5; }
+.ph--inset{ margin-top:1.25rem; aspect-ratio:4/3; }
+@media (min-width:920px){
+  .ph--inset{
+    position:absolute; right:-9%; bottom:7%; width:54%; margin-top:0;
+    aspect-ratio:4/3; border-color:var(--c-line-gold);
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.95);
+  }
 }
-.story__media::before{ top:14px; left:14px; border-right:0; border-bottom:0; }
-.story__media::after{ bottom:14px; right:14px; border-left:0; border-top:0; }
-.story__media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .ph__label{
   font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label);
   font-weight:650; text-transform:uppercase; letter-spacing:var(--ls-label); color:var(--c-gold);
 }
-.ph__hint{ font-size:var(--fs-xs); color:var(--c-steel-dim); line-height:1.6; max-width:26ch; margin:0 auto; }
+.ph__hint{ font-size:var(--fs-xs); color:var(--c-steel-dim); line-height:1.6; max-width:24ch; margin:0 auto; }
 
-.story__text{ display:flex; flex-direction:column; justify-content:center; }
-.story__text h2{ margin-bottom:clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem); }
-.story__text p{ color:var(--c-steel); max-width:54ch; margin:0 0 1.35em; }
+.story__text h2{ margin-bottom:clamp(1.4rem, 1rem + 1.4vw, 2rem); }
+.story__text p{ color:var(--c-steel); margin:0 0 1.3em; }
 .story__text p:last-child{ margin-bottom:0; }
 .story__text strong{ color:var(--c-paper); font-weight:450; }
 
-/* Trois titres de créance, portés par l'espace seul : aucun filet. */
+/* Encart a renseigner par le client, assume visuellement. */
+.todo{
+  margin-top:clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem);
+  padding:1.1rem 1.35rem; border:1px dashed var(--c-line-gold); background:rgba(201,169,107,.045);
+}
+.todo span{
+  display:block; font-family:var(--ff-display); font-stretch:100%; font-size:.625rem;
+  font-weight:650; text-transform:uppercase; letter-spacing:.18em; color:var(--c-gold); margin-bottom:.45rem;
+}
+.todo p{ margin:0; font-size:var(--fs-xs); color:var(--c-steel-dim); line-height:1.6; }
+
+/* Trois titres de creance, portes par l'espace seul : aucun filet. */
 .creds{ display:grid; gap:clamp(2rem, 1.2rem + 3vw, 3.5rem); margin-top:clamp(3.5rem, 2.4rem + 4vw, 6rem); }
 @media (min-width:760px){ .creds{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
 .cred__label{
