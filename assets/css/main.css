@@ -194,6 +194,7 @@ a:hover{ color:var(--c-gold-lite); }
 /* ── 04 · LAYOUT ─────────────────────────────────────────────────────────── */
 .container{ width:100%; max-width:calc(var(--container) + var(--gutter)*2); margin-inline:auto; padding-inline:var(--gutter); }
 .container--wide{ max-width:calc(var(--container-wide) + var(--gutter)*2); }
+.container--mid{ max-width:calc(1180px + var(--gutter)*2); }
 .container--narrow{ max-width:calc(var(--container-narrow) + var(--gutter)*2); }
 
 .section{ padding-block:var(--pad-y); position:relative; }
@@ -235,20 +236,16 @@ a:hover{ color:var(--c-gold-lite); }
   --c-line-gold:rgba(122,100,54,.42);
 }
 .section--paper ::selection{ background:var(--c-gold); color:#F5F5F0; }
-/* Transition entre les sections sombres et la section claire : le fond noir
-   entre dans la section et s'y dissout. Pas de decoupe, pas de vague. */
+/* Coupure franche entre le sombre et le clair, marquee par un filet dore.
+   Le degrade precedent brouillait la limite au lieu de l'affirmer. */
 .section--paper::before,.section--paper::after{
-  content:""; position:absolute; inset-inline:0; height:clamp(110px, 14vw, 210px);
-  pointer-events:none; z-index:0;
+  content:""; position:absolute; inset-inline:0; height:1px; pointer-events:none; z-index:2;
+  background:linear-gradient(90deg,
+    rgba(201,169,107,0) 0%, rgba(201,169,107,.65) 22%,
+    rgba(201,169,107,.65) 78%, rgba(201,169,107,0) 100%);
 }
-.section--paper::before{
-  top:0;
-  background:linear-gradient(180deg, #0A0A0C 0%, rgba(10,10,12,.46) 26%, rgba(10,10,12,.12) 62%, rgba(10,10,12,0) 100%);
-}
-.section--paper::after{
-  bottom:0;
-  background:linear-gradient(0deg, #0A0A0C 0%, rgba(10,10,12,.46) 26%, rgba(10,10,12,.12) 62%, rgba(10,10,12,0) 100%);
-}
+.section--paper::before{ top:0; }
+.section--paper::after{ bottom:0; }
 .section--paper > *{ position:relative; z-index:1; }
 
 /* Transition entre sections : filet qui s'eteint aux deux bouts, surmonte
@@ -267,10 +264,12 @@ a:hover{ color:var(--c-gold-lite); }
 /* Libellé de section : 01 · LABEL ───────────────── sur une seule ligne */
 
 /* En-tête de section : titre + colonne d'appui, grille asymétrique */
-.section-head{ display:grid; gap:clamp(1.5rem,1rem + 2vw,3.5rem); align-items:start; margin-bottom:clamp(2.75rem,2rem + 3vw,5rem); }
+.section-head{ display:grid; gap:clamp(1.5rem,1rem + 2vw,3.5rem); align-items:start; margin-bottom:clamp(2.25rem,1.7rem + 2.2vw,3.5rem); }
 @media (min-width:900px){
   .section-head--split{ grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); align-items:end; }
   .section-head--top{ align-items:start; }
+.section-head--center{ text-align:center; }
+.section-head--center h2{ margin-inline:auto; }
 }
 .section-head__rule{ display:flex; align-items:center; gap:1.25rem; margin-bottom:1.5rem; }
 .section-head__rule::after{ content:""; height:1px; flex:1; background:var(--c-line); }
@@ -592,15 +591,15 @@ body.is-locked{ overflow:hidden; }
   transition:border-color .4s var(--ease), background-color .4s var(--ease), transform .4s var(--ease);
 }
 .svc-card:hover{ border-color:var(--c-line-gold); background:var(--c-slate); transform:translateY(-3px); }
-.svc-card__media{ position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--c-slate); }
+.svc-card__media{ position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--c-slate); }
 .svc-card__media img{ width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease), filter .5s var(--ease); }
 .svc-card:hover .svc-card__media img{ transform:scale(1.05); filter:saturate(1.35) brightness(1.16); }
 .svc-card__media::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(10,10,12,.55) 0%,rgba(10,10,12,0) 26%,rgba(10,10,12,0) 46%,rgba(10,10,12,.72) 100%); }
 .svc-card__num{ position:absolute; top:1.1rem; left:1.25rem; z-index:1; color:var(--c-gold); }
-.svc-card__body{ padding:clamp(1.5rem,1.1rem + 1.4vw,2.1rem); display:flex; flex-direction:column; gap:.85rem; flex:1; }
+.svc-card__body{ padding:clamp(1.15rem,.95rem + .85vw,1.55rem); display:flex; flex-direction:column; gap:.55rem; flex:1; }
 .svc-card__body h3{ margin:0; }
-.svc-card__body p{ color:var(--c-steel); font-size:var(--fs-sm); }
-.svc-card__foot{ margin-top:auto; padding-top:1.2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; border-top:1px solid var(--c-line); }
+.svc-card__body p{ color:var(--c-steel); font-size:var(--fs-xs); line-height:1.55; }
+.svc-card__foot{ margin-top:auto; padding-top:.85rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; border-top:1px solid var(--c-line); }
 .svc-card__price{ font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-xs); letter-spacing:.14em; text-transform:uppercase; color:var(--c-gold); }
 .svc-card__arrow{ width:17px; height:17px; color:var(--c-gold); transition:transform var(--dur) var(--ease); }
 .svc-card:hover .svc-card__arrow{ transform:translateX(5px); }
@@ -614,7 +613,7 @@ body.is-locked{ overflow:hidden; }
 .svc-feature:hover{ border-color:var(--c-line-gold); background:var(--c-slate); }
 @media (min-width:920px){ .svc-feature{ grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); } }
 .svc-feature__media{ position:relative; overflow:hidden; aspect-ratio:16/10; background:var(--c-slate); }
-@media (min-width:920px){ .svc-feature__media{ aspect-ratio:auto; min-height:400px; } }
+@media (min-width:920px){ .svc-feature__media{ aspect-ratio:auto; min-height:330px; } }
 .svc-feature__media img{ width:100%; height:100%; object-fit:cover; transition:transform .9s var(--ease), filter .5s var(--ease); }
 .svc-feature:hover .svc-feature__media img{ transform:scale(1.04); filter:saturate(1.35) brightness(1.16); }
 .svc-feature__media::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(10,10,12,.5) 0%,rgba(10,10,12,0) 45%); }
@@ -634,9 +633,6 @@ body.is-locked{ overflow:hidden; }
   font-family:var(--ff-body); font-stretch:normal; font-weight:400;
   font-size:.3em; letter-spacing:.2em; text-transform:uppercase; color:var(--c-steel-dim);
 }
-/* Le sigle monetaire recule : a corps egal, le S de S$ et le $ se
-   concurrencent visuellement. La difference d'echelle les separe. */
-.spec__cur{ font-size:.56em; font-weight:500; letter-spacing:.02em; margin-right:.08em; opacity:.78; }
 .spec__meta{
   font-size:var(--fs-sm); color:var(--c-paper); font-weight:500; letter-spacing:.02em;
 }
