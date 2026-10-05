@@ -1,7 +1,7 @@
 /* Car Armour SG — interactions. Zéro dépendance. */
 (function () {
   'use strict';
-  document.documentElement.classList.add('js');
+  /* la classe .js est posée par un script en ligne dans le <head> */
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var on = function (el, ev, fn) { el && el.addEventListener(ev, fn); };
@@ -87,23 +87,39 @@
     });
   });
 
-  /* ── Reveal au scroll — fade + 20px, stagger léger ──────────────────── */
+  /* ── Reveal : fade + 20px, cascade légère ───────────────────────────────
+     data-reveal="n"  -> rang dans la cascade (n x 90 ms de décalage)
+     data-reveal-on="load" -> joué à l'ouverture, sans attendre le scroll.
+     Nécessaire pour la séquence du haut de page : le dernier élément de la
+     suite se trouve sous la ligne de flottaison, l'observateur ne le verrait
+     jamais et la cascade s'interromprait en chemin. */
   var targets = $$('[data-reveal]');
+  var delayOf = function (el) {
+    var i = parseInt(el.getAttribute('data-reveal'), 10);
+    return (isNaN(i) ? 0 : i * 90) + 'ms';
+  };
+  var show = function (el) {
+    el.style.setProperty('--reveal-delay', delayOf(el));
+    el.classList.add('is-in');
+  };
+
   if (targets.length) {
     if (reduce || !('IntersectionObserver' in window)) {
       targets.forEach(function (el) { el.classList.add('is-in'); });
     } else {
+      var onLoad = [], onScroll = [];
+      targets.forEach(function (el) {
+        (el.getAttribute('data-reveal-on') === 'load' ? onLoad : onScroll).push(el);
+      });
+      requestAnimationFrame(function () { onLoad.forEach(show); });
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
-          var el = entry.target;
-          var i = parseInt(el.getAttribute('data-reveal'), 10);
-          el.style.setProperty('--reveal-delay', (isNaN(i) ? 0 : i * 90) + 'ms');
-          el.classList.add('is-in');
-          io.unobserve(el);
+          show(entry.target);
+          io.unobserve(entry.target);
         });
       }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
-      targets.forEach(function (el) { io.observe(el); });
+      onScroll.forEach(function (el) { io.observe(el); });
     }
   }
 })();
