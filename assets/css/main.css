@@ -686,15 +686,21 @@ body.is-locked{ overflow:hidden; }
 
 /* 8.4b Prestations d'appoint : trois blocs centres, tenus par l'espace seul.
    Aucun filet, ni vertical ni horizontal. */
+/* Sous-services : un simple voile plus clair, sans filet ni cadre. Plus leger
+   que les cartes tarifaires au-dessus, la hierarchie reste lisible. */
 .price-extra{
-  display:grid; gap:clamp(2.25rem, 1.5rem + 3vw, 4rem);
-  margin-top:clamp(2.75rem, 2rem + 3vw, 4.5rem); text-align:center;
+  display:grid; gap:clamp(.9rem, .7rem + .9vw, 1.4rem);
+  margin-top:clamp(2.5rem, 1.8rem + 2.6vw, 4rem); text-align:center;
 }
 @media (min-width:760px){ .price-extra{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
 .price-extra__item{
   display:grid; gap:.7rem; align-content:start; justify-items:center;
   text-decoration:none; color:inherit;
+  padding:clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem) clamp(1.1rem, .9rem + 1vw, 1.75rem);
+  background:rgba(245,245,240,.035);
+  transition:background-color .35s var(--ease), transform .35s var(--ease);
 }
+.price-extra__item:hover{ background:rgba(201,169,107,.08); transform:translateY(-2px); }
 .price-extra__item h3{
   margin:0; font-size:var(--fs-h4); letter-spacing:.045em; line-height:1.2;
   transition:color var(--dur) var(--ease); max-width:16ch;
