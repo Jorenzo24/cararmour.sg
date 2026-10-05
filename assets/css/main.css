@@ -634,6 +634,9 @@ body.is-locked{ overflow:hidden; }
   font-family:var(--ff-body); font-stretch:normal; font-weight:400;
   font-size:.3em; letter-spacing:.2em; text-transform:uppercase; color:var(--c-steel-dim);
 }
+/* Le sigle monetaire recule : a corps egal, le S de S$ et le $ se
+   concurrencent visuellement. La difference d'echelle les separe. */
+.spec__cur{ font-size:.56em; font-weight:500; letter-spacing:.02em; margin-right:.08em; opacity:.78; }
 .spec__meta{
   font-size:var(--fs-sm); color:var(--c-paper); font-weight:500; letter-spacing:.02em;
 }
