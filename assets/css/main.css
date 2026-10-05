@@ -269,6 +269,7 @@ a:hover{ color:var(--c-gold-lite); }
   .section-head--top{ align-items:start; }
 .section-head--center{ text-align:center; }
 .section-head--center h2{ margin-inline:auto; }
+.section-head--center .lead{ max-width:58ch; margin-inline:auto; }
 }
 .section-head__rule{ display:flex; align-items:center; gap:1.25rem; margin-bottom:1.5rem; }
 .section-head__rule::after{ content:""; height:1px; flex:1; background:var(--c-line); }
@@ -683,28 +684,34 @@ body.is-locked{ overflow:hidden; }
 }
 @media (min-width:700px) and (max-width:899px){ .price-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
 
-/* 8.4b Bandeau tarifaire des prestations d'entrée — composition distincte
-   des cartes menu : filets verticaux, prix en grand corps. */
-.price-strip{ display:grid; border-top:1px solid var(--c-line); margin-top:clamp(2rem, 1.4rem + 2.4vw, 3.5rem); }
-@media (min-width:760px){
-  .price-strip{ grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .price-strip h3{ min-height:2.4em; }        /* deux lignes de titre réservées */
+/* 8.4b Prestations d'appoint : trois blocs centres, tenus par l'espace seul.
+   Aucun filet, ni vertical ni horizontal. */
+.price-extra{
+  display:grid; gap:clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  margin-top:clamp(2.75rem, 2rem + 3vw, 4.5rem); text-align:center;
 }
-.price-strip__item{ padding:clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem) 0; border-bottom:1px solid var(--c-line); }
-@media (min-width:760px){
-  .price-strip__item{ padding-inline:clamp(1.25rem, 2vw, 2.25rem); border-bottom:0; border-left:1px solid var(--c-line); }
-  .price-strip__item:first-child{ border-left:0; padding-left:0; }
+@media (min-width:760px){ .price-extra{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+.price-extra__item{
+  display:grid; gap:.7rem; align-content:start; justify-items:center;
+  text-decoration:none; color:inherit;
 }
-.price-strip h3{ font-size:var(--fs-h4); margin:0; line-height:1.2; }
-.price-strip__meta{ font-size:var(--fs-xs); color:var(--c-steel-dim); margin:.6rem 0 1.1rem; letter-spacing:.04em; }
-.price-strip__val{
+.price-extra__item h3{
+  margin:0; font-size:var(--fs-h4); letter-spacing:.045em; line-height:1.2;
+  transition:color var(--dur) var(--ease); max-width:16ch;
+}
+@media (min-width:760px){ .price-extra__item h3{ min-height:2.4em; } }
+.price-extra__item:hover h3{ color:var(--c-gold); }
+.price-extra__val{
   font-family:var(--ff-display); font-stretch:var(--fw-expand); font-weight:600;
-  font-size:clamp(1.75rem, 1.3rem + 1.9vw, 2.5rem); line-height:1; letter-spacing:-.01em;
-  color:var(--c-gold); font-variant-numeric:tabular-nums; display:block;
+  font-size:clamp(1.5rem, 1.25rem + 1.1vw, 2.1rem); line-height:1; letter-spacing:-.01em;
+  color:var(--c-gold); font-variant-numeric:tabular-nums;
+  display:flex; align-items:baseline; gap:.5em;
 }
-.price-strip__val small{ font-size:.42em; letter-spacing:.14em; text-transform:uppercase; color:var(--c-steel-dim); display:block; margin-bottom:.55rem; font-family:var(--ff-body); font-stretch:normal; font-weight:400; }
-.price-strip a{ display:block; color:inherit; text-decoration:none; transition:color var(--dur) var(--ease); }
-.price-strip a:hover h3{ color:var(--c-gold); }
+.price-extra__val small{
+  font-family:var(--ff-body); font-stretch:normal; font-weight:400; font-size:.32em;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--c-steel-dim);
+}
+.price-extra__meta{ font-size:var(--fs-xs); color:var(--c-steel); letter-spacing:.04em; }
 
 /* 8.5 Matrice tarifaire — table desktop, cartes empilées mobile */
 .price-matrix{ width:100%; border-collapse:collapse; text-align:left; }
