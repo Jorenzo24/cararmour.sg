@@ -100,26 +100,42 @@ CSS_COMMENT = re.compile(r"/\*(?!!).*?\*/", re.S)
 
 def minify_css(css):
     """Minification prudente : commentaires, espaces et points-virgules superflus.
-    Ne touche pas au contenu des chaînes ni aux espaces significatifs de clamp()."""
+
+    Les chaines et les url() sont extraites avant les passes de regex puis
+    restaurees telles quelles. Sans cette mise a l'abri, la regle qui retablit
+    les espaces autour de + et - dans calc()/clamp() mordait sur les noms de
+    fichiers : url(.../fond-1800.webp) devenait url(.../fond - 1800.webp).
+    """
+    vault = []
+
+    def stash(text):
+        vault.append(text)
+        return f"\x00{len(vault) - 1}\x00"
+
     out, i, n = [], 0, len(css)
     while i < n:
         ch = css[i]
-        if ch in "\"'":                      # chaîne : recopiée telle quelle
+        if ch in "\"'":                       # chaine : mise a l'abri
             j = i + 1
             while j < n and css[j] != ch:
                 j += 2 if css[j] == "\\" else 1
-            out.append(css[i:j + 1]); i = j + 1; continue
-        if css.startswith("/*", i):
+            out.append(stash(css[i:j + 1])); i = j + 1; continue
+        if css.startswith("/*", i):           # commentaire : supprime
             j = css.find("*/", i + 2)
-            j = n if j == -1 else j + 2
-            i = j; continue
+            i = n if j == -1 else j + 2; continue
+        if css[i:i + 4].lower() == "url(":    # url() non quotee : mise a l'abri
+            j = css.find(")", i)
+            if j != -1 and '"' not in css[i:j] and "'" not in css[i:j]:
+                out.append(stash(css[i:j + 1])); i = j + 1; continue
         out.append(ch); i += 1
     css = "".join(out)
+
     css = re.sub(r"\s+", " ", css)
     css = re.sub(r"\s*([{}:;,>])\s*", r"\1", css)
     css = re.sub(r";}", "}", css)
-    # on restaure l'espace obligatoire autour de + et - dans calc()/clamp()
+    # espace obligatoire autour de + et - dans calc()/clamp()
     css = re.sub(r"(?<=[\d%a-z\)])([+\-])(?=[\.\d])", r" \1 ", css)
+    css = re.sub(r"\x00(\d+)\x00", lambda m: vault[int(m.group(1))], css)
     return css.strip()
 
 
@@ -144,6 +160,9 @@ def build_css(out_root, base=""):
     out = out_root / "assets/css/main.min.css"
     out.parent.mkdir(parents=True, exist_ok=True)
     mini = minify_css(src.read_text(encoding="utf-8"))
+    broken = re.findall(r"url\([^)]*\s[^)]*\)", mini)
+    if broken:
+        sys.exit("Minification : url() contenant un espace -> " + broken[0])
     if base:
         mini = rebase_css(mini, base)
     out.write_text(mini, encoding="utf-8")
