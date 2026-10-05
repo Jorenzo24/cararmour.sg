@@ -41,8 +41,8 @@
 
   /* Encre */
   --c-paper:       #F5F5F0;   /* texte primaire */
-  --c-steel:       #9A9AA4;   /* texte secondaire — gris acier */
-  --c-steel-dim:   #888892;   /* tertiaire, captions — 5,2:1 sur charbon */
+  --c-steel:       #B4B4BC;   /* texte courant — 8,9:1 sur charbon */
+  --c-steel-dim:   #9C9CA6;   /* tertiaire, captions — 6,8:1 sur charbon */
 
   /* Accent unique — doré champagne */
   --c-gold:        #C9A96B;
@@ -74,14 +74,14 @@
   --fs-h3:      clamp(1.1875rem, 1rem + .8vw, 1.625rem);
   --fs-h4:      clamp(1.0625rem, 1rem + .3vw, 1.1875rem);
   --fs-lead:    clamp(1.0625rem, .99rem + .48vw, 1.3125rem);
-  --fs-body:    clamp(1rem, .965rem + .16vw, 1.0625rem);
-  --fs-sm:      .9375rem;
+  --fs-body:    clamp(1.0625rem, 1rem + .3vw, 1.125rem);
+  --fs-sm:      1rem;
   --fs-xs:      .8125rem;
   --fs-label:   .6875rem;
 
   --lh-tight:   1.04;
   --lh-snug:    1.2;
-  --lh-body:    1.72;
+  --lh-body:    1.68;
 
   --ls-display: .012em;
   --ls-title:   .022em;
@@ -113,7 +113,7 @@ body{
   font-family:var(--ff-body);
   font-size:var(--fs-body);
   line-height:var(--lh-body);
-  font-weight:330;
+  font-weight:400;              /* 330 s'amincissait trop sur fond sombre */
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   overflow-x:hidden;
@@ -171,7 +171,7 @@ a:hover{ color:var(--c-gold-lite); }
   font-weight:600; text-transform:uppercase; letter-spacing:.15em;
   color:var(--c-gold); line-height:1.25;
 }
-.lead{ font-size:var(--fs-lead); line-height:1.6; color:var(--c-steel); font-weight:300; }
+.lead{ font-size:var(--fs-lead); line-height:1.58; color:var(--c-steel); font-weight:350; }
 .muted{ color:var(--c-steel); }
 .dim{ color:var(--c-steel-dim); }
 .gold{ color:var(--c-gold); }
@@ -221,11 +221,15 @@ a:hover{ color:var(--c-gold-lite); }
                                      elements qui heritent la couleur gardent
                                      celle calculee sur body, donc du clair. */
   --c-paper:#121216;              /* encre primaire        18,1:1 */
-  --c-steel:#5A5A63;              /* texte secondaire       6,2:1 */
-  --c-steel-dim:#6E6E78;          /* captions               4,9:1 */
-  --c-gold:#745E30;               /* accent  4,9:1 sous le halo, 5,6:1 ailleurs */
-  --c-gold-lite:#866C3A;
-  --c-gold-deep:#866C3A;
+  --c-steel:#4A4A54;              /* texte courant          6,9:1 */
+  --c-steel-dim:#5E5E68;          /* captions               5,9:1 */
+  /* Le dore ne sert plus de couleur de texte ici : assombri assez pour
+     passer le AA sur fond clair, il vire au brun. Il devient une marque
+     graphique, et le texte reprend l'encre. */
+  --c-gold:#121216;               /* le texte dit dore passe a l'encre */
+  --c-gold-lite:#121216;
+  --c-gold-deep:#6E6E78;
+  --c-gold-mark:#A8842F;          /* filets et reperes graphiques uniquement */
   --c-gold-wash:rgba(122,100,54,.1);
   --c-graphite:#ECECE4;           /* surfaces               */
   --c-slate:#E2E2D9;
@@ -239,25 +243,22 @@ a:hover{ color:var(--c-gold-lite); }
 .section--paper .split__media img{
   box-shadow:0 38px 70px -34px rgba(18,18,22,.45), 0 12px 28px -14px rgba(18,18,22,.22);
 }
-/* Variante papier : la texture se superpose au fond clair de la section.
-   Teinte chaude et grain fin, pour sortir de l'aplat froid. */
+/* Variante planche technique : un releve de carrosserie au trait, pose en
+   fond et fortement voile pour rester une trame, pas une illustration. */
 .section--paper-grain{
-  background-blend-mode:multiply;
-  --c-gold:#6B562C;   /* la texture assombrit le fond : le dore suit, 5,0:1 */
-}
-/* Halo attenue sur la variante texturee : la texture assombrit deja le fond,
-   les deux cumules faisaient passer le texte secondaire sous le AA. */
-.section--paper-grain::before{
-  background:
-    linear-gradient(90deg, rgba(201,169,107,0) 0%, rgba(154,126,66,.75) 22%,
-      rgba(154,126,66,.75) 78%, rgba(201,169,107,0) 100%) top/100% 1px no-repeat,
-    radial-gradient(58% 100% at 50% 0%, rgba(154,126,66,.07) 0%, rgba(154,126,66,0) 72%);
-}
-.section--paper-grain{
-  background-image:url('/assets/img/paper-texture.webp'), url('/assets/img/section-bg-light-1800.webp');
-  background-repeat:repeat, no-repeat;
-  background-size:320px 320px, cover;
+  background-image:
+    linear-gradient(rgba(246,244,237,.7), rgba(246,244,237,.78)),
+    url('/assets/img/faq-blueprint-1122.webp');
+  background-repeat:no-repeat, no-repeat;
+  background-size:cover, cover;
   background-position:center, center;
+}
+@media (max-width:900px){
+  .section--paper-grain{
+    background-image:
+      linear-gradient(rgba(246,244,237,.78), rgba(246,244,237,.85)),
+      url('/assets/img/faq-blueprint-760.webp');
+  }
 }
 .section--paper ::selection{ background:var(--c-gold); color:#F5F5F0; }
 /* Meme traitement que les autres coupures de section : un filet qui s'eteint
@@ -559,7 +560,13 @@ body.is-locked{ overflow:hidden; }
 
 .story__cols{ display:grid; gap:clamp(2rem, 1.4rem + 2.4vw, 3.5rem); margin-top:clamp(2.75rem, 2rem + 3vw, 4.5rem); }
 @media (min-width:820px){ .story__cols{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-.story__cols h3{ margin:0 0 .85rem; font-size:var(--fs-h4); letter-spacing:.055em; color:var(--c-gold); }
+.story__cols h3{
+  margin:0 0 .85rem; font-size:var(--fs-h4); letter-spacing:.055em; color:var(--c-paper);
+}
+.story__cols h3::before{
+  content:""; display:block; width:30px; height:2px; margin-bottom:1rem;
+  background:var(--c-gold-mark, var(--c-gold));
+}
 .story__cols p{ margin:0; color:var(--c-steel); }
 
 /* Justification : acceptable des que la colonne est assez large et que les
@@ -843,6 +850,8 @@ body.is-locked{ overflow:hidden; }
   transition:color var(--dur) var(--ease);
 }
 .accordion__trigger:hover,.accordion__trigger[aria-expanded="true"]{ color:var(--c-gold); }
+.section--paper .accordion__trigger:hover .accordion__sign,
+.section--paper .accordion__trigger[aria-expanded="true"] .accordion__sign{ color:var(--c-gold-mark); }
 .accordion__sign{ flex:none; width:16px; height:16px; margin-top:.3em; position:relative; }
 .accordion__sign::before,.accordion__sign::after{
   content:""; position:absolute; inset:50% 0 auto; height:1px; background:currentColor;
