@@ -118,8 +118,32 @@
           show(entry.target);
           io.unobserve(entry.target);
         });
-      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+      }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
       onScroll.forEach(function (el) { io.observe(el); });
+
+      /* Filet de securite. Un element que l'observateur manque reste a
+         opacity 0, donc invisible pour toujours : le contenu disparait sans
+         erreur ni trace. Ce balayage revele tout ce qui est entre dans le
+         champ, quoi qu'ait fait l'observateur, et se desarme une fois la
+         page entierement revelee. */
+      var sweep = function () {
+        var vh = window.innerHeight || 0;
+        var left = 0;
+        onScroll.forEach(function (el) {
+          if (el.classList.contains('is-in')) return;
+          var r = el.getBoundingClientRect();
+          if (r.top < vh * 0.95 && r.bottom > 0) { show(el); io.unobserve(el); }
+          else left++;
+        });
+        if (!left) {
+          window.removeEventListener('scroll', sweep);
+          window.removeEventListener('resize', sweep);
+        }
+      };
+      window.addEventListener('scroll', sweep, { passive: true });
+      window.addEventListener('resize', sweep, { passive: true });
+      window.addEventListener('load', sweep);
+      setTimeout(sweep, 1200);
     }
   }
 })();

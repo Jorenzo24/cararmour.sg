@@ -503,7 +503,12 @@ body.is-locked{ overflow:hidden; }
 
 /* 8.1 Hero */
 .hero{
-  position:relative; min-height:clamp(540px,88svh,920px);
+  position:relative;
+  /* Hauteur calee sur la largeur et non sur le viewport. Une hauteur en svh
+     se recalcule quand la barre d'URL mobile se retracte, et l'image en
+     object-fit:cover se remet alors a l'echelle : d'ou l'effet de zoom au
+     premier defilement. La largeur, elle, ne bouge pas pendant le scroll. */
+  min-height:clamp(560px, 62vw, 880px);
   display:flex; align-items:center;
   padding-block:calc(var(--header-h) + 2rem) clamp(5rem,3rem + 6vw,10rem);
   overflow:hidden;
