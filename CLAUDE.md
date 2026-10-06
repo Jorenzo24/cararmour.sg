@@ -43,6 +43,14 @@ Largeurs : 1200 / 1000 / 700 / 460, **jamais au-delà de la largeur source**
 (un agrandissement ne fait qu'alourdir). Nommer les fichiers avec le mot-clé de
 la page qui les utilise. Les seuls `filter` restants sont des effets de survol.
 
+**Conserver les sources** dans `_src/sources/`. Le traitement étant cuit dans
+le WebP, le changer plus tard oblige sinon à l'inverser depuis un fichier déjà
+compressé, ce qui ne rend jamais exactement l'original.
+
+Toutes les URL servies portent une empreinte de contenu posée par `build.py`.
+Un fichier remplacé change donc d'URL, sans quoi navigateurs et CDN continuent
+de servir l'ancien, jusqu'à un an en production.
+
 ### Fontes
 
 Auto-hébergées : pas de round-trip vers Google Fonts, et les `.woff2` sont
