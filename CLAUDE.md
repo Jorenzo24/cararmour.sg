@@ -11,12 +11,32 @@ client**.
 | Étape | Contenu | Statut |
 |---|---|---|
 | 1 | Design system en tokens | fait, visible sur `/styleguide/` |
-| 2 | Accueil complet et abouti | fait, en relecture client |
+| 2 | Accueil complet et abouti | fait, premier retour client intégré |
 | 3 | Gabarits : page service, page prix, article de guide, avis, contact | **non démarrée** |
 | 4 | Pages restantes, `sitemap.xml`, `robots.txt`, schémas par page | non démarrée |
 
 Pages réellement générées à ce jour : `/` et `/styleguide/` (noindex).
 Les dix-neuf autres routes listées plus bas sont prévues, pas écrites.
+
+### Retour client du 2026-10-06
+
+Appliqué : hero éclairci, `S$` remplacé par `$`, indicatif `+65` sur les
+numéros, accroche d'introduction devenue « Premium doorstep service at your
+convenience » et portée par un `h2`, section avis retitrée « Trusted by car
+owners for over 20 years » avec le sous-titre « Our care: 3,500+ customers ·
+5,000+ vehicles » et la mention « Facebook and Google reviews ».
+
+Signalé au client, sans réponse à ce jour :
+
+- **Deux `h2` doorstep** cohabitent maintenant sur l'accueil, le nouveau en
+  haut et « Doorstep service available island-wide » plus bas. Sans pénalité,
+  mais redondant. Retitrer celui du bas si le client valide.
+- « **Our care:** » sonne bancal en anglais. « Our track record: » dirait la
+  même chose plus naturellement.
+- Les « 20 ans » et les « 3 500+ clients » ne sont recoupés nulle part
+  ailleurs, et l'`AggregateRating` annonce toujours 213 avis.
+
+Le logo Lamborghini du hero devait être retiré. Le client a dit de laisser.
 
 ## Lancer
 
@@ -262,6 +282,15 @@ Les sections claires et sombres alternent volontairement. La coupure entre deux
 sections se marque par un filet doré avec un halo très discret au centre
 (`.section--edge`), pas par un dégradé.
 
+Les `h2` de la page, dans l'ordre : Premium Coating & Grooming (hero), Premium
+doorstep service at your convenience, Our car detailing services, Meet our
+expert team, Our car detailing prices, Doorstep service available island-wide,
+Trusted by car owners for over 20 years, Questions we get every week.
+
+`.intro__title` est un `h2` pour la structure, pas pour le style : il garde la
+fonte de labeur et la casse normale. En Archivo capitales juste sous le hero il
+concurrencerait le `h1`.
+
 ## Préproduction
 
 <https://jorenzo24.github.io/cararmour.sg/> — sous-chemin, `noindex` sur toutes
@@ -306,7 +335,7 @@ fois le site en production.**
 ## À confirmer avec le client
 
 - Grille tarifaire taille × durée : dérivée des tarifs de l'ancien site
-  (Ceramic 1 couche S$388, Graphene V3 S$688, surcharge SUV/MPV S$50).
+  (Ceramic 1 couche $388, Graphene V3 $688, surcharge SUV/MPV $50).
 - Volume d'avis et note moyenne annoncés (`ratingValue` 4,9, `reviewCount` 213
   dans `site.json`). Seuls trente avis ont été récupérés, tous datés de 2021.
 - Composition de l'équipe : le texte actuel reste volontairement large.
