@@ -689,7 +689,7 @@ body.is-locked{ overflow:hidden; }
 
 /* 8.4 Carte prix — composition « menu gastronomique » */
 .price-menu{
-  background:var(--c-charcoal); border:1px solid var(--c-line);
+  background:var(--c-graphite); border:1px solid var(--c-line);
   padding:clamp(1.75rem,1.2rem + 2vw,2.75rem); position:relative;
   display:flex; flex-direction:column;
   transition:border-color .4s var(--ease), background-color .4s var(--ease);
@@ -697,7 +697,7 @@ body.is-locked{ overflow:hidden; }
 .price-menu::before{ content:""; position:absolute; inset:-1px -1px auto; height:2px; background:var(--c-gold); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease); }
 .price-menu:hover{ border-color:var(--c-line-gold); }
 .price-menu:hover::before,.price-menu.is-featured::before{ transform:scaleX(1); }
-.price-menu.is-featured{ background:var(--c-graphite); border-color:var(--c-line-gold); }
+.price-menu.is-featured{ border-color:var(--c-line-gold); }
 .price-menu__flag{
   position:absolute; top:0; right:clamp(1.75rem,1.2rem + 2vw,2.75rem); transform:translateY(-50%);
   background:var(--c-gold); color:var(--c-void); padding:.35rem .85rem;
