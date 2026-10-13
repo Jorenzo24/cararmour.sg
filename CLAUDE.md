@@ -38,6 +38,31 @@ Signalé au client, sans réponse à ce jour :
 
 Le logo Lamborghini du hero devait être retiré. Le client a dit de laisser.
 
+### Retour client du 2026-10-13
+
+Appliqué : prix en `SGD 388` (retour sur la décision du 6), téléphone affiché
+`+(65) 8850 1200`, accroches du hero et de l'intro inversées, « paint
+correction » supprimé partout au profit de « polishing » (extra tarifaire
+retiré, il n'en reste que deux), carte Graphene renommée « ARTDESHINE Nano
+Graphene Coating+ », textes de l'équipe et de la FAQ repris, colonne « Learn »
+du footer renommée « For Your Information (FYI) ».
+
+La garantie n'a été retirée **que** là où le client l'a demandé (intro et
+dernière FAQ). Ne pas l'enlever ailleurs sans demande explicite.
+
+En attente :
+
+- **Gabarits Nano et Graphene** : la carte Ceramic est passée à trois lignes
+  (488 / 538 / 588, réponse du client), les deux autres en ont encore quatre.
+- **Nom du graphène** : « V3 » subsiste dans la nav, la description de la carte
+  tarifaire et la FAQ, alors que la carte services dit désormais « Coating+ ».
+  Le titre de la carte tarifaire est passé à « Graphene Coating » (mot-clé
+  transactionnel, à l'endroit le plus « prix » de la page).
+- Maintenance « tous les trois mois » appliquée aussi à la FAQ durée, pour ne
+  pas contredire la FAQ entretien.
+- L'étape 2 du doorstep promet encore de prévenir « before you book », ce que la
+  FAQ ne dit plus.
+
 ## Lancer
 
 ```bash
@@ -72,7 +97,7 @@ assets/img/           WebP multi-largeurs + logos SVG + tuile de grain
 
 ```html
 <!--META {
-  "route": "/ceramic-coating-singapore/",
+  "route": "/what-is-ceramic-coating/",
   "title": "…",  "description": "…",
   "ogType": "website", "ogImage": "/assets/img/og-default.jpg",
   "nav": "coating"
@@ -146,11 +171,11 @@ Règles non négociables :
 - Angles vifs (`--radius: 0`), filets 1 px, aucune ombre portée décorative.
 - Titres Archivo sur l'axe de chasse 125 %, capitales. Corps en Inter 400.
 - Un seul `<h1>` par page ; les paragraphes ne sont jamais des headings.
-- **Prix : `$388`, jamais `S$388`.** Le client a tranché le 2026-10-06, les deux
-  S à la suite accrochaient l'œil. La devise se dit une seule fois en toutes
-  lettres, dans le chapo de la section tarifs.
-- **Téléphone affiché avec l'indicatif** : `+65 8850 1200`. Source unique,
-  `phoneDisplay` dans `site.json`.
+- **Prix : `SGD 388`**, espace insécable dans le HTML. Le client est passé de
+  `S$` à `$` le 2026-10-06, puis de `$` à `SGD` le 2026-10-13. La mention « in
+  Singapore dollars » du chapo tarifs a été retirée à sa demande.
+- **Téléphone affiché** : `+(65) 8850 1200`, à la demande du client. Source
+  unique, `phoneDisplay` dans `site.json`. Le lien `tel:` reste `+6588501200`.
 - Mobile : composants repensés (matrice → cartes empilées, nav → overlay plein
   écran), pas de simple empilement.
 
@@ -245,22 +270,39 @@ Données mesurées (Google Trends SG + autocomplétion, 12 mois) :
 
 ### Pages prévues
 
+**L'accueil porte toutes les requêtes transactionnelles** (car detailing,
+ceramic et graphene coating, leurs déclinaisons `price`, interior detailing,
+polishing). **Les pages internes sont informationnelles** : elles répondent à
+une question et ne reprennent jamais la requête de l'accueil dans leur H1,
+leur title ou leur URL, sans quoi elles le concurrencent. D'où des routes sans
+`singapore` ni `price`, et des H1 en forme de question ou d'explication.
+
 | Route | H1 |
 |---|---|
-| `/` | Car Detailing Singapore – Premium Coating & Grooming |
-| `/ceramic-coating-singapore/` | Ceramic Coating Singapore – Done at Your Doorstep |
-| `/graphene-coating-singapore/` | Graphene Coating Singapore – Artdeshine V3 Certified Installer |
-| `/car-interior-detailing/` | Car Interior Detailing Singapore – We Come to You |
-| `/car-polishing-paint-correction/` | Car Polishing & Paint Correction Singapore |
-| `/coat-maintenance/` | Car Grooming & Coat Maintenance Singapore |
-| `/mobile-car-detailing/` | Doorstep Car Detailing – Anywhere in Singapore (hors nav) |
+| `/` | Car Detailing Singapore (h2 : Doorstep Service at Your Convenience) |
+| `/what-is-ceramic-coating/` | What Is Ceramic Coating? How It Bonds and How Long It Lasts |
+| `/what-is-graphene-coating/` | What Is Graphene Coating? Artdeshine Nano Graphene Coating+ Explained |
+| `/car-interior-detailing/` | What a Car Interior Detailing Session Includes |
+| `/car-polishing/` | Car Polishing Explained: Swirl Marks, Water Spots and Light Scratches |
+| `/coat-maintenance/` | How to Maintain a Coated Car in Singapore's Climate |
+| `/mobile-car-detailing/` | How Doorstep Car Detailing Works (hors nav) |
 | `/reviews/` | Car Armour SG Reviews – 200+ Verified Customers |
 | `/contact/` | contact, horaires, réservation |
 | `/guides/` | huit articles |
 
-Sort de `/ceramic-coating-price-singapore/` **encore à trancher** : l'intention
-prix a été rapatriée sur l'accueil, mais le bouton « What is ceramic coating ? »
-de la section services pointe encore vers cette URL.
+La page graphène est l'endroit où le **nom commercial du produit** a toute sa
+place : le terme générique travaille sur l'accueil, la marque sur la page qui
+l'explique. Nom exact à confirmer (V3 ou Coating+).
+
+`/ceramic-coating-price-singapore/` est **abandonnée** : l'intention prix vit
+sur l'accueil. Les liens « Coating Price List » du menu et du footer pointent
+sur `/#prices`. Le bouton « What is ceramic coating? » des services mène à
+`/what-is-ceramic-coating/`.
+
+À surveiller en étape 3 : les guides `ceramic-vs-graphene-coating` et
+`how-long-does-ceramic-coating-last` recoupent les deux pages « what is ».
+Trancher qui porte quoi avant d'écrire, pour ne pas créer deux pages sur la même
+question.
 
 ### Mise en œuvre
 
@@ -282,8 +324,8 @@ Les sections claires et sombres alternent volontairement. La coupure entre deux
 sections se marque par un filet doré avec un halo très discret au centre
 (`.section--edge`), pas par un dégradé.
 
-Les `h2` de la page, dans l'ordre : Premium Coating & Grooming (hero), Premium
-doorstep service at your convenience, Our car detailing services, Meet our
+Les `h2` de la page, dans l'ordre : Doorstep Service at Your Convenience (hero),
+Premium coating & grooming, Our car detailing services, Meet our
 expert team, Our car detailing prices, Doorstep service available island-wide,
 Trusted by car owners for over 20 years, Questions we get every week.
 
@@ -349,5 +391,5 @@ fois le site en production.**
 
 `_src/fragments/coating-comparison.html` : comparatif ceramic / graphene et
 encart « ce que ça ne fait pas », retirés de l'accueil le 2026-10-05. À
-replacer sur `/ceramic-coating-singapore/`. Les composants `.compare` et
+replacer sur `/what-is-ceramic-coating/`. Les composants `.compare` et
 `.caveat` sont restés dans le design system, il n'y a rien à réécrire.
