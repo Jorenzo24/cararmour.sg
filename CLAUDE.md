@@ -12,11 +12,12 @@ client**.
 |---|---|---|
 | 1 | Design system en tokens | fait, visible sur `/styleguide/` |
 | 2 | Accueil complet et abouti | fait, premier retour client intégré |
-| 3 | Gabarits : page service informationnelle, avis, contact (réduit le 2026-10-14) | **non démarrée** |
+| 3 | Gabarits : page service informationnelle, avis, contact (réduit le 2026-10-14) | **en cours** : page service faite sur `/what-is-ceramic-coating/` |
 | 4 | Pages restantes, `sitemap.xml`, `robots.txt`, schémas par page | non démarrée |
 
-Pages réellement générées à ce jour : `/` et `/styleguide/` (noindex).
-Les sept routes internes listées plus bas sont prévues, pas écrites.
+Pages réellement générées à ce jour : `/`, `/what-is-ceramic-coating/` et
+`/styleguide/` (noindex). Les six autres routes internes listées plus bas sont
+prévues, pas écrites.
 
 ### Retour client du 2026-10-06
 
@@ -318,9 +319,31 @@ l'accueil, refusées par l'agence le 2026-10-14. Clefs `nav` des pages :
 `contact`. Le menu bascule en burger sous 1220 px : en dessous, Book Now
 débordait.
 
-**Avant d'écrire la première page** : sortir les prix de `home.html` vers
-`site.json` avec un partial de carte de prix. Sans cela, chaque hausse se
-reporte à la main sur plusieurs pages.
+**Prix : source unique** dans `_src/partials/price-grid.html`, inclus par
+l'accueil et la page ceramic. Un changement de prix s'y fait, puis se reporte
+dans les textes qui citent un chiffre : carte services et FAQ tarifs de
+l'accueil, tableau comparatif et graphique du coût annuel de la page ceramic
+(prix divisé par les années de garantie, calculé dans le source). `grep SGD`
+dans `_src/pages` les liste tous.
+
+### Gabarit de page service (étape 3)
+
+`/what-is-ceramic-coating/` sert de modèle aux quatre autres pages de service.
+Ordre : en-tête de page (fil d'Ariane, H1 en question, accroche, deux boutons,
+photo, quatre chiffres clés) → 01 explication + figure → 02 contexte
+Singapour en chiffres sourcés → 03 comparatif + encart « ce que ça ne fait
+pas » → 04 déroulé de l'intervention → 05 prix + graphique → 06 entretien →
+07 FAQ propre à la page (jamais les questions de l'accueil) → CTA. Composants
+dans `main.css` §8.16 : `.page-hero`, `.explain`, `.layers` (coupe SVG à
+l'échelle), `.stat-row--facts`, `.table-compare`, `.bars`, `.pinned`,
+`.timeline-h`. Chaque section varie sa composition : deux sections qui se
+suivent n'ont jamais le même en-tête.
+
+**Faits** : uniquement des chiffres vérifiés et sourcés sur la page (climat :
+Meteorological Service Singapore, normales 1991–2020, 2 113 mm, 171 jours de
+pluie, 82 % d'humidité ; UV : échelle NEA). Les affirmations sur la méthode
+de l'entreprise se limitent à ce que le client a déjà validé ailleurs sur le
+site.
 
 La page graphène est l'endroit où le **nom commercial du produit** a toute sa
 place : le terme générique travaille sur l'accueil, la marque sur la page qui

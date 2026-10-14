@@ -1023,6 +1023,158 @@ body.is-locked{ overflow:hidden; }
   font-size:var(--fs-lead); font-weight:300; color:var(--c-paper); font-style:normal;
 }
 
+/* ── 8.16 · PAGES INTERNES ──────────────────────────────────────────────────
+   Gabarit « page service informationnelle ». Regles de base d'abord, media
+   queries ensuite : l'inverse a deja coute trois bugs sur l'accueil. */
+
+/* En-tete de page : texte et photo a parts inegales, faits cles en dessous */
+.page-hero{
+  position:relative; overflow:hidden; background:var(--c-void);
+  padding-block:calc(var(--header-h) + clamp(2.25rem, 1.5rem + 3vw, 4.5rem)) clamp(3.5rem, 2.5rem + 4vw, 6.5rem);
+}
+.page-hero::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(70% 60% at 85% 0%, rgba(201,169,107,.09) 0%, rgba(201,169,107,0) 62%);
+}
+.page-hero > *{ position:relative; }
+.page-hero__grid{ display:grid; gap:clamp(2.25rem, 1.5rem + 3vw, 4rem); align-items:center; }
+.page-hero .breadcrumb{ margin-bottom:clamp(1.5rem, 1.2rem + 1vw, 2.25rem); }
+.page-hero h1{ font-size:clamp(2rem, 1.15rem + 3.1vw, 3.75rem); margin:0 0 clamp(1.25rem, 1rem + 1vw, 1.9rem); }
+.page-hero h1 span{
+  display:block; margin-top:.55em; color:var(--c-gold);
+  font-size:.42em; letter-spacing:.14em; line-height:1.35;
+}
+.page-hero__lead{ margin:0 0 clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem); max-width:34rem; }
+.page-hero__lead strong{
+  display:block; color:var(--c-paper); font-weight:550;
+  font-size:clamp(1.1875rem, 1rem + .75vw, 1.625rem); line-height:1.3; letter-spacing:-.006em;
+}
+.page-hero__lead span{ display:block; margin-top:.6em; color:var(--c-steel); font-size:var(--fs-lead); line-height:1.5; }
+.page-hero__lead span strong{ display:inline; font-size:inherit; font-weight:550; letter-spacing:0; }
+.page-hero__media{ position:relative; margin:0; aspect-ratio:4/3; overflow:hidden; background:var(--c-graphite); }
+.page-hero__media img{ width:100%; height:100%; object-fit:cover; }
+.page-hero__media::after{ content:""; position:absolute; inset:0; border:1px solid var(--c-line); pointer-events:none; }
+.page-hero .stat-row{ margin-top:clamp(3rem, 2rem + 4vw, 5.5rem); }
+.page-hero .stat__num{ font-size:clamp(2.1rem, 1.4rem + 2.6vw, 3.4rem); }
+@media (min-width:960px){
+  .page-hero__grid{ grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); }
+  .page-hero__media{ aspect-ratio:5/4; }
+}
+@media (max-width:759px){
+  .page-hero .stat-row{ grid-template-columns:repeat(2,minmax(0,1fr)); border-top:0; }
+  .page-hero .stat{ border-top:1px solid var(--c-line); border-bottom:0; padding:1.4rem 0; }
+  .page-hero .stat:nth-child(even){ padding-left:1.25rem; border-left:1px solid var(--c-line); }
+}
+
+/* Corps d'article + figure : deux colonnes, la figure tient sa colonne */
+.explain{ display:grid; gap:clamp(2.5rem, 1.8rem + 3vw, 4.5rem); align-items:start; }
+.explain__text h2{ margin-bottom:clamp(1.25rem, 1rem + 1vw, 1.75rem); }
+.explain__text p{ color:var(--c-steel); max-width:62ch; }
+.explain__text p strong{ font-weight:500; }
+@media (min-width:980px){
+  .explain{ grid-template-columns:minmax(0,1fr) minmax(0,.95fr); }
+  .explain__figure{ position:sticky; top:calc(var(--header-h) + 2rem); }
+}
+
+/* Coupe de peinture a l'echelle : SVG dessine en currentColor */
+.layers{ margin:0; padding:clamp(1.25rem, 1rem + 1.2vw, 2rem); border:1px solid var(--c-line); background:var(--c-void); }
+.layers svg{ display:block; width:100%; height:auto; color:var(--c-paper); }
+.layers__label{ font-family:var(--ff-body); font-size:15px; fill:var(--c-paper); }
+.layers__value{ font-family:var(--ff-display); font-stretch:100%; font-size:13px; font-weight:600; letter-spacing:.08em; fill:var(--c-steel-dim); }
+.layers__gold{ fill:var(--c-gold); }
+@media (max-width:640px){
+  .layers{ padding:1rem .75rem; }
+  .layers__label{ font-size:22px; }
+  .layers__value{ font-size:17px; letter-spacing:.04em; }
+}
+.layers figcaption{ margin-top:1.1rem; padding-top:1rem; border-top:1px solid var(--c-line); font-size:var(--fs-xs); color:var(--c-steel-dim); line-height:1.55; }
+
+/* Chiffres climat : le chiffre, sa source, puis ce qu'il fait a la peinture */
+.stat-row--facts .stat p{ margin:1.1rem 0 0; font-size:var(--fs-sm); color:var(--c-steel); line-height:1.6; max-width:30ch; }
+.stat-row--facts .stat__num small{ font-size:.36em; letter-spacing:.06em; margin-left:.15em; color:var(--c-steel); font-stretch:100%; }
+.sources{ margin-top:clamp(1.5rem, 1.2rem + 1vw, 2.25rem); font-size:var(--fs-xs); color:var(--c-steel-dim); }
+.closing-line{
+  margin:clamp(2.75rem, 2rem + 3vw, 4.5rem) auto 0; max-width:46rem; text-align:center;
+  font-size:clamp(1.125rem, .98rem + .6vw, 1.5rem); line-height:1.5; font-weight:350; color:var(--c-paper);
+}
+
+/* Tableau comparatif : vrai tableau en desktop, une carte par critere en mobile */
+.table-scroll{ overflow-x:auto; }
+.table-compare{ width:100%; border-collapse:collapse; text-align:left; font-size:var(--fs-sm); }
+.table-compare th,.table-compare td{ padding:1.15rem 1.25rem; border-bottom:1px solid var(--c-line); vertical-align:top; }
+.table-compare thead th{
+  font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label); font-weight:650;
+  text-transform:uppercase; letter-spacing:.16em; color:var(--c-paper);
+  border-bottom-color:var(--c-line-gold); padding-block:0 1.1rem;
+}
+.table-compare thead th:first-child{ color:transparent; }
+.table-compare tbody th{
+  font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label); font-weight:650;
+  text-transform:uppercase; letter-spacing:.16em; color:var(--c-steel-dim); width:16%;
+}
+.table-compare td{ color:var(--c-steel); line-height:1.55; }
+.table-compare td strong{ color:var(--c-paper); font-weight:500; }
+.table-compare .is-hero{ background:rgba(201,169,107,.05); }
+.table-compare thead .is-hero{ color:var(--c-gold); background:none; }
+.table-compare th:first-child{ padding-left:0; }
+@media (max-width:860px){
+  .table-compare,.table-compare tbody,.table-compare tr,.table-compare td,.table-compare th{ display:block; width:auto; }
+  .table-compare thead{ display:none; }
+  .table-compare tbody tr{ border:1px solid var(--c-line); background:var(--c-charcoal); padding:1.25rem; margin-bottom:.9rem; }
+  .table-compare tbody th{ width:auto; padding:0 0 .9rem; color:var(--c-gold); }
+  /* Libelle en colonne absolue : en grille, un <strong> dans la cellule
+     devenait un element de grille et coupait la phrase en deux. */
+  .table-compare td{ position:relative; padding:.8rem 0 .8rem 42%; border-bottom:1px dotted rgba(245,245,240,.13); }
+  .table-compare td:last-child{ border-bottom:0; padding-bottom:0; }
+  .table-compare td::before{ content:attr(data-th); position:absolute; left:0; top:.8rem; width:38%; color:var(--c-paper); font-weight:500; font-size:var(--fs-xs); line-height:1.5; }
+  .table-compare .is-hero{ background:none; }
+  .table-compare td.is-hero::before{ color:var(--c-gold); }
+}
+
+/* Graphique en barres horizontales : HTML pur, valeurs ecrites sur la barre */
+.bars{ margin:0; display:grid; gap:clamp(1.5rem, 1.2rem + 1vw, 2rem); }
+.bars__legend{ display:flex; flex-wrap:wrap; gap:.6rem 1.75rem; font-size:var(--fs-xs); color:var(--c-steel); }
+.bars__legend span{ display:inline-flex; align-items:center; gap:.6rem; }
+.bars__legend span::before{ content:""; width:22px; height:10px; background:var(--c-gold); }
+.bars__legend .is-alt::before{ background:transparent; border:1px solid var(--c-line-strong); }
+.bars__group{ display:grid; gap:.5rem; }
+.bars__group h4{ margin:0 0 .25rem; font-size:var(--fs-label); letter-spacing:.18em; color:var(--c-steel-dim); }
+.bars__track{ display:flex; align-items:center; height:34px; }
+.bars__bar{
+  height:100%; width:var(--v); background:var(--c-gold); display:flex; align-items:center; justify-content:flex-end;
+  padding-inline:.75rem; color:var(--c-void); white-space:nowrap;
+  font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-xs); font-weight:650; letter-spacing:.06em;
+  transform-origin:left; transition:transform 1s var(--ease);
+}
+.bars__bar--alt{ background:transparent; border:1px solid var(--c-line-strong); color:var(--c-paper); }
+.js .bars[data-reveal]:not(.is-in) .bars__bar{ transform:scaleX(.02); }
+.bars figcaption{ font-size:var(--fs-xs); color:var(--c-steel-dim); line-height:1.55; padding-top:1rem; border-top:1px solid var(--c-line); }
+
+/* Section en deux temps : titre colle a gauche, contenu qui defile a droite */
+.pinned{ display:grid; gap:clamp(2.25rem, 1.6rem + 2.6vw, 4rem); align-items:start; }
+.pinned__head .lead{ margin-bottom:2rem; }
+@media (min-width:980px){
+  .pinned{ grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); }
+  .pinned__head{ position:sticky; top:calc(var(--header-h) + 2.5rem); }
+}
+
+/* Frise horizontale : quatre jalons sur un filet, verticale en mobile */
+.timeline-h{ list-style:none; margin:0; padding:0; display:grid; gap:0; }
+.timeline-h li{ position:relative; padding:0 0 2rem 2rem; border-left:1px solid var(--c-line-strong); }
+.timeline-h li:last-child{ padding-bottom:0; }
+.timeline-h li::before{
+  content:""; position:absolute; left:-5px; top:.3rem; width:9px; height:9px;
+  background:var(--c-void); border:1px solid var(--c-gold); transform:rotate(45deg);
+}
+.timeline-h__when{ display:block; margin-bottom:.7rem; font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label); font-weight:650; text-transform:uppercase; letter-spacing:var(--ls-label); color:var(--c-gold); }
+.timeline-h h3{ font-size:var(--fs-h4); margin:0 0 .6rem; }
+.timeline-h p{ color:var(--c-steel); font-size:var(--fs-sm); margin:0; }
+@media (min-width:900px){
+  .timeline-h{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(1.5rem, 1rem + 1.5vw, 2.5rem); }
+  .timeline-h li{ padding:2.25rem 0 0; border-left:0; border-top:1px solid var(--c-line-strong); }
+  .timeline-h li::before{ left:0; top:-5px; }
+}
+
 /* ── 09 · MOTION ─────────────────────────────────────────────────────────── */
 .js [data-reveal]{
   opacity:0; transform:translateY(20px);
