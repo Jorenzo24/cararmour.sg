@@ -24,7 +24,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2?v=2f7ea45bad" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin.woff2?v=e990806dbc" crossorigin>
 <script>document.documentElement.className+=" js";</script>
-<link rel="stylesheet" href="/assets/css/main.min.css?v=4c8574181c">
+<link rel="stylesheet" href="/assets/css/main.min.css?v=cd75860d4c">
 
 <script type="application/ld+json">
 {
@@ -323,16 +323,35 @@
       </table>
     </div>
 
-    <div class="caveat" data-reveal>
-      <h3>What a ceramic coating will not do</h3>
-      <p>
-        It will not stop stone chips or deep scratches: at around a micron, the layer is far too
-        thin to absorb an impact. For chips, the answer is paint protection film, roughly 150 to
-        200 microns thick. The 9H rating printed on many bottles comes from a pencil hardness test
-        run on a laboratory panel, and says nothing about a car parked in a busy carpark. A coating
-        will not hide swirl marks either. It preserves whatever lies underneath, which is why the
-        paint is machine-polished before it goes on.
-      </p>
+    <div class="limits">
+      <h3 class="limits__title" data-reveal>What a ceramic coating will not do</h3>
+      <ol class="limits__list">
+        <li class="limit" data-reveal>
+          <p class="limit__claim"><span class="limit__strike">Stop stone chips</span></p>
+          <div class="limit__fact">
+            <p>At around a micron, a coating is far too thin to absorb an impact. Paint protection film, a polyurethane layer of roughly 150 to 200 microns, is the product made for that.</p>
+            <div class="thick" aria-label="Thickness at the same scale: ceramic coating about 1 micron, paint protection film about 200 microns." role="img">
+              <div class="thick__row is-gold"><span>Ceramic coating · about 1 µm</span><span class="thick__bar" style="--w:.5%"></span></div>
+              <div class="thick__row"><span>Paint protection film · about 200 µm</span><span class="thick__bar" style="--w:100%"></span></div>
+            </div>
+          </div>
+        </li>
+        <li class="limit" data-reveal>
+          <p class="limit__claim"><span class="limit__strike">Make paint scratch&#8209;proof</span></p>
+          <div class="limit__fact">
+            <p>The 9H printed on many bottles is a grade on the pencil hardness test (ASTM D3363). Leads of increasing hardness are pushed across a coated laboratory panel; 9H means the hardest one did not cut through the film. It says nothing about a key or a careless wash.</p>
+            <div class="pencil" role="img" aria-label="Pencil hardness scale, from 6B, the softest lead, to 9H, the hardest.">
+              <span class="pencil__track"></span><span class="pencil__lab" style="--at:0.0%">6B</span><span class="pencil__lab" style="--at:37.5%">HB</span><span class="pencil__lab is-gold" style="--at:100.0%">9H</span>
+            </div>
+          </div>
+        </li>
+        <li class="limit" data-reveal>
+          <p class="limit__claim"><span class="limit__strike">Hide swirl marks</span></p>
+          <div class="limit__fact">
+            <p>A coating preserves whatever lies underneath it, swirls included. That is why the paint is machine-polished first, and why the polishing decides the final finish.</p>
+          </div>
+        </li>
+      </ol>
     </div>
 
     <p style="margin-top:2.5rem">

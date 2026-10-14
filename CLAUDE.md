@@ -339,11 +339,16 @@ l'en-tête : refusés le 2026-10-14.
 
 Ordre : en-tête (fil d'Ariane, H1 en question, accroche, deux boutons, photo)
 → explication + figure → contexte Singapour en chiffres sourcés → comparatif
-+ encart « ce que ça ne fait pas » → déroulé d'une application → durée de vie
++ « ce que ça ne fait pas » (`.limits`) → déroulé d'une application → durée de vie
 + graphique de plages → entretien → FAQ propre à la page (jamais les questions
 de l'accueil) → CTA. Composants dans `main.css` §8.16 : `.page-hero`,
 `.explain`, `.layers` (coupe SVG à l'échelle), `.stat-row--facts`,
-`.table-compare`, `.factors`, `.range`, `.pinned`, `.timeline-h`. Deux sections
+`.table-compare`, `.limits`, `.factors`, `.range`, `.pinned`, `.timeline-h`.
+
+**Pas d'encadré à filet gauche** (`.caveat`) : jugé « standard IA » le
+2026-10-14. Les mises au point passent par `.limits` : l'idée reçue en grandes
+capitales barrée d'un trait doré, le fait en vis-à-vis, un visuel quand il y
+en a un de pertinent. Deux sections
 qui se suivent n'ont jamais la même composition.
 
 **Faits** : uniquement des chiffres vérifiés et sourcés sur la page (climat :
