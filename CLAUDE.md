@@ -52,8 +52,16 @@ dernière FAQ). Ne pas l'enlever ailleurs sans demande explicite.
 
 En attente :
 
-- **Gabarits Nano et Graphene** : la carte Ceramic est passée à trois lignes
-  (488 / 538 / 588, réponse du client), les deux autres en ont encore quatre.
+- **Grille tarifaire réglée le 2026-10-14** : trois gabarits partout (Small,
+  Large SUV/MPV, Extra Large / Exotic). Polish & Wax Coating 238 / 288 / 338
+  (remplace le Nano Coating, qui n'existe plus), Ceramic 488 / 538 / 588, Nano
+  Graphene Coating 688 / 738 / 788. Le sur-titre « Polish · Wax », la
+  description et la durée « About two hours » de la première carte sont des
+  propositions, à faire valider.
+- **Le site dénigre la cire alors que le client en vend** : carte services
+  Ceramic (« not a wax that washes off in a month ») et FAQ « Is a coating worth
+  it over a good wax? » (« Singapore rain takes it off in weeks »). Signalé, à
+  trancher avec le client.
 - **Nom du graphène** : « V3 » subsiste dans la nav, la description de la carte
   tarifaire et la FAQ, alors que la carte services dit désormais « Coating+ ».
   Le titre de la carte tarifaire est passé à « Graphene Coating » (mot-clé
@@ -280,7 +288,7 @@ leur title ou leur URL, sans quoi elles le concurrencent. D'où des routes sans
 | Route | H1 | Requêtes visées |
 |---|---|---|
 | `/` | Car Detailing Singapore | toutes les transactionnelles |
-| `/what-is-ceramic-coating/` | What Is Ceramic Coating? How It Bonds and How Long It Lasts | what is, durée de vie, worth it, vs wax, vs PPF ; Nano y figure comme entrée de gamme |
+| `/what-is-ceramic-coating/` | What Is Ceramic Coating? How It Bonds and How Long It Lasts | what is, durée de vie, worth it, vs wax, vs PPF |
 | `/what-is-graphene-coating/` | What Is Graphene Coating? Artdeshine Nano Graphene Coating+ Explained | what is, ceramic vs graphene, nom du produit |
 | `/car-polishing/` | Car Polishing Explained: Swirl Marks, Water Spots and Light Scratches | car polishing, swirl marks, polish avant coating |
 | `/car-interior-detailing/` | What a Car Interior Detailing Session Includes | interior detailing, steam clean, cuir |
