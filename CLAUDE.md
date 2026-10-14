@@ -337,20 +337,24 @@ n'y apparaît que par les boutons de réservation, qui mènent tous à
 chemistry », « Coating guide ») et **pas de rangée de chiffres clés** sous
 l'en-tête : refusés le 2026-10-14.
 
-**Structure éditoriale** (retour du 2026-10-14) : la page se lit comme un
-article. Une colonne de lecture (`.prose-col`, 44rem) porte les titres et les
-paragraphes ; des photos et des figures en débordent (`.wide`, `.wide--mid`,
-`.diptych`) ; de temps en temps un module plein cadre (bandeau de chiffres sur
-fond clair, tableau, graphique) coupe le fil. Pas d'empilement de sections
-toutes composées différemment : c'était la première version, trop « mise en
-page ».
+**Structure éditoriale** (retours du 2026-10-14) : la page se lit comme un
+article de site média. Une **colonne centrale** (`.sheet`, 62rem, fond
+charbon) se détache des côtés plus sombres. Le texte (`.prose-col`, 44rem), les
+photos et les figures y ont **la même largeur** ; seuls le tableau, les limites
+et la frise prennent toute la colonne (`.sheet-wide`). Les données se racontent
+dans le fil du texte, avec un visuel propre à chacune : coupe de peinture à
+l'échelle, 365 cases dont 171 jours de pluie (`.days`), échelle UV de la NEA
+(`.uv`), graphique de durées (`.range`).
 
-Fil de la page ceramic : en-tête → ce qu'est un coating (texte, coupe à
-l'échelle, photo) → bandeau clair « What Singapore does to car paint » →
-alternatives (texte, tableau, limites compactes) → application (texte,
-diptyque photo, étapes) → durée de vie (texte, facteurs, graphique de plages,
-photo) → entretien (texte, frise) → FAQ propre à la page → CTA. Un bouton de
-réservation clôt chaque grande partie. Composants dans `main.css` §8.16.
+**Mises en page refusées, à ne plus proposer sur aucun site** : l'en-tête
+titre à gauche + petit paragraphe à droite (`.section-head--split`), et la
+rangée de quatre chiffres clés séparés par des filets. L'utilisateur les voit
+revenir d'un site à l'autre.
+
+Fil de la page ceramic : en-tête → ce qu'est un coating → le climat de
+Singapour → alternatives (tableau, limites compactes) → application (diptyque
+photo, étapes) → durée de vie (facteurs, graphique, photo) → entretien (frise)
+→ FAQ propre à la page → CTA. Un bouton de réservation clôt chaque partie.
 
 **Pas d'encadré à filet gauche** (`.caveat`) : jugé « standard IA » le
 2026-10-14. Les mises au point passent par `.limits` : trois colonnes compactes, l'idée
