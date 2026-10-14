@@ -337,13 +337,20 @@ n'y apparaît que par les boutons de réservation, qui mènent tous à
 chemistry », « Coating guide ») et **pas de rangée de chiffres clés** sous
 l'en-tête : refusés le 2026-10-14.
 
-Ordre : en-tête (fil d'Ariane, H1 en question, accroche, deux boutons, photo)
-→ explication + figure → contexte Singapour en chiffres sourcés → comparatif
-+ « ce que ça ne fait pas » (`.limits`) → déroulé d'une application → durée de vie
-+ graphique de plages → entretien → FAQ propre à la page (jamais les questions
-de l'accueil) → CTA. Composants dans `main.css` §8.16 : `.page-hero`,
-`.explain`, `.layers` (coupe SVG à l'échelle), `.stat-row--facts`,
-`.table-compare`, `.limits`, `.factors`, `.range`, `.pinned`, `.timeline-h`.
+**Structure éditoriale** (retour du 2026-10-14) : la page se lit comme un
+article. Une colonne de lecture (`.prose-col`, 44rem) porte les titres et les
+paragraphes ; des photos et des figures en débordent (`.wide`, `.wide--mid`,
+`.diptych`) ; de temps en temps un module plein cadre (bandeau de chiffres sur
+fond clair, tableau, graphique) coupe le fil. Pas d'empilement de sections
+toutes composées différemment : c'était la première version, trop « mise en
+page ».
+
+Fil de la page ceramic : en-tête → ce qu'est un coating (texte, coupe à
+l'échelle, photo) → bandeau clair « What Singapore does to car paint » →
+alternatives (texte, tableau, limites compactes) → application (texte,
+diptyque photo, étapes) → durée de vie (texte, facteurs, graphique de plages,
+photo) → entretien (texte, frise) → FAQ propre à la page → CTA. Un bouton de
+réservation clôt chaque grande partie. Composants dans `main.css` §8.16.
 
 **Pas d'encadré à filet gauche** (`.caveat`) : jugé « standard IA » le
 2026-10-14. Les mises au point passent par `.limits` : trois colonnes compactes, l'idée
