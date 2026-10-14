@@ -362,12 +362,9 @@ Singapour → alternatives (tableau) → application (diptyque
 photo, étapes) → durée de vie (facteurs, graphique) → entretien (photo, frise)
 → FAQ propre à la page → CTA. Un bouton de réservation clôt chaque partie.
 
-**Pas d'encadré à filet gauche** (`.caveat`) : jugé « standard IA » le
-2026-10-14. Les mises au point passent par `.limits` : trois colonnes compactes, l'idée
-reçue barrée d'un trait doré puis le fait, un petit visuel quand il est
-pertinent. **Section volontairement discrète** (retour du 2026-10-14) : elle
-parle de ce que le service ne fait pas, elle ne doit pas prendre de place. Deux sections
-qui se suivent n'ont jamais la même composition.
+**Pas d'encadré à filet gauche** (`.caveat`), jugé « standard IA ». Le bloc
+« ce que ça ne fait pas » a été retiré entièrement le 2026-10-14 : jugé inutile,
+et il dénigrait le service vendu.
 
 **Faits** : uniquement des chiffres vérifiés et sourcés sur la page (climat :
 Meteorological Service Singapore, normales 1991–2020, 2 113 mm, 171 jours de
