@@ -340,11 +340,17 @@ l'en-tête : refusés le 2026-10-14.
 **Structure éditoriale** (retours du 2026-10-14) : la page se lit comme un
 article de site média. Une **colonne centrale** (`.sheet`, 62rem, fond
 charbon) se détache des côtés plus sombres. Le texte (`.prose-col`, 44rem), les
-photos et les figures y ont **la même largeur** ; seuls le tableau, les limites
-et la frise prennent toute la colonne (`.sheet-wide`). Les données se racontent
+photos et les figures y ont **la même largeur** ; seuls le tableau et la frise
+prennent toute la colonne (`.sheet-wide`). Les données se racontent
 dans le fil du texte, avec un visuel propre à chacune : coupe de peinture à
 l'échelle, 365 cases dont 171 jours de pluie (`.days`), échelle UV de la NEA
-(`.uv`), graphique de durées (`.range`).
+(`.uv`), graphique de durées (`.range`), comparateur avant/après à
+curseur (`.ba`).
+
+**Maillage interne** : chaque page lie dans le texte les pages voisines
+(polishing, coat maintenance, graphène) et renvoie à l'accueil avec l'ancre
+de sa requête transactionnelle (« ceramic coating in Singapore »). Liens
+contextuels dans des phrases, jamais une liste « related pages ».
 
 **Mises en page refusées, à ne plus proposer sur aucun site** : l'en-tête
 titre à gauche + petit paragraphe à droite (`.section-head--split`), et la
@@ -352,8 +358,8 @@ rangée de quatre chiffres clés séparés par des filets. L'utilisateur les voi
 revenir d'un site à l'autre.
 
 Fil de la page ceramic : en-tête → ce qu'est un coating → le climat de
-Singapour → alternatives (tableau, limites compactes) → application (diptyque
-photo, étapes) → durée de vie (facteurs, graphique, photo) → entretien (frise)
+Singapour → alternatives (tableau) → application (diptyque
+photo, étapes) → durée de vie (facteurs, graphique) → entretien (photo, frise)
 → FAQ propre à la page → CTA. Un bouton de réservation clôt chaque partie.
 
 **Pas d'encadré à filet gauche** (`.caveat`) : jugé « standard IA » le
@@ -458,6 +464,15 @@ fois le site en production.**
   recoupés nulle part ailleurs, les garder cohérents si d'autres pages les
   reprennent.
 - Adresse postale : aucune sur l'ancien site (service 100 % mobile).
+
+## Photos à demander au client
+
+- **Avant / après** pour `/what-is-ceramic-coating/` (« What you notice
+  afterwards ») : même panneau, même lumière, même cadrage, avant polissage et
+  après coating. Le comparateur `.ba` attend avec deux placeholders ; un
+  commentaire dans le source dit quoi remplacer.
+- Des photos propres à chaque page de service : les quatre de la page ceramic
+  sont déjà utilisées sur l'accueil.
 
 ## Fragments en attente
 

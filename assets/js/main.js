@@ -64,6 +64,12 @@
   });
 
   /* ── Accordéons (FAQ) — hauteur animée, accessible ──────────────────── */
+  /* Comparateur avant / apres : le curseur deplace la decoupe */
+  $$('.ba__range').forEach(function (range) {
+    var fig = range.closest('.ba');
+    range.addEventListener('input', function () { fig.style.setProperty('--pos', range.value + '%'); });
+  });
+
   $$('.accordion__trigger').forEach(function (trigger) {
     var body = document.getElementById(trigger.getAttribute('aria-controls'));
     if (!body) return;
