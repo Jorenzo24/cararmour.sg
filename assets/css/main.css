@@ -1160,31 +1160,34 @@ body.is-locked{ overflow:hidden; }
 /* Limites : l'idee recue en grandes capitales, barree d'un trait dore qui se
    trace a l'apparition, et le fait qui la corrige en vis-a-vis. Pas de cadre :
    l'encart a filet gauche est le motif le plus attendu qui soit. */
-.limits{ margin-top:clamp(5rem, 3.5rem + 6vw, 9rem); }
-.limits__title{ font-size:var(--fs-h2); line-height:1.1; margin:0 0 clamp(2rem, 1.5rem + 2vw, 3.25rem); max-width:26ch; }
-.limits__list{ list-style:none; margin:0; padding:0; }
-.limit{ display:grid; gap:1.1rem; padding-block:clamp(1.9rem, 1.3rem + 2.2vw, 3rem); border-top:1px solid var(--c-line); }
-.limit:last-child{ border-bottom:1px solid var(--c-line); }
+.limits{ margin-top:clamp(3.5rem, 2.5rem + 3vw, 5.5rem); }
+.limits__title{ font-size:var(--fs-h4); letter-spacing:.05em; margin:0 0 1.4rem; }
+.limits__list{ list-style:none; margin:0; padding:0; display:grid; border-top:1px solid var(--c-line); }
+.limit{ padding-block:1.5rem; border-bottom:1px solid var(--c-line); }
 .limit__claim{
-  margin:0; font-family:var(--ff-display); font-stretch:var(--fw-expand); font-weight:600;
-  text-transform:uppercase; letter-spacing:.02em; line-height:1.12;
-  font-size:clamp(1.4rem, 1rem + 1.7vw, 2.35rem); color:var(--c-steel-dim);
+  margin:0 0 .85rem; font-family:var(--ff-display); font-stretch:var(--fw-expand); font-weight:600;
+  text-transform:uppercase; letter-spacing:.03em; line-height:1.2;
+  font-size:clamp(.9375rem, .88rem + .3vw, 1.0625rem); color:var(--c-steel-dim);
 }
 .limit__strike{
-  background:linear-gradient(var(--c-gold), var(--c-gold)) no-repeat 0 54% / 100% 3px;
+  background:linear-gradient(var(--c-gold), var(--c-gold)) no-repeat 0 54% / 100% 2px;
   -webkit-box-decoration-break:clone; box-decoration-break:clone;
   transition:background-size .9s var(--ease) .25s;
 }
-.js .limit[data-reveal]:not(.is-in) .limit__strike{ background-size:0% 3px; }
-.limit__fact p{ margin:0; color:var(--c-steel); max-width:60ch; }
+.js .limit[data-reveal]:not(.is-in) .limit__strike{ background-size:0% 2px; }
+.limit__fact p{ margin:0; color:var(--c-steel); font-size:var(--fs-xs); line-height:1.65; }
+@media (min-width:900px){
+  .limits__list{ grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:clamp(2rem, 1.2rem + 2.5vw, 3.5rem); }
+  .limit{ padding-block:1.6rem 0; border-bottom:0; }
+}
 
-.thick{ display:grid; gap:1rem; margin-top:1.6rem; }
+.thick{ display:grid; gap:.75rem; margin-top:1.1rem; }
 .thick__row{ display:grid; gap:.5rem; font-size:var(--fs-xs); color:var(--c-steel-dim); letter-spacing:.02em; }
 .thick__bar{ display:block; height:9px; width:var(--w); min-width:2px; background:var(--c-line-strong); }
 .thick__row.is-gold{ color:var(--c-gold); }
 .thick__row.is-gold .thick__bar{ background:var(--c-gold); }
 
-.pencil{ position:relative; height:2.4rem; margin-top:1.75rem; }
+.pencil{ position:relative; height:2.2rem; margin-top:1.2rem; }
 .pencil__track{
   position:absolute; inset:0 0 auto; height:10px;
   border-top:1px solid var(--c-line-strong); border-right:1px solid var(--c-line-strong);
@@ -1195,9 +1198,6 @@ body.is-locked{ overflow:hidden; }
 .pencil__lab.is-gold{ transform:translateX(-100%); color:var(--c-gold); font-weight:600; }
 .pencil__lab.is-gold::before{ content:""; position:absolute; right:0; top:-17px; width:1px; height:12px; background:var(--c-gold); }
 
-@media (min-width:900px){
-  .limit{ grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); column-gap:clamp(2.5rem, 1.5rem + 4vw, 6rem); align-items:start; }
-}
 
 /* Section en deux temps : titre colle a gauche, contenu qui defile a droite */
 .pinned{ display:grid; gap:clamp(2.25rem, 1.6rem + 2.6vw, 4rem); align-items:start; }

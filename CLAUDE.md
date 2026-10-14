@@ -346,9 +346,10 @@ de l'accueil) → CTA. Composants dans `main.css` §8.16 : `.page-hero`,
 `.table-compare`, `.limits`, `.factors`, `.range`, `.pinned`, `.timeline-h`.
 
 **Pas d'encadré à filet gauche** (`.caveat`) : jugé « standard IA » le
-2026-10-14. Les mises au point passent par `.limits` : l'idée reçue en grandes
-capitales barrée d'un trait doré, le fait en vis-à-vis, un visuel quand il y
-en a un de pertinent. Deux sections
+2026-10-14. Les mises au point passent par `.limits` : trois colonnes compactes, l'idée
+reçue barrée d'un trait doré puis le fait, un petit visuel quand il est
+pertinent. **Section volontairement discrète** (retour du 2026-10-14) : elle
+parle de ce que le service ne fait pas, elle ne doit pas prendre de place. Deux sections
 qui se suivent n'ont jamais la même composition.
 
 **Faits** : uniquement des chiffres vérifiés et sourcés sur la page (climat :
