@@ -320,30 +320,36 @@ l'accueil, refusées par l'agence le 2026-10-14. Clefs `nav` des pages :
 débordait.
 
 **Prix : source unique** dans `_src/partials/price-grid.html`, inclus par
-l'accueil et la page ceramic. Un changement de prix s'y fait, puis se reporte
-dans les textes qui citent un chiffre : carte services et FAQ tarifs de
-l'accueil, tableau comparatif et graphique du coût annuel de la page ceramic
-(prix divisé par les années de garantie, calculé dans le source). `grep SGD`
-dans `_src/pages` les liste tous.
+l'accueil. Un changement de prix s'y fait, puis se reporte dans les textes de
+l'accueil qui citent un chiffre (carte services, FAQ tarifs) : `grep SGD`.
 
 ### Gabarit de page service (étape 3)
 
 `/what-is-ceramic-coating/` sert de modèle aux quatre autres pages de service.
-Ordre : en-tête de page (fil d'Ariane, H1 en question, accroche, deux boutons,
-photo, quatre chiffres clés) → 01 explication + figure → 02 contexte
-Singapour en chiffres sourcés → 03 comparatif + encart « ce que ça ne fait
-pas » → 04 déroulé de l'intervention → 05 prix + graphique → 06 entretien →
-07 FAQ propre à la page (jamais les questions de l'accueil) → CTA. Composants
-dans `main.css` §8.16 : `.page-hero`, `.explain`, `.layers` (coupe SVG à
-l'échelle), `.stat-row--facts`, `.table-compare`, `.bars`, `.pinned`,
-`.timeline-h`. Chaque section varie sa composition : deux sections qui se
-suivent n'ont jamais le même en-tête.
+
+**Contenu universel, jamais propre à Car Armour** (retour du 2026-10-14) : ni
+prix, ni garantie, ni durée d'intervention maison, ni « we », ni « at your
+residence ». La page explique le sujet comme une référence neutre ; Car Armour
+n'y apparaît que par les boutons de réservation, qui mènent tous à
+`{{booking}}`. Les prix et la garantie vivent sur l'accueil.
+
+**Pas de petit titre au-dessus des titres** (`.eyebrow`, « 01 · The
+chemistry », « Coating guide ») et **pas de rangée de chiffres clés** sous
+l'en-tête : refusés le 2026-10-14.
+
+Ordre : en-tête (fil d'Ariane, H1 en question, accroche, deux boutons, photo)
+→ explication + figure → contexte Singapour en chiffres sourcés → comparatif
++ encart « ce que ça ne fait pas » → déroulé d'une application → durée de vie
++ graphique de plages → entretien → FAQ propre à la page (jamais les questions
+de l'accueil) → CTA. Composants dans `main.css` §8.16 : `.page-hero`,
+`.explain`, `.layers` (coupe SVG à l'échelle), `.stat-row--facts`,
+`.table-compare`, `.factors`, `.range`, `.pinned`, `.timeline-h`. Deux sections
+qui se suivent n'ont jamais la même composition.
 
 **Faits** : uniquement des chiffres vérifiés et sourcés sur la page (climat :
 Meteorological Service Singapore, normales 1991–2020, 2 113 mm, 171 jours de
-pluie, 82 % d'humidité ; UV : échelle NEA). Les affirmations sur la méthode
-de l'entreprise se limitent à ce que le client a déjà validé ailleurs sur le
-site.
+pluie, 82 % d'humidité ; UV : échelle NEA). Les pratiques décrites sont celles du
+métier en général, pas celles de l'entreprise.
 
 La page graphène est l'endroit où le **nom commercial du produit** a toute sa
 place : le terme générique travaille sur l'accueil, la marque sur la page qui
