@@ -388,7 +388,7 @@ a:hover{ color:var(--c-gold-lite); }
 
 .nav{ margin-left:auto; display:flex; align-items:center; gap:clamp(.25rem,1.1vw,1.35rem); }
 .nav__list{ display:flex; align-items:center; gap:clamp(.15rem,.9vw,1.1rem); list-style:none; margin:0; padding:0; }
-@media (max-width:1080px){ .nav__list{ display:none; } }
+@media (max-width:1220px){ .nav__list{ display:none; } }
 .nav__item{ position:relative; }
 .nav__link{
   display:inline-flex; align-items:center; gap:.4rem;
@@ -439,7 +439,7 @@ a:hover{ color:var(--c-gold-lite); }
   transition:border-color var(--dur) var(--ease);
 }
 .burger:hover{ border-color:var(--c-gold); }
-@media (max-width:1080px){ .burger{ display:inline-flex; } }
+@media (max-width:1220px){ .burger{ display:inline-flex; } }
 .burger span{ display:block; width:18px; height:1px; background:var(--c-paper); position:relative; transition:background-color .2s; }
 .burger span::before,.burger span::after{
   content:""; position:absolute; left:0; width:18px; height:1px; background:var(--c-paper);

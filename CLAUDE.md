@@ -12,11 +12,11 @@ client**.
 |---|---|---|
 | 1 | Design system en tokens | fait, visible sur `/styleguide/` |
 | 2 | Accueil complet et abouti | fait, premier retour client intégré |
-| 3 | Gabarits : page service, page prix, article de guide, avis, contact | **non démarrée** |
+| 3 | Gabarits : page service informationnelle, avis, contact (réduit le 2026-10-14) | **non démarrée** |
 | 4 | Pages restantes, `sitemap.xml`, `robots.txt`, schémas par page | non démarrée |
 
 Pages réellement générées à ce jour : `/` et `/styleguide/` (noindex).
-Les dix-neuf autres routes listées plus bas sont prévues, pas écrites.
+Les sept routes internes listées plus bas sont prévues, pas écrites.
 
 ### Retour client du 2026-10-06
 
@@ -277,32 +277,50 @@ une question et ne reprennent jamais la requête de l'accueil dans leur H1,
 leur title ou leur URL, sans quoi elles le concurrencent. D'où des routes sans
 `singapore` ni `price`, et des H1 en forme de question ou d'explication.
 
-| Route | H1 |
-|---|---|
-| `/` | Car Detailing Singapore (h2 : Doorstep Service at Your Convenience) |
-| `/what-is-ceramic-coating/` | What Is Ceramic Coating? How It Bonds and How Long It Lasts |
-| `/what-is-graphene-coating/` | What Is Graphene Coating? Artdeshine Nano Graphene Coating+ Explained |
-| `/car-interior-detailing/` | What a Car Interior Detailing Session Includes |
-| `/car-polishing/` | Car Polishing Explained: Swirl Marks, Water Spots and Light Scratches |
-| `/coat-maintenance/` | How to Maintain a Coated Car in Singapore's Climate |
-| `/mobile-car-detailing/` | How Doorstep Car Detailing Works (hors nav) |
-| `/reviews/` | Car Armour SG Reviews – 200+ Verified Customers |
-| `/contact/` | contact, horaires, réservation |
-| `/guides/` | huit articles |
+| Route | H1 | Requêtes visées |
+|---|---|---|
+| `/` | Car Detailing Singapore | toutes les transactionnelles |
+| `/what-is-ceramic-coating/` | What Is Ceramic Coating? How It Bonds and How Long It Lasts | what is, durée de vie, worth it, vs wax, vs PPF ; Nano y figure comme entrée de gamme |
+| `/what-is-graphene-coating/` | What Is Graphene Coating? Artdeshine Nano Graphene Coating+ Explained | what is, ceramic vs graphene, nom du produit |
+| `/car-polishing/` | Car Polishing Explained: Swirl Marks, Water Spots and Light Scratches | car polishing, swirl marks, polish avant coating |
+| `/car-interior-detailing/` | What a Car Interior Detailing Session Includes | interior detailing, steam clean, cuir |
+| `/coat-maintenance/` | How to Maintain a Coated Car in Singapore's Climate | coating maintenance, aftercare, car grooming |
+| `/reviews/` | Car Armour SG Reviews | car armour review |
+| `/contact/` | Contact & Booking | navigationnel |
+
+**Validé le 2026-10-14** : la distinction page service / article de guide
+disparaît, puisque toutes les pages internes sont informationnelles. Une page
+explique un service en profondeur puis rappelle son prix. `/mobile-car-detailing/`
+(doorstep à zéro volume, déjà argumenté sur l'accueil) et `/guides/` (huit
+articles qui doublonneraient ces pages) sont abandonnés. Un guide ne se rouvre
+que pour une question restée sans réponse une fois ces pages en ligne. Les
+gabarits de l'étape 3 passent de cinq à trois : page service informationnelle,
+avis, contact. **Changement de brief à faire valider par le client.**
+
+**Appels à l'action dans les pages internes** : nombreux, et ils mènent
+**directement à la réservation** (`{{booking}}`, qui affiche les prix et prend
+le rendez-vous), jamais vers l'accueil. Une page informationnelle convertit sur
+place.
+
+**Menu** : sept entrées à plat, sans menu déroulant ni « Home » (le logo y
+mène) : Ceramic Coating, Graphene Coating, Polishing, Interior, Maintenance,
+Reviews, Contact, puis le bouton Book Now. Pas d'ancres vers les sections de
+l'accueil, refusées par l'agence le 2026-10-14. Clefs `nav` des pages :
+`ceramic`, `graphene`, `polishing`, `interior`, `maintenance`, `reviews`,
+`contact`. Le menu bascule en burger sous 1220 px : en dessous, Book Now
+débordait.
+
+**Avant d'écrire la première page** : sortir les prix de `home.html` vers
+`site.json` avec un partial de carte de prix. Sans cela, chaque hausse se
+reporte à la main sur plusieurs pages.
 
 La page graphène est l'endroit où le **nom commercial du produit** a toute sa
 place : le terme générique travaille sur l'accueil, la marque sur la page qui
 l'explique. Nom exact à confirmer (V3 ou Coating+).
 
 `/ceramic-coating-price-singapore/` est **abandonnée** : l'intention prix vit
-sur l'accueil. Les liens « Coating Price List » du menu et du footer pointent
-sur `/#prices`. Le bouton « What is ceramic coating? » des services mène à
+sur l'accueil. Le bouton « What is ceramic coating? » des services mène à
 `/what-is-ceramic-coating/`.
-
-À surveiller en étape 3 : les guides `ceramic-vs-graphene-coating` et
-`how-long-does-ceramic-coating-last` recoupent les deux pages « what is ».
-Trancher qui porte quoi avant d'écrire, pour ne pas créer deux pages sur la même
-question.
 
 ### Mise en œuvre
 
