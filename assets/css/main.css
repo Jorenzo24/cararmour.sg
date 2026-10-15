@@ -1179,7 +1179,7 @@ body.is-locked{ overflow:hidden; }
 .range__val{ font-size:var(--fs-xs); color:var(--c-steel); }
 .range__track{
   position:relative; height:28px;
-  background:linear-gradient(90deg, var(--c-line) 1px, transparent 1px) 0 0 / 20% 100%;
+  background:linear-gradient(90deg, var(--c-line) 1px, transparent 1px) 0 0 / 25% 100%;
   border-right:1px solid var(--c-line);
 }
 .range__bar{

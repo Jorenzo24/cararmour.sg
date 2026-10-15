@@ -39,6 +39,15 @@ Signalé au client, sans réponse à ce jour :
 
 Le logo Lamborghini du hero devait être retiré. Le client a dit de laisser.
 
+### Retour client du 2026-10-15, second lot
+
+Menu « Nano Graphene Coating », horaires 10:00–22:00 (`site.json` et JSON-LD),
+« 3-year lifespan » sur la carte de prix Ceramic, exemples Extra Large
+« Limousine, Lamborghini, Bentley ». Page ceramic : colonne PPF retirée du
+tableau, Polish & Wax « Up to 6 months », Nano Graphene « 3 to 7 years », PPF
+remplacé par le nano graphène dans le graphique (axe 0–8 ans). **La future page
+graphène reprendra exactement ces contenus** (demande du client).
+
 ### Retour client du 2026-10-15 (oublis signalés « Not done »)
 
 Appliqué à la lettre : extra Polishing remis (SGD 238, about two hours),
