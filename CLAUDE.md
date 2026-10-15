@@ -442,11 +442,12 @@ les pages et `robots.txt` bloquant. Republier :
 Le script reconstruit avec `--base /cararmour.sg --noindex`, puis pousse un
 commit sur la branche `gh-pages`.
 
-**Deux mécanismes coexistent**, et c'est à nettoyer : GitHub Pages est configuré
-en `build_type: legacy` sur la branche `gh-pages`, donc c'est bien
-`deploy-preview.sh` qui publie réellement. Le workflow
-`.github/workflows/preview.yml` construit aussi le site à chaque push sur `main`
-et appelle `deploy-pages`, sans effet tant que la configuration reste en legacy.
+GitHub Pages est configuré en `build_type: legacy` sur la branche `gh-pages` :
+c'est `deploy-preview.sh` qui publie. Le workflow `.github/workflows/preview.yml`
+(« Préproduction ») est **désactivé** depuis le 2026-10-15 : à chaque push sur
+`main`, il lançait son propre déploiement et bloquait celui de `gh-pages`
+(« in progress deployment »). Le réactiver seulement si la configuration Pages
+passe en mode « GitHub Actions ».
 
 Leçon à ne pas répéter : le groupe de concurrence `pages` est **partagé avec le
 pipeline intégré** de GitHub. Avec `cancel-in-progress: true`, chaque publication
