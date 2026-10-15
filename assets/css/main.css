@@ -1254,7 +1254,9 @@ body.is-locked{ overflow:hidden; }
    blanc pur en fond » : on raccorde un module tiers, pas une section du site. */
 .book{
   --acuity-bg:#FFFFFF;
-  position:relative; overflow:hidden; background:var(--c-void);
+  /* clip et non hidden : hidden cree un conteneur de defilement et empeche
+     l'intro de rester collee pendant le scroll. */
+  position:relative; overflow:clip; background:var(--c-void);
   padding-top:var(--header-h);
 }
 .book__grid{ display:grid; }
