@@ -475,6 +475,22 @@ fois le site en production.**
   reprennent.
 - Adresse postale : aucune sur l'ancien site (service 100 % mobile).
 
+## Réservation
+
+Les réservations passent par **Acuity Scheduling** (compte `20615574`, offre
+Growing). `/book/` intègre le module en iframe (`embed.js` ajuste la hauteur),
+**page de test en noindex** : les boutons du site pointent encore vers
+`{{booking}}` (`sgpremiumdetailing.as.me`) tant que l'agence n'a pas validé une
+réservation complète et la remontée des conversions (GA, pixel Facebook).
+
+Le fond blanc du module est prolongé jusqu'au header, au bas de la section et
+au bord droit (`.book__frame::before`). C'est la seule exception à « jamais de
+blanc pur » : le module est en `#FFFFFF`, mesuré sous le grain du site.
+Deux colonnes à partir de 1200 px seulement, sinon le H1 touche le blanc.
+
+Le CSS personnalisé du module exige l'offre Powerhouse (+264 $/an). Il ne
+demande aucun logiciel : c'est un champ « Advanced CSS » dans Acuity.
+
 ## Photos à demander au client
 
 - **Avant / après** pour `/what-is-ceramic-coating/` (« What you notice
