@@ -39,6 +39,19 @@ Signalé au client, sans réponse à ce jour :
 
 Le logo Lamborghini du hero devait être retiré. Le client a dit de laisser.
 
+### Retour client du 2026-10-15 (oublis signalés « Not done »)
+
+Appliqué à la lettre : extra Polishing remis (SGD 238, about two hours),
+mention pare-brise retirée de la carte Graphene, « 3-year lifespan » sur la
+carte services Ceramic, chapô FAQ « If you have a question not listed
+below », dernières phrases des FAQ ceramic et graphène réécrites, « lifespan »
+dans la FAQ durée, FAQ « Ceramic coating or PPF » supprimée (ils ne font pas
+de PPF).
+
+**Consigne de l'agence : les retours client s'appliquent à la lettre**, sans
+étendre ni harmoniser. Qu'il reste « warranty » à certains endroits et
+« lifespan » à d'autres n'est pas un problème.
+
 ### Retour client du 2026-10-13
 
 Appliqué : prix en `SGD 388` (retour sur la décision du 6), téléphone affiché
