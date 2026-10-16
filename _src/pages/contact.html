@@ -1,0 +1,104 @@
+<!--META {
+  "route": "/contact/",
+  "title": "Contact Car Armour SG | Car Detailing at Your Residence",
+  "description": "Message Car Armour on WhatsApp, call, or send the form for a quote. Ceramic and graphene coating, polishing and interior detailing anywhere in Singapore.",
+  "ogType": "website",
+  "ogImage": "/assets/img/og-default.jpg",
+  "nav": "contact"
+} -->
+
+<!-- Formulaire : l'envoi n'est PAS branche. data-endpoint vide = message de
+     preproduction. En production, un script PHP sur le VPS enverra le mail ;
+     renseigner alors data-endpoint="/contact/send.php". Voir CLAUDE.md, a faire. -->
+<section class="contact">
+  <div class="container container--wide">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Contact</li>
+      </ol>
+    </nav>
+
+    <div class="contact__grid">
+      <div class="contact__side" data-reveal="0" data-reveal-on="load">
+        <h1>Contact us</h1>
+        <p class="page-hero__lead">
+          <strong>A question, a quote or a booking.</strong>
+          <span>The fastest answer comes <strong>on WhatsApp</strong>.</span>
+        </p>
+
+        <a class="contact__wa" href="{{whatsapp}}" target="_blank" rel="noopener">
+          <span class="contact__wa-label">WhatsApp</span>
+          <span class="contact__wa-num">{{phoneDisplay}}</span>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <dl class="contact__facts">
+          <div><dt>Call</dt><dd><a href="tel:{{phone}}">{{phoneDisplay}}</a></dd></div>
+          <div><dt>Opening hours</dt><dd>{{hours}}</dd></div>
+          <div><dt>Where we work</dt><dd>At your residence, anywhere in Singapore</dd></div>
+          <div><dt>Prefer to book directly?</dt><dd><a href="{{booking}}">Choose a slot online</a></dd></div>
+        </dl>
+      </div>
+
+      <form class="contact-form" data-endpoint="" novalidate data-reveal="1" data-reveal-on="load">
+        <h2 class="contact-form__title">Send us a message</h2>
+
+        <div class="contact-form__row">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-phone">Phone or WhatsApp</label>
+            <input id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+65" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cf-email">Email <span class="field__opt">optional</span></label>
+          <input id="cf-email" name="email" type="email" autocomplete="email">
+        </div>
+
+        <div class="contact-form__row">
+          <div class="field">
+            <label for="cf-car">Car model</label>
+            <input id="cf-car" name="car" type="text" placeholder="e.g. Mazda 6" required>
+          </div>
+          <div class="field">
+            <label for="cf-postal">Postal code</label>
+            <input id="cf-postal" name="postal" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="6 digits">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cf-service">Service</label>
+          <select id="cf-service" name="service">
+            <option>Not sure yet</option>
+            <option>Polish &amp; wax coating</option>
+            <option>Ceramic coating</option>
+            <option>Nano graphene coating</option>
+            <option>Polishing</option>
+            <option>Interior detailing</option>
+            <option>Coat maintenance</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="cf-msg">Message <span class="field__opt">optional</span></label>
+          <textarea id="cf-msg" name="message" rows="4"></textarea>
+        </div>
+
+        <div class="contact-form__trap" aria-hidden="true">
+          <label for="cf-web">Leave empty</label><input id="cf-web" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="contact-form__foot">
+          <button class="btn btn--primary btn--lg" type="submit">Send message</button>
+          <p class="contact-form__note">Your details are only used to answer your request.</p>
+        </div>
+        <p class="contact-form__status" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </div>
+</section>

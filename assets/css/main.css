@@ -1078,7 +1078,7 @@ body.is-locked{ overflow:hidden; }
 .prose-col .steps,.prose-col .factors{ margin-top:1.5rem; }
 .prose-col__key{ font-size:var(--fs-lead); color:var(--c-paper) !important; line-height:1.6 !important; }
 /* Figures a la largeur du texte, modules un peu plus larges */
-.sheet .layers,.sheet .photo,.sheet .diptych,.sheet .range,.sheet .days,.sheet .uv,.sheet .ba{
+.sheet .layers,.sheet .photo,.sheet .diptych,.sheet .range,.sheet .days,.sheet .uv,.sheet .ba,.sheet .lattice{
   max-width:44rem; margin:clamp(2.5rem, 2rem + 2vw, 3.75rem) auto;
 }
 .sheet-wide{ margin-block:clamp(2.5rem, 2rem + 2vw, 3.75rem); }
@@ -1092,6 +1092,12 @@ body.is-locked{ overflow:hidden; }
 .sheet .diptych .photo{ margin:0; max-width:none; }
 
 .inline-cta{ display:flex; justify-content:center; margin:clamp(3rem, 2.4rem + 2vw, 4.5rem) 0 0; }
+
+/* Reseau de graphene : SVG en currentColor, atomes dores */
+.lattice{ margin:0; }
+.lattice svg{ display:block; width:100%; height:auto; color:var(--c-paper); }
+.lattice__atoms{ fill:var(--c-gold); }
+.lattice figcaption{ margin-top:1rem; font-size:var(--fs-xs); color:var(--c-steel-dim); line-height:1.55; }
 
 /* Les 365 jours de l'annee, les jours de pluie marques en dore */
 .days__grid{ display:grid; grid-template-columns:repeat(25, minmax(0,1fr)); gap:3px; }
@@ -1282,6 +1288,87 @@ body.is-locked{ overflow:hidden; }
   .book__intro{ position:sticky; top:var(--header-h); align-self:start; padding-block:clamp(2.5rem, 2rem + 2vw, 4rem); }
   .book__frame{ padding:clamp(1.5rem, 1rem + 1vw, 2.5rem) 0 4rem; min-height:calc(100vh - var(--header-h)); }
   .book__frame::before{ top:-100vh; left:0; }
+}
+
+/* 8.18 Page avis : citation mise en avant, filtres, colonnes de citations */
+.reviews-hero{ background:var(--c-void); padding-block:calc(var(--header-h) + clamp(2.25rem, 1.5rem + 3vw, 4.5rem)) clamp(3.5rem, 2.5rem + 4vw, 6rem); }
+.reviews-hero .breadcrumb{ margin-bottom:clamp(1.5rem, 1.2rem + 1vw, 2.25rem); }
+.reviews-hero__grid{ display:grid; gap:clamp(2.5rem, 1.8rem + 3vw, 4.5rem); align-items:end; }
+.reviews-hero h1{ font-size:clamp(2rem, 1.15rem + 3.1vw, 3.75rem); margin:0 0 clamp(1.25rem, 1rem + 1vw, 1.9rem); }
+.featured-quote{ margin:0; position:relative; padding-top:clamp(2.5rem, 2rem + 2vw, 3.5rem); }
+.featured-quote::before{
+  content:"\201C"; position:absolute; top:-.15em; left:-.04em; font-family:var(--ff-display); font-stretch:var(--fw-expand);
+  font-size:clamp(5rem, 3.5rem + 5vw, 8rem); line-height:1; color:var(--c-gold);
+}
+.featured-quote p{ margin:0 0 1.5rem; font-size:clamp(1.125rem, .98rem + .6vw, 1.45rem); line-height:1.55; font-weight:350; color:var(--c-paper); }
+.featured-quote footer,.quote__who > span:last-child{ display:grid; gap:.15rem; }
+.quote__name{ font-size:var(--fs-sm); font-weight:500; color:var(--c-paper); }
+.quote__meta{ font-size:var(--fs-xs); color:var(--c-steel-dim); }
+@media (min-width:980px){ .reviews-hero__grid{ grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); } }
+
+.chips{ display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:clamp(2rem, 1.5rem + 2vw, 3rem); }
+.chip{
+  display:inline-flex; align-items:center; gap:.6rem; padding:.6rem 1rem; cursor:pointer;
+  background:transparent; border:1px solid var(--c-line-strong); color:var(--c-steel);
+  font-family:var(--ff-display); font-stretch:100%; font-size:var(--fs-label); font-weight:650; text-transform:uppercase; letter-spacing:.16em;
+  transition:border-color var(--dur) var(--ease), color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+.chip span{ color:var(--c-steel-dim); letter-spacing:.04em; }
+.chip:hover{ border-color:var(--c-line-gold); color:var(--c-paper); }
+.chip.is-on{ border-color:var(--c-gold); color:var(--c-gold); background:var(--c-gold-wash); }
+.quotes{ columns:1; column-gap:clamp(1rem, .8rem + 1vw, 1.75rem); }
+.quote{
+  break-inside:avoid; margin:0 0 clamp(1rem, .8rem + 1vw, 1.75rem); padding:clamp(1.35rem, 1.1rem + 1vw, 1.9rem);
+  background:var(--c-graphite); border:1px solid var(--c-line);
+}
+.quote[hidden]{ display:none; }
+.quote__text{ margin:0 0 1.25rem; font-size:var(--fs-sm); line-height:1.65; color:var(--c-paper); font-weight:350; }
+.quote__who{ display:flex; align-items:center; gap:.8rem; padding-top:1rem; border-top:1px solid var(--c-line); }
+.quote__avatar{ width:36px; height:36px; flex:none; border-radius:50%; display:grid; place-items:center; background:var(--c-slate); color:var(--c-gold); font-size:var(--fs-xs); font-weight:600; }
+.leave-review{ margin-top:clamp(3.5rem, 2.5rem + 4vw, 6rem); padding-top:clamp(2.5rem, 2rem + 2vw, 3.5rem); border-top:1px solid var(--c-line); text-align:center; }
+.leave-review h2{ font-size:var(--fs-h3); margin:0 0 1.5rem; }
+.leave-review .cta-actions{ justify-content:center; }
+@media (min-width:700px){ .quotes{ columns:2; } }
+@media (min-width:1100px){ .quotes{ columns:3; } }
+
+/* 8.19 Page contact : coordonnees a gauche, formulaire sur une feuille a droite */
+.contact{ background:var(--c-void); padding-block:calc(var(--header-h) + clamp(2.25rem, 1.5rem + 3vw, 4.5rem)) clamp(4rem, 3rem + 4vw, 7rem); }
+.contact .breadcrumb{ margin-bottom:clamp(1.5rem, 1.2rem + 1vw, 2.25rem); }
+.contact__grid{ display:grid; gap:clamp(2.5rem, 1.8rem + 3vw, 4.5rem); align-items:start; }
+.contact h1{ font-size:clamp(2rem, 1.15rem + 3.1vw, 3.75rem); margin:0 0 clamp(1.25rem, 1rem + 1vw, 1.9rem); }
+.contact__wa{
+  display:grid; grid-template-columns:1fr auto; align-items:end; gap:.3rem 1.5rem; margin:0 0 2rem;
+  padding:clamp(1.25rem, 1rem + 1vw, 1.75rem) 0; border-block:1px solid var(--c-line-gold);
+  text-decoration:none; color:var(--c-paper);
+}
+.contact__wa-label{ grid-column:1; font-size:var(--fs-xs); color:var(--c-gold); letter-spacing:.14em; text-transform:uppercase; }
+.contact__wa-num{ grid-column:1; font-family:var(--ff-display); font-stretch:var(--fw-expand); font-weight:600; font-size:clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem); letter-spacing:.01em; line-height:1.1; }
+.contact__wa svg{ grid-column:2; grid-row:1 / span 2; width:22px; height:22px; color:var(--c-gold); transition:transform var(--dur) var(--ease); }
+.contact__wa:hover{ color:var(--c-gold-lite); }
+.contact__wa:hover svg{ transform:translateX(6px); }
+.contact__facts{ margin:0; }
+.contact__facts div{ padding:.9rem 0; border-bottom:1px solid var(--c-line); }
+.contact__facts dt{ font-size:var(--fs-xs); color:var(--c-steel-dim); margin-bottom:.25rem; }
+.contact__facts dd{ margin:0; color:var(--c-paper); font-size:var(--fs-sm); }
+.contact__facts a{ text-decoration:none; }
+
+.contact-form{ display:grid; gap:1.25rem; padding:clamp(1.5rem, 1rem + 2vw, 3rem); background:var(--c-charcoal); border:1px solid var(--c-line); }
+.contact-form__title{ font-size:var(--fs-h3); margin:0 0 .5rem; }
+.contact-form__row{ display:grid; gap:1.25rem; }
+.field__opt{ color:var(--c-steel-dim); font-weight:400; letter-spacing:.08em; margin-left:.4em; text-transform:none; font-family:var(--ff-body); }
+.field select{
+  appearance:none; -webkit-appearance:none; cursor:pointer; padding-right:2.75rem;
+  background:var(--c-charcoal) url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2012'%3E%3Cpath%20d='M2%204.5%206%208.5%2010%204.5'%20fill='none'%20stroke='%23C9A96B'%20stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 1.1rem center / 12px;
+}
+.field input:user-invalid{ border-color:#C2675A; }
+.contact-form__trap{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.contact-form__foot{ display:flex; flex-wrap:wrap; align-items:center; gap:1rem 1.5rem; margin-top:.5rem; }
+.contact-form__note{ margin:0; font-size:var(--fs-xs); color:var(--c-steel-dim); }
+.contact-form__status{ margin:0; padding:1rem 1.2rem; border:1px solid var(--c-line-gold); background:var(--c-gold-wash); font-size:var(--fs-sm); color:var(--c-paper); }
+@media (min-width:640px){ .contact-form__row{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (min-width:1000px){
+  .contact__grid{ grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); }
+  .contact__side{ position:sticky; top:calc(var(--header-h) + 2rem); }
 }
 
 /* ── 09 · MOTION ─────────────────────────────────────────────────────────── */

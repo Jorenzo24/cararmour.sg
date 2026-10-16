@@ -64,6 +64,37 @@
   });
 
   /* ── Accordéons (FAQ) — hauteur animée, accessible ──────────────────── */
+  /* Filtres de la page avis */
+  $$('.chips').forEach(function (group) {
+    var chips = $$('.chip', group), quotes = $$('.quote');
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var f = chip.getAttribute('data-filter');
+        chips.forEach(function (c) { var on = c === chip; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on); });
+        quotes.forEach(function (q) { q.hidden = f !== 'all' && (' ' + q.getAttribute('data-tags') + ' ').indexOf(' ' + f + ' ') < 0; });
+      });
+    });
+  });
+
+  /* Formulaire de contact. Sans endpoint (preproduction), il ne part pas :
+     on le dit clairement et on renvoie vers WhatsApp. */
+  $$('.contact-form').forEach(function (form) {
+    var status = $('.contact-form__status', form);
+    var say = function (msg) { status.textContent = msg; status.hidden = false; };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (form.website && form.website.value) return;
+      var endpoint = form.getAttribute('data-endpoint');
+      if (!endpoint) { say('The form is not connected yet on this preview. Please message us on WhatsApp in the meantime.'); return; }
+      var btn = $('button[type="submit"]', form); btn.disabled = true;
+      fetch(endpoint, { method: 'POST', body: new FormData(form) })
+        .then(function (r) { if (!r.ok) throw r; form.reset(); say('Thank you. We will get back to you shortly, usually within the hour during opening hours.'); })
+        .catch(function () { say('Sorry, the message could not be sent. Please message us on WhatsApp instead.'); })
+        .then(function () { btn.disabled = false; });
+    });
+  });
+
   /* Comparateur avant / apres : le curseur deplace la decoupe */
   $$('.ba__range').forEach(function (range) {
     var fig = range.closest('.ba');

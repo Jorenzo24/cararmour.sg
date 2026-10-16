@@ -15,9 +15,24 @@ client**.
 | 3 | Gabarits : page service informationnelle, avis, contact (réduit le 2026-10-14) | **en cours** : page service faite sur `/what-is-ceramic-coating/` |
 | 4 | Pages restantes, `sitemap.xml`, `robots.txt`, schémas par page | non démarrée |
 
-Pages réellement générées à ce jour : `/`, `/what-is-ceramic-coating/` et
-`/styleguide/` (noindex). Les six autres routes internes listées plus bas sont
-prévues, pas écrites.
+Pages générées : `/`, `/what-is-ceramic-coating/`, `/what-is-graphene-coating/`,
+`/reviews/`, `/contact/`, `/book/` et `/styleguide/` (noindex). Restent
+`/car-polishing/`, `/car-interior-detailing/` et `/coat-maintenance/`.
+
+## À faire
+
+- **Envoi du formulaire de contact** : rien n'est branché. Écrire un script PHP
+  sur le VPS (cPanel) qui envoie le mail, puis renseigner
+  `data-endpoint="/contact/send.php"` dans `_src/pages/contact.html`. Le
+  formulaire a un champ piège anti-spam (`website`). **Adresse de destination
+  à confirmer** : `info@premiumdetailing.biz` est l'adresse du compte Acuity,
+  pas forcément celle qui doit recevoir les messages.
+- Avis Google à récupérer (export Takeout demandé au client), puis relancer
+  `python3 _src/make-reviews.py` après avoir complété `_src/reviews.json`.
+- Le `AggregateRating` du layout (4,9 sur 213) n'est étayé par rien : Google
+  n'affiche plus d'étoiles pour un avis sur sa propre entreprise. À retirer ou
+  justifier.
+- `sitemap.xml` et `robots.txt`.
 
 ### Retour client du 2026-10-06
 
@@ -488,10 +503,10 @@ fois le site en production.**
 ## Réservation
 
 Les réservations passent par **Acuity Scheduling** (compte `20615574`, offre
-Growing). `/book/` intègre le module en iframe (`embed.js` ajuste la hauteur),
-**page de test en noindex** : les boutons du site pointent encore vers
-`{{booking}}` (`sgpremiumdetailing.as.me`) tant que l'agence n'a pas validé une
-réservation complète et la remontée des conversions (GA, pixel Facebook).
+Growing). `/book/` intègre le module en iframe (`embed.js` ajuste la hauteur).
+**Validé par le client le 2026-10-16** : `booking` vaut `/book/` dans
+`site.json`, tous les boutons y mènent, sans `target="_blank"`. L'ancienne URL
+externe reste dans `bookingExternal`.
 
 Le fond blanc du module est prolongé jusqu'au header, au bas de la section et
 au bord droit (`.book__frame::before`). C'est la seule exception à « jamais de
@@ -500,6 +515,20 @@ Deux colonnes à partir de 1200 px seulement, sinon le H1 touche le blanc.
 
 Le CSS personnalisé du module exige l'offre Powerhouse (+264 $/an). Il ne
 demande aucun logiciel : c'est un champ « Advanced CSS » dans Acuity.
+
+## Avis
+
+`_src/reviews.json` : les 30 avis Facebook de l'ancien site (2021), texte
+intégral. `/reviews/` est générée par `_src/make-reviews.py`, à relancer après
+toute modification du JSON. Filtres par service par mots-clés. Écartés ou en
+attente d'accord client : l'avis mitigé de Nasri Haron (écarté), les douze
+avis qui citent Ivan (publiés tels quels).
+
+## Pages graphène et ceramic : contenus partagés
+
+Le tableau comparatif et le graphique des durées sont des partials
+(`coating-table.html`, `lifespan-chart.html`) inclus par les deux pages : le
+client veut des contenus strictement identiques.
 
 ## Photos à demander au client
 
