@@ -13,12 +13,12 @@ client**.
 | 1 | Design system en tokens | fait, visible sur `/styleguide/` |
 | 2 | Accueil complet et abouti | fait, premier retour client intégré |
 | 3 | Gabarits : page service informationnelle, avis, contact (réduit le 2026-10-14) | fait |
-| 4 | Pages restantes, `sitemap.xml`, `robots.txt`, schémas par page | non démarrée |
+| 4 | Pages restantes, `sitemap.xml`, `robots.txt`, schémas par page | fait, sauf mise en production |
 
 Pages générées : `/`, `/what-is-ceramic-coating/`, `/what-is-graphene-coating/`,
 `/car-polishing/`, `/car-interior-detailing/`, `/coat-maintenance/`, `/reviews/`,
 `/contact/`, `/book/` et `/styleguide/` (noindex). **Toutes les pages prévues
-sont écrites** (2026-10-20). Reste l'étape 4 : sitemap, robots, mise en
+sont écrites** (2026-10-20), plus une page `/404/` (noindex). Reste la mise en
 production.
 
 ## À faire
@@ -34,7 +34,14 @@ production.
 - Le `AggregateRating` du layout (4,9 sur 213) n'est étayé par rien : Google
   n'affiche plus d'étoiles pour un avis sur sa propre entreprise. À retirer ou
   justifier.
-- `sitemap.xml` et `robots.txt`.
+- **Privacy policy** : le formulaire de contact collecte nom, téléphone et
+  email, ce que le PDPA singapourien encadre. Aucune page n'existe ; l'ancienne
+  `/privacy-policy` WordPress redirige provisoirement vers l'accueil. Texte
+  légal à fournir par le client, pas à rédiger nous-mêmes.
+- **Mise en production** : vérifier la redirection https / sans www du
+  `.htaccess` (voir le commentaire si un proxy termine le TLS), puis déclarer
+  `https://cararmour.sg/sitemap.xml` dans la Search Console à la place de
+  l'ancien `wp-sitemap.xml`.
 
 ### Retour client du 2026-10-06
 
@@ -425,7 +432,15 @@ sur l'accueil. Le bouton « What is ceramic coating? » des services mène à
   `FAQPage` et `AggregateRating` s'ajoutent par page via `headExtra`.
 - Le `FAQPage` de l'accueil est **recopié depuis le HTML visible** à chaque
   modification des questions. Les deux ne doivent jamais diverger.
-- `sitemap.xml` et `robots.txt` : à écrire en étape 4.
+- `sitemap.xml` et `robots.txt` sont **générés par `build.py`**, jamais édités
+  à la main. Le sitemap prend toutes les pages, sauf celles qui portent
+  `noindex` dans `robots` ou `"sitemap": false` dans leur META ; `lastmod` est
+  la date du dernier commit de la source. Avec `--noindex` (préprod), le
+  robots.txt bloque tout et aucun sitemap n'est écrit.
+- `.htaccess` : page 404 (`/404/`), https sans www en 301, et 301 vers
+  l'accueil pour les anciennes URL WordPress (`/shop`, `/cart`, `/home-final`,
+  `/privacy-policy`…, relevées le 2026-10-20). `/wp-sitemap*.xml` renvoie sur
+  `/sitemap.xml`.
 
 ## Accueil : ordre des sections
 

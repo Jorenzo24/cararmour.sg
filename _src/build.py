@@ -14,7 +14,8 @@ Syntaxe des gabarits
   {{ nav:clef }}    -> "is-current" si la page déclare "nav": "clef"
   Un bloc JSON en tête de page (dans un commentaire HTML) porte les métas.
 """
-import argparse, hashlib, json, re, sys
+import argparse, hashlib, json, re, subprocess, sys
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -190,6 +191,38 @@ def build_css(out_root, base="", versions=None):
           f"(-{round((1 - after / before) * 100)} %)\n")
 
 
+# ── sitemap.xml et robots.txt ────────────────────────────────────────────────
+# Le sitemap liste toutes les pages indexables : une page sort de la liste des
+# qu'elle porte noindex dans "robots", ou "sitemap": false dans son bloc META.
+# lastmod = date du dernier commit de la source de la page.
+
+def last_modified(path):
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(path)],
+                             cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    except OSError:
+        out = ""
+    return out or date.today().isoformat()
+
+
+def write_sitemap(entries, out_root):
+    origin = SITE["origin"].rstrip("/")
+    urls = "".join(f"  <url><loc>{origin}{route}</loc><lastmod>{mod}</lastmod></url>\n"
+                   for route, mod in sorted(entries, key=lambda e: (e[0] != "/", e[0])))
+    (out_root / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{urls}</urlset>\n", encoding="utf-8")
+
+
+def write_robots(out_root, noindex):
+    if noindex:   # preproduction : rien n'est explore
+        text = "User-agent: *\nDisallow: /\n"
+    else:
+        text = f"User-agent: *\nAllow: /\n\nSitemap: {SITE['origin'].rstrip('/')}/sitemap.xml\n"
+    (out_root / "robots.txt").write_text(text, encoding="utf-8")
+
+
 def build(out_root=ROOT, base="", noindex=False):
     if not PAGES.exists():
         sys.exit("Aucune page dans _src/pages/")
@@ -197,7 +230,7 @@ def build(out_root=ROOT, base="", noindex=False):
     versions = asset_versions(out_root)
     build_css(out_root, base, versions)       # seconde passe, url() versionnees
     versions["/assets/css/main.min.css"] = fingerprint(out_root / "assets/css/main.min.css")
-    written = []
+    written, indexable = [], []
     for page in sorted(PAGES.rglob("*.html")):
         raw = page.read_text(encoding="utf-8")
         m = META_RE.match(raw)
@@ -218,10 +251,18 @@ def build(out_root=ROOT, base="", noindex=False):
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(html, encoding="utf-8")
         written.append((meta["route"], out.relative_to(out_root), len(html)))
+        if "noindex" not in meta.get("robots", "") and meta.get("sitemap", True):
+            indexable.append((meta["route"], last_modified(page)))
     width = max(len(r) for r, _, _ in written)
     for route, rel, size in written:
         print(f"  {route:<{width}}  ->  {rel}  ({size//1024} Ko)")
     print(f"  {len(versions)} fichiers servis, empreintes posees sur chaque URL")
+    write_robots(out_root, noindex)
+    if noindex:
+        print("  robots.txt bloquant, pas de sitemap (préproduction)")
+    else:
+        write_sitemap(indexable, out_root)
+        print(f"  sitemap.xml : {len(indexable)} URL, robots.txt")
     print(f"\n{len(written)} page(s) générée(s).")
 
 

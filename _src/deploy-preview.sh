@@ -19,7 +19,6 @@ cp -R assets/fonts assets/img assets/js "$SITE/assets/"
 cp assets/css/styleguide.css "$SITE/assets/css/"
 cp favicon.ico "$SITE/"
 touch "$SITE/.nojekyll"
-printf 'User-agent: *\nDisallow: /\n' > "$SITE/robots.txt"
 cp _src/preview-readme.md "$SITE/README.md"
 
 if git clone -q --depth 1 --branch gh-pages "$REMOTE" "$REPO" 2>/dev/null; then
