@@ -12,12 +12,14 @@ client**.
 |---|---|---|
 | 1 | Design system en tokens | fait, visible sur `/styleguide/` |
 | 2 | Accueil complet et abouti | fait, premier retour client intégré |
-| 3 | Gabarits : page service informationnelle, avis, contact (réduit le 2026-10-14) | **en cours** : page service faite sur `/what-is-ceramic-coating/` |
+| 3 | Gabarits : page service informationnelle, avis, contact (réduit le 2026-10-14) | fait |
 | 4 | Pages restantes, `sitemap.xml`, `robots.txt`, schémas par page | non démarrée |
 
 Pages générées : `/`, `/what-is-ceramic-coating/`, `/what-is-graphene-coating/`,
-`/reviews/`, `/contact/`, `/book/` et `/styleguide/` (noindex). Restent
-`/car-polishing/`, `/car-interior-detailing/` et `/coat-maintenance/`.
+`/car-polishing/`, `/car-interior-detailing/`, `/coat-maintenance/`, `/reviews/`,
+`/contact/`, `/book/` et `/styleguide/` (noindex). **Toutes les pages prévues
+sont écrites** (2026-10-20). Reste l'étape 4 : sitemap, robots, mise en
+production.
 
 ## À faire
 
@@ -536,8 +538,19 @@ client veut des contenus strictement identiques.
   afterwards ») : même panneau, même lumière, même cadrage, avant polissage et
   après coating. Le comparateur `.ba` attend avec deux placeholders ; un
   commentaire dans le source dit quoi remplacer.
+- **Avant / après** pour `/car-polishing/` (même consigne, comparateur en
+  attente).
 - Des photos propres à chaque page de service : les quatre de la page ceramic
   sont déjà utilisées sur l'accueil.
+
+## Générateurs des pages service
+
+`/car-polishing/`, `/car-interior-detailing/` et `/coat-maintenance/` sont
+produites par `_src/generators/*.py` (gabarit commun dans `kit.py`). Pour
+modifier un texte, éditer le générateur puis
+`python3 _src/generators/polishing.py _src/generators`, sinon la prochaine
+génération écrase la retouche. Les pages ceramic et graphène s'éditent
+directement dans `_src/pages/`.
 
 ## Fragments en attente
 
