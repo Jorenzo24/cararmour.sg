@@ -281,7 +281,8 @@ Ils ont tous coûté une ou plusieurs itérations. Les relire avant d'éditer.
 
 Validée par l'agence le 2026-10-21, à un seul endroit : au-dessus du footer,
 sur toutes les pages. Silhouette générique dessinée à la main
-(`_src/partials/road-car.html`, aucune marque), trait doré. Elle traverse
+(`_src/partials/road-car.html`, aucune marque), trait doré à 38 % d'opacité
+(voulue « carrément plus discrète » par l'agence). Elle traverse
 l'écran de droite à gauche pendant que le footer entre dans la vue et se gare
 au début du contenu en bas de page ; les roues tournent de la distance
 parcourue. La piste `.road` coupe ce qui sort de l'écran, sinon la page
