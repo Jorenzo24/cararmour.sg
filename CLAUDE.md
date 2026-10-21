@@ -549,12 +549,13 @@ client veut des contenus strictement identiques.
 
 ## Photos à demander au client
 
+Reçu le 2026-10-21 : l'avant / après de `/car-polishing/` (capot noir, micro-
+rayures), recadré en 16:10 sans retouche, sources dans `_src/sources/`.
+
 - **Avant / après** pour `/what-is-ceramic-coating/` (« What you notice
   afterwards ») : même panneau, même lumière, même cadrage, avant polissage et
   après coating. Le comparateur `.ba` attend avec deux placeholders ; un
   commentaire dans le source dit quoi remplacer.
-- **Avant / après** pour `/car-polishing/` (même consigne, comparateur en
-  attente).
 - Des photos propres à chaque page de service : les quatre de la page ceramic
   sont déjà utilisées sur l'accueil.
 

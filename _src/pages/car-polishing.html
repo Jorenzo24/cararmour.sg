@@ -244,13 +244,25 @@
         </ol>
       </div>
 
-      <!-- AVANT / APRES : photos a fournir par le client. Meme panneau, meme
-           lumiere, cadrage identique. Remplacer chaque .ba__img--placeholder
-           par un <img> (meme classe ba__img). -->
+      <!-- AVANT / APRES : photos du client (2026-10-21), sources dans
+           _src/sources/car-polishing-swirl-marks-*.png, recadrees en 16:10
+           sans retouche colorimetrique. -->
       <figure class="ba" data-reveal style="--pos:50%">
         <div class="ba__frame">
-          <div class="ba__img ba__img--after ba__img--placeholder" role="img" aria-label="After photo, to come"><span>After · photo to come</span></div>
-          <div class="ba__img ba__img--before ba__img--placeholder" role="img" aria-label="Before photo, to come"><span>Before · photo to come</span></div>
+          <img src="/assets/img/car-polishing-swirl-marks-after-1200.webp"
+           srcset="/assets/img/car-polishing-swirl-marks-after-460.webp 460w,
+                 /assets/img/car-polishing-swirl-marks-after-700.webp 700w,
+                 /assets/img/car-polishing-swirl-marks-after-1000.webp 1000w,
+                 /assets/img/car-polishing-swirl-marks-after-1200.webp 1200w"
+           sizes="(min-width:1100px) 704px, 100vw"
+           alt="Black bonnet after polishing, reflections sharp and free of swirl marks" width="1200" height="750" class="ba__img ba__img--after" loading="lazy" decoding="async">
+          <img src="/assets/img/car-polishing-swirl-marks-before-1200.webp"
+           srcset="/assets/img/car-polishing-swirl-marks-before-460.webp 460w,
+                 /assets/img/car-polishing-swirl-marks-before-700.webp 700w,
+                 /assets/img/car-polishing-swirl-marks-before-1000.webp 1000w,
+                 /assets/img/car-polishing-swirl-marks-before-1200.webp 1200w"
+           sizes="(min-width:1100px) 704px, 100vw"
+           alt="The same black bonnet before polishing, covered in circular swirl marks" width="1200" height="750" class="ba__img ba__img--before" loading="lazy" decoding="async">
           <span class="ba__tag ba__tag--before" aria-hidden="true">Before</span>
           <span class="ba__tag ba__tag--after" aria-hidden="true">After</span>
           <span class="ba__handle" aria-hidden="true"></span>

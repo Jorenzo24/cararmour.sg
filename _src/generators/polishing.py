@@ -50,13 +50,13 @@ thickness=f'''      <figure class="range" data-reveal aria-label="Thickness comp
         <figcaption>Typical values. Clear coat thickness varies from one maker to another, and the amount removed depends on the polish, the pad and the machine.</figcaption>
       </figure>'''
 
-ba='''      <!-- AVANT / APRES : photos a fournir par le client. Meme panneau, meme
-           lumiere, cadrage identique. Remplacer chaque .ba__img--placeholder
-           par un <img> (meme classe ba__img). -->
+ba=f'''      <!-- AVANT / APRES : photos du client (2026-10-21), sources dans
+           _src/sources/car-polishing-swirl-marks-*.png, recadrees en 16:10
+           sans retouche colorimetrique. -->
       <figure class="ba" data-reveal style="--pos:50%">
         <div class="ba__frame">
-          <div class="ba__img ba__img--after ba__img--placeholder" role="img" aria-label="After photo, to come"><span>After · photo to come</span></div>
-          <div class="ba__img ba__img--before ba__img--placeholder" role="img" aria-label="Before photo, to come"><span>Before · photo to come</span></div>
+          {img("car-polishing-swirl-marks-after",[460,700,1000,1200],1200,750,"Black bonnet after polishing, reflections sharp and free of swirl marks","(min-width:1100px) 704px, 100vw",'class="ba__img ba__img--after" loading="lazy"')}
+          {img("car-polishing-swirl-marks-before",[460,700,1000,1200],1200,750,"The same black bonnet before polishing, covered in circular swirl marks","(min-width:1100px) 704px, 100vw",'class="ba__img ba__img--before" loading="lazy"')}
           <span class="ba__tag ba__tag--before" aria-hidden="true">Before</span>
           <span class="ba__tag ba__tag--after" aria-hidden="true">After</span>
           <span class="ba__handle" aria-hidden="true"></span>
