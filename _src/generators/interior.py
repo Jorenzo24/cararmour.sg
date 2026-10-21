@@ -97,6 +97,6 @@ html_=page("/car-interior-detailing/","Car Interior Detailing: What It Includes 
  "A deep clean of every surface you touch.",
  "<strong>Steam</strong>, <strong>vacuum</strong> and the right product for <strong>each material</strong>.",
  "Book interior detailing",
- img("car-interior-detailing",[460,700,900],1520,950,"Detailer cleaning the leather interior of a supercar","(min-width:960px) 44vw, 100vw",'fetchpriority="high"'),
+ img("car-interior-detailing-cabin",[460,700,1000,1200],1672,941,"Supercar cabin in carbon fibre and black Alcantara with orange stitching","(min-width:960px) 44vw, 100vw",'fetchpriority="high"'),
  parts,faq,"Book an interior<br>detailing","int-faq")
 pathlib.Path("_src/pages/car-interior-detailing.html").write_text(html_)

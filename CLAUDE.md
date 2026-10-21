@@ -550,7 +550,9 @@ client veut des contenus strictement identiques.
 ## Photos à demander au client
 
 Reçu le 2026-10-21 : l'avant / après de `/car-polishing/` (capot noir, micro-
-rayures), recadré en 16:10 sans retouche, sources dans `_src/sources/`.
+rayures), recadré en 16:10 sans retouche, sources dans `_src/sources/`. Même
+jour : photo d'habitacle carbone en tête de `/car-interior-detailing/`
+(`car-interior-detailing-cabin`), la Pagani reste dans le contenu.
 
 - **Avant / après** pour `/what-is-ceramic-coating/` (« What you notice
   afterwards ») : même panneau, même lumière, même cadrage, avant polissage et
