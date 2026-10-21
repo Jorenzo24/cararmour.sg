@@ -439,8 +439,9 @@ sur l'accueil. Le bouton « What is ceramic coating? » des services mène à
   robots.txt bloque tout et aucun sitemap n'est écrit.
 - `.htaccess` : page 404 (`/404/`), https sans www en 301, et 301 vers
   l'accueil pour les anciennes URL WordPress (`/shop`, `/cart`, `/home-final`,
-  `/privacy-policy`…, relevées le 2026-10-20). `/wp-sitemap*.xml` renvoie sur
-  `/sitemap.xml`.
+  `/my-account`…, relevées le 2026-10-20). `/wp-sitemap*.xml` renvoie sur
+  `/sitemap.xml`. L'ancienne `/privacy-policy` n'est plus redirigée : la
+  nouvelle page a la même adresse.
 
 ## Accueil : ordre des sections
 
