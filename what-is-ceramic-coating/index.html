@@ -25,7 +25,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/cararmour.sg/assets/fonts/archivo-latin.woff2?v=2f7ea45bad" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/cararmour.sg/assets/fonts/inter-latin.woff2?v=e990806dbc" crossorigin>
 <script>document.documentElement.className+=" js";</script>
-<link rel="stylesheet" href="/cararmour.sg/assets/css/main.min.css?v=f0be8f5c28">
+<link rel="stylesheet" href="/cararmour.sg/assets/css/main.min.css?v=64f6684c7e">
 
 <script type="application/ld+json">
 {
@@ -210,19 +210,25 @@
         </p>
       </div>
 
-      <!-- AVANT / APRES : photos a fournir par le client. Meme panneau, meme
-           lumiere, cadrage identique. Remplacer chaque .ba__img--placeholder
-           par un <img> (meme classe ba__img), sans toucher au reste. -->
-      <figure class="ba" data-reveal style="--pos:50%">
+      <!-- AVANT / APRES : photos du client (2026-10-21), sources dans
+           _src/sources/ceramic-coating-*.png. Format panoramique (.ba--wide),
+           la photo apres est rognee de 6 px en bas pour s'aligner. -->
+      <figure class="ba ba--wide" data-reveal style="--pos:50%">
         <div class="ba__frame">
-          <div class="ba__img ba__img--after ba__img--placeholder" role="img" aria-label="After photo, to come"><span>After · photo to come</span></div>
-          <div class="ba__img ba__img--before ba__img--placeholder" role="img" aria-label="Before photo, to come"><span>Before · photo to come</span></div>
+          <img class="ba__img ba__img--after" src="/cararmour.sg/assets/img/ceramic-coating-after-1200.webp?v=5b7124b7e4"
+           srcset="/cararmour.sg/assets/img/ceramic-coating-after-460.webp?v=89b5765638 460w, /cararmour.sg/assets/img/ceramic-coating-after-700.webp?v=297171a936 700w, /cararmour.sg/assets/img/ceramic-coating-after-1000.webp?v=0edbd43033 1000w, /cararmour.sg/assets/img/ceramic-coating-after-1200.webp?v=5b7124b7e4 1200w"
+           sizes="(min-width:1100px) 704px, 100vw"
+           alt="Black saloon after polishing and ceramic coating, deep gloss and sharp reflections" width="1200" height="396" loading="lazy" decoding="async">
+          <img class="ba__img ba__img--before" src="/cararmour.sg/assets/img/ceramic-coating-before-1200.webp?v=254a25f769"
+           srcset="/cararmour.sg/assets/img/ceramic-coating-before-460.webp?v=115776df42 460w, /cararmour.sg/assets/img/ceramic-coating-before-700.webp?v=4ac7bc62ff 700w, /cararmour.sg/assets/img/ceramic-coating-before-1000.webp?v=45a1abc6a1 1000w, /cararmour.sg/assets/img/ceramic-coating-before-1200.webp?v=254a25f769 1200w"
+           sizes="(min-width:1100px) 704px, 100vw"
+           alt="The same black saloon before treatment, dull paint covered in dust and swirl marks" width="1200" height="396" loading="lazy" decoding="async">
           <span class="ba__tag ba__tag--before" aria-hidden="true">Before</span>
           <span class="ba__tag ba__tag--after" aria-hidden="true">After</span>
           <span class="ba__handle" aria-hidden="true"></span>
           <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Slide to compare the paint before and after">
         </div>
-        <figcaption>The same panel under the same light, before polishing and after the coating has cured.</figcaption>
+        <figcaption>The same car under the same light, before polishing and after the coating has cured.</figcaption>
       </figure>
       <div class="prose-col" data-reveal>
         <p>
