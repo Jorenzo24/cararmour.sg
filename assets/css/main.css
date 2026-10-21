@@ -1203,6 +1203,12 @@ body.is-locked{ overflow:hidden; }
   .table-compare td.is-hero::before{ color:var(--c-gold); }
 }
 
+/* Page de confidentialite : titres plus petits, onze parties a la suite */
+.legal h2{ font-size:var(--fs-h4); letter-spacing:.05em; margin-top:clamp(2.5rem, 2rem + 1.5vw, 3.5rem); }
+.legal h2:first-child{ margin-top:0; }
+.legal a{ color:var(--c-paper); }
+.legal a:hover{ color:var(--c-gold); }
+
 /* Liste de facteurs : intitule en gras dans la phrase, filet entre chaque */
 .factors{ list-style:none; margin:0 0 1.75rem; padding:0; border-top:1px solid var(--c-line); }
 .factors li{ padding:1rem 0; border-bottom:1px solid var(--c-line); color:var(--c-steel); font-size:var(--fs-sm); line-height:1.6; }

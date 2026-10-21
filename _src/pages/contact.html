@@ -7,9 +7,9 @@
   "nav": "contact"
 } -->
 
-<!-- Formulaire : l'envoi n'est PAS branche. data-endpoint vide = message de
-     preproduction. En production, un script PHP sur le VPS enverra le mail ;
-     renseigner alors data-endpoint="/contact/send.php". Voir CLAUDE.md, a faire. -->
+<!-- Formulaire : envoye par /contact/send.php a info@cararmour.sg.
+     formEndpoint (site.json) est vide en preproduction (--noindex), GitHub
+     Pages n'executant pas PHP : le formulaire y affiche un message d'attente. -->
 <section class="contact">
   <div class="container container--wide">
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -41,7 +41,7 @@
         </dl>
       </div>
 
-      <form class="contact-form" data-endpoint="" novalidate data-reveal="1" data-reveal-on="load">
+      <form class="contact-form" data-endpoint="{{formEndpoint}}" novalidate data-reveal="1" data-reveal-on="load">
         <h2 class="contact-form__title">Send us a message</h2>
 
         <div class="contact-form__row">
@@ -95,7 +95,7 @@
 
         <div class="contact-form__foot">
           <button class="btn btn--primary btn--lg" type="submit">Send message</button>
-          <p class="contact-form__note">Your details are only used to answer your request.</p>
+          <p class="contact-form__note">Your details are only used to answer your request. See our <a href="/privacy-policy/">privacy policy</a>.</p>
         </div>
         <p class="contact-form__status" role="status" aria-live="polite" hidden></p>
       </form>

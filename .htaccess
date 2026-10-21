@@ -39,7 +39,7 @@ RedirectMatch 404 ^/\.
 
   # Anciennes URL du site WordPress (sitemap releve le 2026-10-20)
   RewriteRule ^wp-sitemap.*\.xml$ /sitemap.xml [R=301,L]
-  RewriteRule ^(home-final|sample-page|shop|cart|checkout|my-account|privacy-policy|author/[^/]+)/?$ / [R=301,L]
+  RewriteRule ^(home-final|sample-page|shop|cart|checkout|my-account|author/[^/]+)/?$ / [R=301,L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

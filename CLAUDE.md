@@ -17,31 +17,31 @@ client**.
 
 Pages générées : `/`, `/what-is-ceramic-coating/`, `/what-is-graphene-coating/`,
 `/car-polishing/`, `/car-interior-detailing/`, `/coat-maintenance/`, `/reviews/`,
-`/contact/`, `/book/` et `/styleguide/` (noindex). **Toutes les pages prévues
+`/contact/`, `/book/`, `/privacy-policy/` et `/styleguide/` (noindex). **Toutes les pages prévues
 sont écrites** (2026-10-20), plus une page `/404/` (noindex). Reste la mise en
 production.
 
 ## À faire
 
-- **Envoi du formulaire de contact** : rien n'est branché. Écrire un script PHP
-  sur le VPS (cPanel) qui envoie le mail, puis renseigner
-  `data-endpoint="/contact/send.php"` dans `_src/pages/contact.html`. Le
-  formulaire a un champ piège anti-spam (`website`). **Adresse de destination
-  à confirmer** : `info@premiumdetailing.biz` est l'adresse du compte Acuity,
-  pas forcément celle qui doit recevoir les messages.
-- Avis Google à récupérer (export Takeout demandé au client), puis relancer
-  `python3 _src/make-reviews.py` après avoir complété `_src/reviews.json`.
-- Le `AggregateRating` du layout (4,9 sur 213) n'est étayé par rien : Google
-  n'affiche plus d'étoiles pour un avis sur sa propre entreprise. À retirer ou
-  justifier.
-- **Privacy policy** : le formulaire de contact collecte nom, téléphone et
-  email, ce que le PDPA singapourien encadre. Aucune page n'existe ; l'ancienne
-  `/privacy-policy` WordPress redirige provisoirement vers l'accueil. Texte
-  légal à fournir par le client, pas à rédiger nous-mêmes.
-- **Mise en production** : vérifier la redirection https / sans www du
-  `.htaccess` (voir le commentaire si un proxy termine le TLS), puis déclarer
-  `https://cararmour.sg/sitemap.xml` dans la Search Console à la place de
-  l'ancien `wp-sitemap.xml`.
+- **Mise en production** :
+  - copier `contact/send.php` avec le reste (fichier écrit à la main, pas
+    généré) et vérifier que le VPS l'exécute et que `mail()` part. Il envoie à
+    `info@cararmour.sg` depuis `website@cararmour.sg` : l'expéditeur doit
+    appartenir au domaine, sinon SPF fait rejeter le message. Faire un envoi de
+    test réel ;
+  - vérifier la redirection https / sans www du `.htaccess` (voir le
+    commentaire si un proxy termine le TLS) ;
+  - déclarer `https://cararmour.sg/sitemap.xml` dans la Search Console à la
+    place de l'ancien `wp-sitemap.xml`.
+- `/privacy-policy/` rédigée par l'agence le 2026-10-21 à la demande du client
+  (PDPA), d'après ce que le site collecte réellement. À lui faire relire :
+  DPO joignable sur `info@cararmour.sg`, prestataires cités (hébergeur, email,
+  Acuity), durée de conservation. Si le site ajoute un jour des statistiques
+  ou des cookies, la section Cookies devient fausse.
+
+Décidé le 2026-10-21 : pas d'export des avis Google (l'agence n'y arrivera
+pas), et le `AggregateRating` 4,9 sur 213 reste en place malgré le risque
+signalé.
 
 ### Retour client du 2026-10-06
 

@@ -226,6 +226,8 @@ def write_robots(out_root, noindex):
 def build(out_root=ROOT, base="", noindex=False):
     if not PAGES.exists():
         sys.exit("Aucune page dans _src/pages/")
+    if noindex:   # preproduction GitHub Pages : pas de PHP, formulaire non branche
+        SITE["formEndpoint"] = ""
     build_css(out_root, base)                 # premiere passe, sans empreintes
     versions = asset_versions(out_root)
     build_css(out_root, base, versions)       # seconde passe, url() versionnees
