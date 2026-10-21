@@ -183,4 +183,32 @@
       setTimeout(sweep, 1200);
     }
   }
+
+  /* Voiture : traverse l'ecran de droite a gauche pendant que le footer entre
+     dans la vue, et se gare au debut du contenu quand on atteint le bas de la
+     page. Les roues tournent de la distance parcourue. Mouvement reduit :
+     garee d'office. */
+  var road = $('.road');
+  if (road) {
+    var car = $('.road__car', road), wheels = $$('.road-car__wheel', road),
+        foot = road.parentNode, inner = $('.container', foot), queued = false;
+    var place = function () {
+      queued = false;
+      var vh = window.innerHeight, top = foot.getBoundingClientRect().top,
+          span = Math.min(foot.offsetHeight, vh) * 0.9,
+          p = reduce ? 1 : Math.min(1, Math.max(0, (vh - top) / span));
+      p = 1 - (1 - p) * (1 - p);                       // ralentit en se garant
+      var start = road.clientWidth,
+          end = inner.getBoundingClientRect().left + parseFloat(getComputedStyle(inner).paddingLeft),
+          x = start + (end - start) * p,
+          radius = car.getBoundingClientRect().width * 22 / 400,
+          deg = -(start - x) / radius * 57.2958;
+      car.style.transform = 'translateX(' + x + 'px)';
+      wheels.forEach(function (w) { w.style.transform = 'rotate(' + deg + 'deg)'; });
+    };
+    var queue = function () { if (!queued) { queued = true; requestAnimationFrame(place); } };
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    place();
+  }
 })();
