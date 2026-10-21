@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Contact Car Armour SG | Car Detailing at Your Residence</title>
-<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Message Car Armour on WhatsApp, call, or send the form for a quote. Ceramic and graphene coating, polishing and interior detailing anywhere in Singapore.">
 <link rel="canonical" href="https://cararmour.sg/contact/">
 
@@ -25,7 +24,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/cararmour.sg/assets/fonts/archivo-latin.woff2?v=2f7ea45bad" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/cararmour.sg/assets/fonts/inter-latin.woff2?v=e990806dbc" crossorigin>
 <script>document.documentElement.className+=" js";</script>
-<link rel="stylesheet" href="/cararmour.sg/assets/css/main.min.css?v=64f6684c7e">
+<link rel="stylesheet" href="/cararmour.sg/assets/css/main.min.css?v=9aeb6ffaf7">
 
 <script type="application/ld+json">
 {
@@ -93,9 +92,9 @@
 </div>
 
 <main id="main">
-<!-- Formulaire : l'envoi n'est PAS branche. data-endpoint vide = message de
-     preproduction. En production, un script PHP sur le VPS enverra le mail ;
-     renseigner alors data-endpoint="/contact/send.php". Voir CLAUDE.md, a faire. -->
+<!-- Formulaire : envoye par /contact/send.php a info@cararmour.sg.
+     formEndpoint (site.json) est vide en preproduction (--noindex), GitHub
+     Pages n'executant pas PHP : le formulaire y affiche un message d'attente. -->
 <section class="contact">
   <div class="container container--wide">
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -181,7 +180,7 @@
 
         <div class="contact-form__foot">
           <button class="btn btn--primary btn--lg" type="submit">Send message</button>
-          <p class="contact-form__note">Your details are only used to answer your request.</p>
+          <p class="contact-form__note">Your details are only used to answer your request. See our <a href="/cararmour.sg/privacy-policy/">privacy policy</a>.</p>
         </div>
         <p class="contact-form__status" role="status" aria-live="polite" hidden></p>
       </form>
@@ -233,7 +232,7 @@
 
     <div class="footer-meta">
       <p style="margin:0">&copy; 2026 Car Armour SG. Mobile detailing across Singapore.</p>
-      <p style="margin:0"><a href="/cararmour.sg/sitemap.xml">Sitemap</a></p>
+      <p style="margin:0"><a href="/cararmour.sg/privacy-policy/">Privacy policy</a> · <a href="/cararmour.sg/sitemap.xml">Sitemap</a></p>
     </div>
   </div>
 </footer>
