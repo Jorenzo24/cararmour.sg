@@ -558,11 +558,10 @@ après ceramic (berline noire de profil) : format panoramique, d'où la variante
 Page polishing : la polisseuse sur pare-brise (de la vitre, pas de la peinture)
 remplacée par `car-polishing-dual-action-bonnet` (capot rouge).
 
-- **Page interior** : nettoyage à la vapeur (buse sur un siège, une aération ou
-  un volant) et nettoyage d'un siège en cuir. Seules photos encore attendues
-  (état des lieux validé le 2026-10-21 : les photos d'illustration sont
-  acceptées tant qu'elles montrent la bonne opération ; doublons, décor
-  d'atelier et Mercedes en plein air de la page maintenance validés tels quels).
+Plus aucune photo attendue (2026-10-21). Les photos d'illustration sont
+acceptées tant qu'elles montrent la bonne opération ; doublons, décor d'atelier
+et Mercedes en plein air de la page maintenance validés tels quels. Vapeur et
+siège cuir sur la page interior : pas nécessaires, décidé par l'agence.
 
 ## Générateurs des pages service
 
