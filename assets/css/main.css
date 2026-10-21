@@ -483,6 +483,15 @@ body.is-locked{ overflow:hidden; }
 
 /* ── 07 · FOOTER ─────────────────────────────────────────────────────────── */
 .site-footer{ background:var(--c-charcoal); border-top:1px solid var(--c-line); padding-block:clamp(3.5rem,2.5rem + 4vw,6rem) 0; }
+/* Voiture au defilement, posee sur le filet haut du footer. La piste deborde
+   au-dessus du footer et coupe ce qui sort de l'ecran (pas de defilement
+   horizontal). Position et rotation des roues : main.js. */
+.site-footer{ position:relative; }
+.road{ --car-w:clamp(150px, 90px + 12vw, 260px); position:absolute; left:0; right:0; bottom:100%; height:calc(var(--car-w) * 79 / 400); overflow:hidden; pointer-events:none; z-index:2; }
+.road__car{ position:absolute; left:0; bottom:0; width:var(--car-w); height:auto; overflow:visible; transform:translateX(var(--gutter)); will-change:transform; fill:none; stroke:var(--c-gold); stroke-width:1.25; stroke-linecap:round; stroke-linejoin:round; }
+.road__car *{ vector-effect:non-scaling-stroke; }
+.road__line{ opacity:.5; }
+.road-car__wheel{ transform-box:fill-box; transform-origin:center; }
 .footer-grid{ display:grid; gap:clamp(2.5rem,1.5rem + 3vw,4rem); }
 @media (min-width:820px){ .footer-grid{ grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr)); } }
 .footer-brand svg,.footer-brand img{ height:44px; width:auto; color:var(--c-paper); margin-bottom:1.5rem; }

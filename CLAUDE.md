@@ -277,6 +277,21 @@ Ils ont tous coûté une ou plusieurs itérations. Les relire avant d'éditer.
   `load`) : l'IntersectionObserver seul laissait des blocs invisibles quand la
   hauteur de page changeait après coup.
 
+### Voiture au défilement
+
+Validée par l'agence le 2026-10-21, à un seul endroit : au-dessus du footer,
+sur toutes les pages. Silhouette générique dessinée à la main
+(`_src/partials/road-car.html`, aucune marque), trait doré. Elle traverse
+l'écran de droite à gauche pendant que le footer entre dans la vue et se gare
+au début du contenu en bas de page ; les roues tournent de la distance
+parcourue. La piste `.road` coupe ce qui sort de l'écran, sinon la page
+défilerait en largeur. Mouvement réduit : garée d'office. Ne pas la
+multiplier ailleurs, c'est ce qui en ferait un gadget.
+
+Footer : colonnes sans doublon (Services / FYI / Get in touch), pas de lien
+vers `sitemap.xml` (retiré à la demande de l'agence). Des mentions légales
+pourront s'ajouter dans la colonne FYI.
+
 ### Simplicité
 
 Retour client explicite après une section refaite quatre fois : quand un
