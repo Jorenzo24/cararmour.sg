@@ -555,9 +555,14 @@ jour : photo d'habitacle carbone en tête de `/car-interior-detailing/`
 (`car-interior-detailing-cabin`), la Pagani reste dans le contenu. Avant /
 après ceramic (berline noire de profil) : format panoramique, d'où la variante
 `.ba--wide` (aspect-ratio 1536/507) ; la photo après est rognée de 6 px en bas.
+Page polishing : la polisseuse sur pare-brise (de la vitre, pas de la peinture)
+remplacée par `car-polishing-dual-action-bonnet` (capot rouge).
 
-- Des photos propres à chaque page de service : les quatre de la page ceramic
-  sont déjà utilisées sur l'accueil.
+- **Page interior** : nettoyage à la vapeur (buse sur un siège, une aération ou
+  un volant) et nettoyage d'un siège en cuir. Seules photos encore attendues
+  (état des lieux validé le 2026-10-21 : les photos d'illustration sont
+  acceptées tant qu'elles montrent la bonne opération ; doublons, décor
+  d'atelier et Mercedes en plein air de la page maintenance validés tels quels).
 
 ## Générateurs des pages service
 

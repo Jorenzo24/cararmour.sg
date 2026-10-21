@@ -68,9 +68,9 @@ ba=f'''      <!-- AVANT / APRES : photos du client (2026-10-21), sources dans
 diptych=f'''      <div class="diptych" data-reveal>
         <figure class="photo">
           <div class="photo__frame">
-            {img("machine-polishing-paint-correction",[460,620],620,470,"Dual-action polisher working across a dark painted panel","(min-width:760px) 352px, 100vw")}
+            {img("car-polishing-dual-action-bonnet",[460,700,1000],1448,1086,"Dual-action polisher working across the bonnet of a red sports car","(min-width:760px) 352px, 100vw")}
           </div>
-          <figcaption>A dual-action polisher on a dark panel.</figcaption>
+          <figcaption>A dual-action polisher on a painted bonnet.</figcaption>
         </figure>
         <figure class="photo">
           <div class="photo__frame">
