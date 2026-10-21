@@ -1239,6 +1239,7 @@ body.is-locked{ overflow:hidden; }
 /* Comparateur avant / apres : la photo « avant » est decoupee par
    clip-path selon --pos, un input range invisible pilote --pos. */
 .ba__frame{ position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--c-graphite); user-select:none; }
+.ba--wide .ba__frame{ aspect-ratio:1536/507; }
 .ba__img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .ba__img--before{ clip-path:inset(0 calc(100% - var(--pos)) 0 0); }
 .ba__img--placeholder{ display:grid; padding:1.25rem; place-items:end start; }

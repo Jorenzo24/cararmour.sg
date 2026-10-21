@@ -552,12 +552,10 @@ client veut des contenus strictement identiques.
 Reçu le 2026-10-21 : l'avant / après de `/car-polishing/` (capot noir, micro-
 rayures), recadré en 16:10 sans retouche, sources dans `_src/sources/`. Même
 jour : photo d'habitacle carbone en tête de `/car-interior-detailing/`
-(`car-interior-detailing-cabin`), la Pagani reste dans le contenu.
+(`car-interior-detailing-cabin`), la Pagani reste dans le contenu. Avant /
+après ceramic (berline noire de profil) : format panoramique, d'où la variante
+`.ba--wide` (aspect-ratio 1536/507) ; la photo après est rognée de 6 px en bas.
 
-- **Avant / après** pour `/what-is-ceramic-coating/` (« What you notice
-  afterwards ») : même panneau, même lumière, même cadrage, avant polissage et
-  après coating. Le comparateur `.ba` attend avec deux placeholders ; un
-  commentaire dans le source dit quoi remplacer.
 - Des photos propres à chaque page de service : les quatre de la page ceramic
   sont déjà utilisées sur l'accueil.
 
