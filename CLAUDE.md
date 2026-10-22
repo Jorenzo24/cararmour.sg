@@ -500,26 +500,30 @@ runners hébergés s'est produite ensuite, avec un message explicite
 
 ## Production
 
+**Hébergé par l'agence** : cPanel habituel, derrière Cloudflare (décidé le
+2026-10-22). L'ancien WordPress reste chez Cloudways (128.199.142.25), intact :
+c'est la marche arrière, il suffit de repointer le DNS.
+
 Relevé le 2026-10-22 :
-- **Hébergeur Cloudways** (serveur DigitalOcean Singapour, IP
-  128.199.142.25, `591364.cloudwaysapps.com`) : nginx devant Varnish devant
-  Apache, donc le `.htaccess` est lu. nginx termine le TLS : Apache voit HTTPS
-  à off, d'où le test sur `X-Forwarded-Proto` dans la redirection https.
-  Pas de gestionnaire de fichiers : envoi par SFTP ou SSH.
-- **Les mails du domaine sont chez Google Workspace** (MX Google, SPF limité à
-  `_spf.google.com`). `mail()` depuis le serveur avec un expéditeur
-  `@cararmour.sg` échoue au SPF : spam ou rejet. Il faut l'add-on SMTP de
-  Cloudways (Elastic Email, avec ses enregistrements DNS ajoutés au SPF
-  existant, jamais un second SPF) avant que le formulaire fonctionne.
+- **DNS chez GoDaddy** (`domaincontrol.com`). Le passage à Cloudflare change
+  les serveurs de noms : recopier **tous** les enregistrements avant, en
+  particulier les MX Google, les TXT de vérification (trois Google, un
+  Facebook), le SPF et le TXT `dc-aa8e722993._spfm` vers lequel il pointe.
+  L'import automatique de Cloudflare oublie souvent ce dernier.
+- **Mails chez Google Workspace.** Sur le cPanel, *Email Routing* du domaine en
+  **Remote Mail Exchanger**, sinon `mail()` livre info@ dans une boîte locale
+  que personne ne lit. Ajouter l'IP du serveur cPanel au SPF existant
+  (`ip4:…`, un seul enregistrement SPF), sinon Gmail classe en spam.
+- Cloudflare : SSL en Full (strict) avec certificat d'origine ou AutoSSL.
+  Rocket Loader désactivé (il réécrit les scripts). La redirection https du
+  `.htaccess` marche dans tous les modes (test `X-Forwarded-Proto`).
+  `send.php` lit l'IP du visiteur dans `CF-Connecting-IP`.
 
 Paquet : `./_src/package-prod.sh` fabrique `dist/` et `dist.zip` (ignorés par
 git), uniquement les fichiers servis, avec des garde-fous (pas de noindex, pas
-d'URL de préprod, robots ouvert, formulaire branché).
-
-Bascule prévue : nouvelle application PHP sur le même serveur, test sur son
-URL temporaire, puis déplacement du domaine et du certificat depuis
-l'application WordPress, laissée intacte quelques semaines pour revenir en
-arrière. Purger Varnish après chaque mise à jour.
+d'URL de préprod, robots ouvert, formulaire branché). Mise à jour : renvoyer
+`dist.zip`, l'extraire dans le dossier du domaine, purger le cache Cloudflare
+si une règle met le HTML en cache.
 
 ## Vérifier le rendu
 

@@ -31,9 +31,10 @@ RedirectMatch 404 ^/\.
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Une seule adresse : https, sans www. Hebergement Cloudways : nginx termine
-  # le TLS devant Apache, qui voit donc HTTPS a off. Sans le test sur
-  # X-Forwarded-Proto, la redirection tournerait en boucle.
+  # Une seule adresse : https, sans www. Derriere Cloudflare en mode SSL
+  # Flexible, Apache recoit du http et voit HTTPS a off : sans le test sur
+  # X-Forwarded-Proto, la redirection tournerait en boucle. En Full (strict),
+  # le premier test suffit ; garder les deux.
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
   RewriteRule ^ https://cararmour.sg%{REQUEST_URI} [R=301,L]

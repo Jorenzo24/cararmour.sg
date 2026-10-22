@@ -1,6 +1,7 @@
 <?php
 /*
  * Car Armour SG : envoi du formulaire de contact (/contact/).
+ * Heberge sur le cPanel de l'agence, derriere Cloudflare.
  *
  * Fichier ecrit a la main, PAS genere par build.py : il vit dans le dossier de
  * sortie /contact/ a cote de l'index.html genere, que build.py reecrit sans
@@ -51,6 +52,10 @@ if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) reply(400, 'Inv
 if ($postal !== '' && !preg_match('/^\d{6}$/', $postal)) reply(400, 'Invalid postal code');
 if (preg_match('/https?:\/\//i', $name . $car)) reply(400, 'Invalid input');
 
+// Derriere Cloudflare, REMOTE_ADDR est l'adresse de Cloudflare, pas du visiteur
+$ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? '?';
+$ip = preg_replace('/[^0-9a-fA-F:.]/', '', $ip);
+
 $body = "New message from the cararmour.sg contact form\n\n"
       . "Name:         $name\n"
       . "Phone:        $phone\n"
@@ -59,7 +64,7 @@ $body = "New message from the cararmour.sg contact form\n\n"
       . "Postal code:  " . ($postal ?: '-') . "\n"
       . "Service:      " . ($service ?: '-') . "\n\n"
       . "Message:\n" . ($message !== '' ? $message : '-') . "\n\n"
-      . "--\nSent " . date('Y-m-d H:i') . " from " . ($_SERVER['REMOTE_ADDR'] ?? '?') . "\n";
+      . "--\nSent " . date('Y-m-d H:i') . " from " . $ip . "\n";
 
 $subject = '=?UTF-8?B?' . base64_encode("Website enquiry: $name, $car") . '?=';
 $headers = [
