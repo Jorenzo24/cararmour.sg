@@ -3,3 +3,5 @@
 
 # préproduction générée hors dépôt
 /_stage/
+dist/
+dist.zip

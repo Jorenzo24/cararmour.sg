@@ -23,16 +23,7 @@ production.
 
 ## À faire
 
-- **Mise en production** :
-  - copier `contact/send.php` avec le reste (fichier écrit à la main, pas
-    généré) et vérifier que le VPS l'exécute et que `mail()` part. Il envoie à
-    `info@cararmour.sg` depuis `website@cararmour.sg` : l'expéditeur doit
-    appartenir au domaine, sinon SPF fait rejeter le message. Faire un envoi de
-    test réel ;
-  - vérifier la redirection https / sans www du `.htaccess` (voir le
-    commentaire si un proxy termine le TLS) ;
-  - déclarer `https://cararmour.sg/sitemap.xml` dans la Search Console à la
-    place de l'ancien `wp-sitemap.xml`.
+- **Mise en production** : voir « Production » plus bas.
 - `/privacy-policy/` rédigée par l'agence le 2026-10-21 à la demande du client
   (PDPA), d'après ce que le site collecte réellement. À lui faire relire :
   DPO joignable sur `info@cararmour.sg`, prestataires cités (hébergeur, email,
@@ -506,6 +497,29 @@ d'abord attribués à GitHub. Le groupe est désormais en `cancel-in-progress: f
 Quand un run échoue, lire les annotations avant de conclure. Une panne réelle des
 runners hébergés s'est produite ensuite, avec un message explicite
 (`The job was not acquired by Runner of type hosted`), rien de configurable.
+
+## Production
+
+Relevé le 2026-10-22 :
+- **Hébergeur Cloudways** (serveur DigitalOcean Singapour, IP
+  128.199.142.25, `591364.cloudwaysapps.com`) : nginx devant Varnish devant
+  Apache, donc le `.htaccess` est lu. nginx termine le TLS : Apache voit HTTPS
+  à off, d'où le test sur `X-Forwarded-Proto` dans la redirection https.
+  Pas de gestionnaire de fichiers : envoi par SFTP ou SSH.
+- **Les mails du domaine sont chez Google Workspace** (MX Google, SPF limité à
+  `_spf.google.com`). `mail()` depuis le serveur avec un expéditeur
+  `@cararmour.sg` échoue au SPF : spam ou rejet. Il faut l'add-on SMTP de
+  Cloudways (Elastic Email, avec ses enregistrements DNS ajoutés au SPF
+  existant, jamais un second SPF) avant que le formulaire fonctionne.
+
+Paquet : `./_src/package-prod.sh` fabrique `dist/` et `dist.zip` (ignorés par
+git), uniquement les fichiers servis, avec des garde-fous (pas de noindex, pas
+d'URL de préprod, robots ouvert, formulaire branché).
+
+Bascule prévue : nouvelle application PHP sur le même serveur, test sur son
+URL temporaire, puis déplacement du domaine et du certificat depuis
+l'application WordPress, laissée intacte quelques semaines pour revenir en
+arrière. Purger Varnish après chaque mise à jour.
 
 ## Vérifier le rendu
 
