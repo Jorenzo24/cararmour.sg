@@ -54,5 +54,6 @@ RedirectMatch 404 ^/dist(/|\.zip$)
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,5}$
   RewriteCond %{REQUEST_URI} !/$
+  RewriteCond %{REQUEST_URI} !^/\.
   RewriteRule ^(.*)$ /$1/ [R=301,L]
 </IfModule>
