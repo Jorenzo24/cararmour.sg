@@ -519,11 +519,17 @@ Relevé le 2026-10-22 :
   `.htaccess` marche dans tous les modes (test `X-Forwarded-Proto`).
   `send.php` lit l'IP du visiteur dans `CF-Connecting-IP`.
 
-Paquet : `./_src/package-prod.sh` fabrique `dist/` et `dist.zip` (ignorés par
-git), uniquement les fichiers servis, avec des garde-fous (pas de noindex, pas
-d'URL de préprod, robots ouvert, formulaire branché). Mise à jour : renvoyer
-`dist.zip`, l'extraire dans le dossier du domaine, purger le cache Cloudflare
-si une règle met le HTML en cache.
+**Déploiement : le domaine est servi directement depuis le repo** (cPanel Git
+Version Control, branche `main`), décidé le 2026-10-25. La racine du repo est
+la sortie de production : **lancer `python3 _src/build.py` avant chaque
+commit**, sinon le serveur sert des pages périmées. Le `.htaccess` renvoie 404
+sur `_src/`, les fichiers commençant par un point, les `.md` de la racine
+(CLAUDE.md) et `dist`. Mise à jour en ligne : push, puis « Update from Remote »
+dans cPanel.
+
+`./_src/package-prod.sh` (paquet `dist/` et `dist.zip`, ignorés par git)
+reste disponible pour un envoi manuel ; ses garde-fous servent aussi de
+contrôle avant un push.
 
 ## Vérifier le rendu
 

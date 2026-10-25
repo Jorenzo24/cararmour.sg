@@ -6,6 +6,10 @@ ErrorDocument 404 /404/index.html
 # Les sources du générateur ne sont jamais servies
 RedirectMatch 404 ^/_src/
 RedirectMatch 404 ^/\.
+# Le site est servi depuis le repo (cPanel Git) : les notes internes et les
+# fichiers de travail a la racine ne doivent pas etre lisibles
+RedirectMatch 404 ^/[^/]+\.md$
+RedirectMatch 404 ^/dist(/|\.zip$)
 
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
