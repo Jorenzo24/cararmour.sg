@@ -5,7 +5,8 @@ ErrorDocument 404 /404/index.html
 
 # Les sources du générateur ne sont jamais servies
 RedirectMatch 404 ^/_src/
-RedirectMatch 404 ^/\.
+# sauf /.well-known/, ou AutoSSL et Let's Encrypt valident le certificat
+RedirectMatch 404 ^/\.(?!well-known/)
 # Le site est servi depuis le repo (cPanel Git) : les notes internes et les
 # fichiers de travail a la racine ne doivent pas etre lisibles
 RedirectMatch 404 ^/[^/]+\.md$
