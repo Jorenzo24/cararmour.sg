@@ -510,10 +510,15 @@ Relevé le 2026-10-22 :
   particulier les MX Google, les TXT de vérification (trois Google, un
   Facebook), le SPF et le TXT `dc-aa8e722993._spfm` vers lequel il pointe.
   L'import automatique de Cloudflare oublie souvent ce dernier.
-- **Mails chez Google Workspace.** Sur le cPanel, *Email Routing* du domaine en
-  **Remote Mail Exchanger**, sinon `mail()` livre info@ dans une boîte locale
-  que personne ne lit. Ajouter l'IP du serveur cPanel au SPF existant
-  (`ip4:…`, un seul enregistrement SPF), sinon Gmail classe en spam.
+- **Mails du client chez Google Workspace**, on n'y touche pas : seuls les MX
+  et SPF sont à conserver dans le DNS Cloudflare.
+- **Formulaire** : `send.php` envoie en SMTP authentifié par le serveur mail
+  de l'agence (`mail.startmailapp.com`, 587 STARTTLS, expéditeur
+  `noreply@startmailapp.com`, SPF et DKIM de startmailapp.com), vers
+  info@cararmour.sg, client en Reply-To. Identifiants dans
+  `/home/cararmour/.env`, hors du repo (modèle : `.env.example`). Ce serveur
+  mail n'est pas le cPanel du site, donc ni Email Routing ni SPF de
+  cararmour.sg à modifier. Erreurs SMTP : journal d'erreurs PHP du cPanel.
 - Cloudflare : SSL en Full (strict) avec certificat d'origine ou AutoSSL.
   Rocket Loader désactivé (il réécrit les scripts). La redirection https du
   `.htaccess` marche dans tous les modes (test `X-Forwarded-Proto`).
